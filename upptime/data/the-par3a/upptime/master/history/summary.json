@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Parsa Website",
+    "url": "https://the-par3a.github.io/",
+    "icon": "https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg",
+    "slug": "parsa-website",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 148,
+    "timeDay": 95,
+    "timeWeek": 148,
+    "timeMonth": 148,
+    "timeYear": 148,
+    "dailyMinutesDown": {}
+  },
+  {
+    "name": "GitHub API",
+    "url": "https://api.github.com/",
+    "icon": "https://icons.duckduckgo.com/ip3/api.github.com.ico",
+    "slug": "github-api",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 26,
+    "timeDay": 27,
+    "timeWeek": 26,
+    "timeMonth": 26,
+    "timeYear": 26,
+    "dailyMinutesDown": {}
+  }
+]

@@ -10,6 +10,13 @@
   <meta property="og:description" content="پروژه‌ها، فناوری، یادگیری و ایده‌های خلاقانه.">
   <title>پارسا | وب‌سایت شخصی</title>
   <style>
+    @font-face {
+      font-family: "Vazirmatn";
+      src: url("./fonts/Vazirmatn.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+    }
     :root {
       color-scheme: dark;
       --bg: #0b0d12;
@@ -33,15 +40,9 @@
         radial-gradient(ellipse at 92% 24%, rgba(167, 243, 107, .07), transparent 28rem),
         var(--bg);
       color: var(--text);
-
-        @font-face {
-          font-family: "Vazirmatn";
-          src: url("./fonts/Vazirmatn.woff2") format("woff2");
-          font-style: normal;
-          font-weight: 100 900;
-          font-display: swap;
-}
-
+      font-family: "Vazirmatn", Tahoma, "Segoe UI", sans-serif;
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; }
     a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }

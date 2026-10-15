@@ -37,12 +37,46 @@
       margin: 0;
       background:
         radial-gradient(ellipse at 12% 0%, rgba(93, 125, 177, .15), transparent 34rem),
-        radial-gradient(ellipse at 92% 24%, rgba(167, 243, 107, .07), transparent 28rem),
+        radial-gradient(ellipse at 92% 24%, rgba(167, 243, 107, .09), transparent 28rem),
+        radial-gradient(ellipse at 50% 100%, rgba(20, 184, 166, .07), transparent 38rem),
         var(--bg);
       color: var(--text);
       font-family: "Vazirmatn", Tahoma, "Segoe UI", sans-serif;
       line-height: 1.9;
       -webkit-font-smoothing: antialiased;
+      isolation: isolate;
+    }
+    /* لایه‌های تزئینی پس‌زمینه؛ بدون تصویر خارجی و بدون مزاحمت برای کلیک‌ها */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+    body::before {
+      background-image:
+        linear-gradient(rgba(180, 205, 230, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(180, 205, 230, .035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      opacity: .55;
+      -webkit-mask-image: linear-gradient(to bottom, black, transparent 82%);
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
+    }
+    body::after {
+      inset: -25%;
+      background:
+        radial-gradient(ellipse at 25% 25%, rgba(167, 243, 107, .10), transparent 24%),
+        radial-gradient(ellipse at 75% 40%, rgba(56, 189, 248, .09), transparent 25%),
+        radial-gradient(ellipse at 50% 80%, rgba(20, 184, 166, .07), transparent 28%);
+      filter: blur(26px);
+      opacity: .8;
+      animation: ambient-drift 22s ease-in-out infinite alternate;
+    }
+    @keyframes ambient-drift {
+      from { transform: translate3d(-1.5%, -1%, 0) scale(1); }
+      to { transform: translate3d(1.5%, 1%, 0) scale(1.05); }
     }
     a { color: inherit; }
     a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
@@ -131,6 +165,7 @@
     .interest-list .interest.reveal:nth-child(5) { transition-delay: 240ms; }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+      body::after { animation: none !important; }
     }
   </style>
 </head>

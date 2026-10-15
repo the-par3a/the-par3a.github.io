@@ -56,7 +56,14 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: -1;
+      z-index: 0;
+    }
+    /* لایه‌های محتوا بالای جلوه‌های پس‌زمینه می‌مانند */
+    body > header,
+    body > main,
+    body > footer {
+      position: relative;
+      z-index: 1;
     }
     body::before {
       background-image:
@@ -67,7 +74,7 @@
       background-size: var(--grid-size) var(--grid-size), var(--grid-size) var(--grid-size), var(--grid-size) var(--grid-size), calc(var(--grid-size) * 1.65) calc(var(--grid-size) * 1.65);
       background-position: 0 0, 0 0, center center, 13px 9px;
       opacity: .82;
-      animation: grid-drift 42s linear infinite, dot-breathe 7s ease-in-out infinite alternate;
+      animation: grid-drift 20s linear infinite, dot-breathe 4.5s ease-in-out infinite alternate;
       -webkit-mask-image: linear-gradient(to bottom, black 0%, rgba(0,0,0,.88) 70%, rgba(0,0,0,.65) 100%);
       mask-image: linear-gradient(to bottom, black 0%, rgba(0,0,0,.88) 70%, rgba(0,0,0,.65) 100%);
     }
@@ -81,7 +88,7 @@
       filter: blur(34px);
       opacity: .88;
       transform: translate3d(0, 0, 0);
-      animation: ambient-drift 26s ease-in-out infinite alternate;
+      animation: ambient-drift 18s ease-in-out infinite alternate;
     }
     @keyframes ambient-drift {
       0% { transform: translate3d(-2%, -1.5%, 0) scale(1); }

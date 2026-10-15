@@ -118,7 +118,72 @@
     .nav-links { display: flex; flex-wrap: wrap; gap: 20px; }
     .nav-links a { color: var(--muted); font-size: .91rem; text-decoration: none; transition: color .2s; }
     .nav-links a:hover { color: var(--accent); }
-    .hero { padding-block: clamp(76px, 12vw, 140px) 92px; }
+    .hero { padding-block: clamp(42px, 7vw, 76px) 76px; }
+    .hero-card {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: clamp(28px, 6vw, 66px);
+      border: 1px solid rgba(192, 132, 252, .32);
+      border-radius: clamp(22px, 3vw, 34px);
+      background:
+        linear-gradient(118deg, rgba(13, 17, 29, .92) 8%, rgba(29, 21, 48, .84) 56%, rgba(16, 35, 43, .82)),
+        rgba(13, 17, 29, .88);
+      box-shadow: 0 24px 90px rgba(0, 0, 0, .25), 0 0 55px rgba(139, 92, 246, .09), inset 0 1px 0 rgba(255,255,255,.07);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      animation: hero-arrive .9s cubic-bezier(.2,.75,.25,1) both, hero-border-glow 8s ease-in-out 1s infinite alternate;
+    }
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .hero-card::before {
+      width: clamp(190px, 36vw, 390px);
+      aspect-ratio: 1;
+      inset-block-start: -55%;
+      inset-inline-end: -9%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(168, 85, 247, .28), rgba(56, 189, 248, .10) 43%, transparent 70%);
+      filter: blur(8px);
+      animation: hero-orb 12s ease-in-out infinite alternate;
+    }
+    .hero-card::after {
+      inset: 0;
+      opacity: .26;
+      background-image: linear-gradient(120deg, transparent 0%, transparent 39%, rgba(255,255,255,.09) 49%, transparent 59%, transparent 100%);
+      background-size: 220% 100%;
+      animation: hero-sheen 11s ease-in-out 1.2s infinite;
+    }
+    .hero-card .eyebrow,
+    .hero-card h1,
+    .hero-card .intro,
+    .hero-card .hero-actions,
+    .hero-card .quick-facts { position: relative; z-index: 1; }
+    .hero-card h1 { max-width: 850px; margin-top: 22px; }
+    .hero-card .intro { max-width: 720px; }
+    .hero-card .quick-facts { margin-top: 30px; }
+    .hero-card .pill { background: rgba(255,255,255,.035); border-color: rgba(192,132,252,.22); }
+    @keyframes hero-arrive {
+      from { opacity: 0; transform: translateY(24px) scale(.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes hero-border-glow {
+      from { border-color: rgba(192,132,252,.25); box-shadow: 0 24px 90px rgba(0,0,0,.25), 0 0 38px rgba(139,92,246,.07), inset 0 1px 0 rgba(255,255,255,.07); }
+      to { border-color: rgba(56,189,248,.38); box-shadow: 0 24px 90px rgba(0,0,0,.25), 0 0 48px rgba(56,189,248,.10), inset 0 1px 0 rgba(255,255,255,.09); }
+    }
+    @keyframes hero-orb {
+      from { transform: translate3d(8%, -3%, 0) scale(.92); }
+      to { transform: translate3d(-14%, 15%, 0) scale(1.12); }
+    }
+    @keyframes hero-sheen {
+      0%, 18% { background-position: 120% 0; opacity: 0; }
+      35% { opacity: .26; }
+      60%, 100% { background-position: -120% 0; opacity: 0; }
+    }
     .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--accent); font: 700 .78rem/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .12em; text-transform: uppercase; }
     .eyebrow::before { content: ""; width: 24px; height: 1px; background: currentColor; }
     h1 { max-width: 850px; margin: 22px 0 18px; font-size: clamp(2.5rem, 7vw, 5.4rem); line-height: 1.23; letter-spacing: -.055em; }
@@ -168,7 +233,9 @@
       .wrap { width: min(var(--max), calc(100% - 28px)); }
       .nav { align-items: flex-start; flex-direction: column; padding-block: 14px; gap: 9px; }
       .nav-links { gap: 15px; }
-      .hero { padding-top: 66px; }
+      .hero { padding-top: 30px; padding-bottom: 54px; }
+      .hero-card { padding: 27px 22px; border-radius: 23px; }
+      .hero-card::after { opacity: .16; }
       .grid { grid-template-columns: 1fr; }
       .contact-panel { align-items: flex-start; flex-direction: column; }
       .card { padding: 20px; }
@@ -190,7 +257,7 @@
     .interest-list .interest.reveal:nth-child(5) { transition-delay: 240ms; }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-      body::before, body::after { animation: none !important; }
+      body::before, body::after, .hero-card, .hero-card::before, .hero-card::after { animation: none !important; }
     }
   </style>
 </head>
@@ -211,19 +278,21 @@
 
   <main id="home">
     <div class="wrap hero">
-      <div class="eyebrow">PERSONAL PORTFOLIO · 2026</div>
-      <h1>سلام، من پارسا هستم.<br><span class="gradient">اینجا ایده‌ها شکل می‌گیرند.</span></h1>
-      <p class="intro">از برنامه‌نویسی و لینوکس تا امنیت سیستم‌ها و ایده‌های خلاقانه؛ اینجا مسیر یادگیری‌ام را ثبت می‌کنم، چیزهای تازه را امتحان می‌کنم و کارهایی را که ارزش به‌اشتراک‌گذاشتن دارند، کنار هم می‌آورم.</p>
-      <div class="hero-actions">
-        <a class="button primary" href="#projects">گشت‌وگذار در سایت <span aria-hidden="true">↙</span></a>
-        <a class="button" href="https://github.com/the-par3a" target="_blank" rel="noopener noreferrer">پروفایل GitHub <span dir="ltr" aria-hidden="true">↗</span></a>
-      </div>
-      <div class="quick-facts" aria-label="حوزه‌های مورد علاقه">
-        <span class="pill">برنامه‌نویسی</span>
-        <span class="pill">Linux &amp; Security</span>
-        <span class="pill">Git / GitHub</span>
-        <span class="pill">ایده‌های خلاقانه</span>
-      </div>
+      <section class="hero-card" aria-labelledby="hero-title">
+        <div class="eyebrow">PERSONAL PORTFOLIO · 2026</div>
+        <h1 id="hero-title">سلام، من پارسا هستم.<br><span class="gradient">اینجا ایده‌ها شکل می‌گیرند.</span></h1>
+        <p class="intro">از برنامه‌نویسی و لینوکس تا امنیت سیستم‌ها و ایده‌های خلاقانه؛ اینجا مسیر یادگیری‌ام را ثبت می‌کنم، چیزهای تازه را امتحان می‌کنم و کارهایی را که ارزش به‌اشتراک‌گذاشتن دارند، کنار هم می‌آورم.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">گشت‌وگذار در سایت <span aria-hidden="true">↙</span></a>
+          <a class="button" href="https://github.com/the-par3a" target="_blank" rel="noopener noreferrer">پروفایل GitHub <span dir="ltr" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="quick-facts" aria-label="حوزه‌های مورد علاقه">
+          <span class="pill">برنامه‌نویسی</span>
+          <span class="pill">Linux &amp; Security</span>
+          <span class="pill">Git / GitHub</span>
+          <span class="pill">ایده‌های خلاقانه</span>
+        </div>
+      </section>
     </div>
 
     <section id="projects" class="wrap">

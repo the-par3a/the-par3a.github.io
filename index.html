@@ -57,12 +57,12 @@
     }
     body::before {
       background-image:
-        linear-gradient(rgba(180, 205, 230, .035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(180, 205, 230, .035) 1px, transparent 1px);
-      background-size: 44px 44px;
-      opacity: .55;
-      -webkit-mask-image: linear-gradient(to bottom, black, transparent 82%);
-      mask-image: linear-gradient(to bottom, black, transparent 82%);
+        linear-gradient(rgba(180, 205, 230, .055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(180, 205, 230, .055) 1px, transparent 1px),
+        radial-gradient(circle, rgba(167, 243, 107, .16) 1px, transparent 1.6px);
+      background-size: 40px 40px, 40px 40px, 40px 40px;
+      background-position: center center;
+      opacity: .72;
     }
     body::after {
       inset: -25%;

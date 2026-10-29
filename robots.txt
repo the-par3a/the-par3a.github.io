@@ -10,3 +10,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://the-par3a.github.io/sitemap.xml

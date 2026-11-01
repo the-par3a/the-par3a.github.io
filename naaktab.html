@@ -207,8 +207,6 @@ a{color:inherit}.bg-overlay{position:fixed;inset:0;z-index:-1;pointer-events:non
       <p>من قرار نبود کسی را نجات دهم؛ فقط می‌خواستم رشته را نشان بدهم.</p>
       <p>از اینجا به بعد، انتخاب با توست.</p>
       <p>این دیگر فقط یک داستان نیست.</p>
-      
-      </p></p>
     </div>
   </section>
 </div>
@@ -222,5 +220,25 @@ a{color:inherit}.bg-overlay{position:fixed;inset:0;z-index:-1;pointer-events:non
         </div>
       </div>
     </footer>
+<script>
+(() => {
+  document.querySelectorAll('.content-box p').forEach((paragraph) => {
+    paragraph.setAttribute('tabindex', '0');
+    paragraph.setAttribute('aria-pressed', 'false');
+    paragraph.setAttribute('title', 'برای برجسته‌کردن این بخش کلیک کنید');
+    const toggle = () => {
+      const selected = paragraph.classList.toggle('is-selected');
+      paragraph.setAttribute('aria-pressed', String(selected));
+    };
+    paragraph.addEventListener('click', toggle);
+    paragraph.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggle();
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>

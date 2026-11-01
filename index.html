@@ -370,6 +370,42 @@
       .studio-header { gap: 8px; }
       .studio-header .section-kicker { font-size: .65rem; }
     }
+
+    /* موجود پیکسلی شناور در تمام صفحه */
+    .page-mascot {
+      position: fixed;
+      inset-inline-end: clamp(10px, 2.5vw, 26px);
+      bottom: max(16px, env(safe-area-inset-bottom));
+      z-index: 7;
+      width: 82px;
+      height: 104px;
+      display: grid;
+      place-items: end center;
+      pointer-events: none;
+      filter: drop-shadow(0 8px 12px rgba(0,0,0,.38));
+      animation: mascot-hop 1.15s cubic-bezier(.45,.05,.55,.95) infinite;
+      transform-origin: 50% 100%;
+    }
+    .page-mascot svg { width: 100%; height: 100%; overflow: visible; shape-rendering: crispEdges; }
+    .page-mascot .mascot-body { transform-origin: 32px 45px; animation: mascot-sway 1.15s steps(2,end) infinite; }
+    .page-mascot .mascot-arm { transform-box: fill-box; transform-origin: bottom center; animation: mascot-wave .58s steps(2,end) infinite alternate; }
+    .page-mascot .mascot-shadow { transform-origin: center; animation: mascot-shadow 1.15s ease-in-out infinite; }
+    .page-mascot .mascot-spark { transform-origin: center; animation: mascot-sparkle 1.8s steps(2,end) infinite; }
+    @keyframes mascot-hop {
+      0%,100% { transform: translateY(0) rotate(-3deg); }
+      45% { transform: translateY(-17px) rotate(3deg); }
+      55% { transform: translateY(-17px) rotate(3deg); }
+    }
+    @keyframes mascot-sway { 0%,100% { transform: rotate(-3deg); } 50% { transform: rotate(4deg); } }
+    @keyframes mascot-wave { from { transform: rotate(-24deg); } to { transform: rotate(32deg); } }
+    @keyframes mascot-shadow { 0%,100% { transform: scaleX(1); opacity:.45; } 50% { transform:scaleX(.68);opacity:.2; } }
+    @keyframes mascot-sparkle { 0%,75%,100% { opacity:.15; transform:scale(.65) rotate(0); } 85% { opacity:1; transform:scale(1.15) rotate(45deg); } }
+    @media (max-width: 480px) {
+      .page-mascot { width: 66px; height: 84px; bottom: max(13px, env(safe-area-inset-bottom)); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .page-mascot, .page-mascot * { animation: none !important; }
+    }
   </style>
 </head>
 <body>
@@ -504,6 +540,29 @@
       <p class="studio-footnote">صدا به‌صورت الگوریتمی با Web Audio API تولید می‌شود؛ هیچ فایل صوتی بارگیری نمی‌شود. برای شروع، دکمهٔ پخش را بزن.</p>
     </div>
   </section>
+  <div class="page-mascot" aria-hidden="true">
+    <svg viewBox="0 0 64 82" role="presentation">
+      <g class="mascot-shadow"><ellipse cx="32" cy="76" rx="17" ry="3.5" fill="#05070c"/></g>
+      <g class="mascot-body">
+        <rect x="18" y="25" width="28" height="29" fill="#a7f36b"/>
+        <rect x="14" y="32" width="5" height="15" fill="#8b5cf6"/>
+        <rect x="45" y="32" width="5" height="15" fill="#8b5cf6"/>
+        <g class="mascot-arm"><rect x="7" y="28" width="8" height="18" fill="#c084fc"/><rect x="5" y="23" width="10" height="8" fill="#a7f36b"/></g>
+        <g class="mascot-arm"><rect x="49" y="28" width="8" height="18" fill="#c084fc"/><rect x="49" y="23" width="10" height="8" fill="#a7f36b"/></g>
+        <rect x="16" y="7" width="32" height="22" fill="#c084fc"/>
+        <rect x="22" y="2" width="20" height="7" fill="#c084fc"/>
+        <rect x="22" y="15" width="6" height="6" fill="#111522"/>
+        <rect x="37" y="15" width="6" height="6" fill="#111522"/>
+        <rect x="28" y="23" width="9" height="3" fill="#f2f5f9"/>
+        <rect x="22" y="53" width="9" height="14" fill="#8b5cf6"/>
+        <rect x="34" y="53" width="9" height="14" fill="#8b5cf6"/>
+        <rect x="17" y="65" width="14" height="6" fill="#a7f36b"/>
+        <rect x="34" y="65" width="14" height="6" fill="#a7f36b"/>
+      </g>
+      <path class="mascot-spark" d="M8 10h4V6h4v4h4v4h-4v4h-4v-4H8z" fill="#a7f36b"/>
+      <path class="mascot-spark" d="M49 3h3V0h3v3h3v3h-3v3h-3V6h-3z" fill="#c084fc"/>
+    </svg>
+  </div>
   <footer>
     <div class="wrap footer-inner">
       <p>ساخته‌شده با کنجکاوی، یادگیری و کمی کد. · پارسا © ۱۴۰۵</p>

@@ -1,6 +1,6 @@
 [
   {
-    "name": "Parsa Website",
+    "name": "وب‌سایت پارسا",
     "url": "https://the-par3a.github.io/",
     "icon": "https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg",
     "slug": "parsa-website",
@@ -10,15 +10,15 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 176,
-    "timeDay": 221,
-    "timeWeek": 195,
-    "timeMonth": 176,
-    "timeYear": 176,
+    "time": 183,
+    "timeDay": 0,
+    "timeWeek": 0,
+    "timeMonth": 183,
+    "timeYear": 183,
     "dailyMinutesDown": {}
   },
   {
-    "name": "GitHub API",
+    "name": "رابط برنامه‌نویسی گیت‌هاب (GitHub API)",
     "url": "https://api.github.com/",
     "icon": "https://icons.duckduckgo.com/ip3/api.github.com.ico",
     "slug": "github-api",
@@ -28,15 +28,15 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 75,
-    "timeDay": 87,
-    "timeWeek": 91,
-    "timeMonth": 75,
-    "timeYear": 75,
+    "time": 76,
+    "timeDay": 0,
+    "timeWeek": 0,
+    "timeMonth": 76,
+    "timeYear": 76,
     "dailyMinutesDown": {}
   },
   {
-    "name": "example site (exmaple.com)",
+    "name": "وب‌سایت نمونه (example.com)",
     "url": "https://Example.com",
     "icon": "https://icons.duckduckgo.com/ip3/example.com.ico",
     "slug": "example-site-exmaple-com",
@@ -46,11 +46,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 75,
-    "timeDay": 55,
-    "timeWeek": 75,
-    "timeMonth": 75,
-    "timeYear": 75,
+    "time": 71,
+    "timeDay": 0,
+    "timeWeek": 0,
+    "timeMonth": 71,
+    "timeYear": 71,
     "dailyMinutesDown": {}
   }
 ]

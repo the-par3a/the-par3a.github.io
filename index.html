@@ -98,6 +98,40 @@
       pointer-events: none;
       opacity: .62;
     }
+    /* ورود نرم بخش‌ها؛ عناصر پس از اولین نمایش دیگر مخفی نمی‌شوند. */
+    [data-reveal] { opacity: 1; transform: none; }
+    [data-reveal].reveal-pending {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .38s ease, transform .38s ease;
+    }
+    [data-reveal].reveal-visible { opacity: 1; transform: translateY(0); }
+    .music-toggle {
+      position: fixed;
+      inset-inline-start: 18px;
+      bottom: max(18px, env(safe-area-inset-bottom));
+      z-index: 8;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 44px;
+      padding: 9px 15px;
+      border: 1px solid rgba(192,132,252,.38);
+      border-radius: 999px;
+      background: rgba(15,18,28,.94);
+      color: var(--text);
+      box-shadow: 0 8px 28px rgba(0,0,0,.24);
+      font: 700 .85rem "Vazirmatn", Tahoma, sans-serif;
+      cursor: pointer;
+    }
+    .music-toggle[aria-pressed="true"] { border-color: rgba(167,243,107,.65); color: var(--accent); }
+    .music-toggle .music-icon { font-size: 1rem; }
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal].reveal-pending { opacity: 1; transform: none; transition: none; }
+    }
+    @media (max-width: 540px) {
+      .music-toggle { inset-inline-start: 12px; bottom: max(12px, env(safe-area-inset-bottom)); }
+    }
     a { color: inherit; }
     a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
     .wrap { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
@@ -316,6 +350,9 @@
     </section>
   </main>
 
+  <button class="music-toggle" id="music-toggle" type="button" aria-pressed="false" aria-label="پخش موسیقی پس‌زمینه">
+    <span class="music-icon" aria-hidden="true">♫</span><span class="music-label">پخش موسیقی</span>
+  </button>
   <footer>
     <div class="wrap footer-inner">
       <p>ساخته‌شده با کنجکاوی، یادگیری و کمی کد. · پارسا © ۱۴۰۵</p>
@@ -326,6 +363,109 @@
       </div>
     </div>
   </footer>
+  <script>
+    // نمایش تدریجی سبک با IntersectionObserver؛ پس از یک‌بار نمایش، متن دیگر پنهان نمی‌شود.
+    (() => {
+      const targets = document.querySelectorAll(
+        '.hero-card, .section-head, .card, .about-panel, .contact-panel, .footer-inner'
+      );
+      if (!('IntersectionObserver' in window) ||
+          window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          const el = entry.target;
+          if (entry.isIntersecting) {
+            el.classList.remove('reveal-pending');
+            el.classList.add('reveal-visible');
+            observer.unobserve(el);
+          } else if (!el.classList.contains('reveal-visible')) {
+            el.setAttribute('data-reveal', '');
+            el.classList.add('reveal-pending');
+          }
+        }
+      }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+
+      targets.forEach((el) => observer.observe(el));
+    })();
+
+    // موسیقی ساخته‌شده در لحظه با Web Audio API؛ بدون فایل صوتی و فقط با اقدام کاربر.
+    (() => {
+      const button = document.getElementById('music-toggle');
+      if (!button) return;
+      const label = button.querySelector('.music-label');
+      const notes = [261.63, 329.63, 392.00, 329.63, 293.66, 349.23, 440.00, 392.00];
+      let context = null;
+      let master = null;
+      let timer = null;
+      let index = 0;
+
+      function playNote() {
+        if (!context || context.state !== 'running') return;
+        const now = context.currentTime;
+        const oscillator = context.createOscillator();
+        const envelope = context.createGain();
+        oscillator.type = 'sine';
+        oscillator.frequency.setValueAtTime(notes[index % notes.length], now);
+        envelope.gain.setValueAtTime(0.0001, now);
+        envelope.gain.exponentialRampToValueAtTime(0.045, now + 0.035);
+        envelope.gain.exponentialRampToValueAtTime(0.0001, now + 0.62);
+        oscillator.connect(envelope);
+        envelope.connect(master);
+        oscillator.start(now);
+        oscillator.stop(now + 0.65);
+        index++;
+      }
+
+      async function startMusic() {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) {
+          label.textContent = 'موسیقی پشتیبانی نمی‌شود';
+          button.disabled = true;
+          return;
+        }
+        context = context || new AudioContextClass();
+        await context.resume();
+        master = master || context.createGain();
+        master.gain.setValueAtTime(0.32, context.currentTime);
+        master.connect(context.destination);
+        playNote();
+        timer = window.setInterval(playNote, 520);
+        button.setAttribute('aria-pressed', 'true');
+        button.setAttribute('aria-label', 'توقف موسیقی پس‌زمینه');
+        label.textContent = 'توقف موسیقی';
+      }
+
+      function stopMusic() {
+        if (timer !== null) window.clearInterval(timer);
+        timer = null;
+        if (master && context) {
+          master.gain.cancelScheduledValues(context.currentTime);
+          master.gain.setTargetAtTime(0.0001, context.currentTime, 0.06);
+        }
+        if (context && context.state === 'running') context.suspend();
+        button.setAttribute('aria-pressed', 'false');
+        button.setAttribute('aria-label', 'پخش موسیقی پس‌زمینه');
+        label.textContent = 'پخش موسیقی';
+      }
+
+      button.addEventListener('click', async () => {
+        if (timer !== null) {
+          stopMusic();
+          return;
+        }
+        try {
+          await startMusic();
+        } catch (error) {
+          stopMusic();
+          label.textContent = 'امکان پخش فراهم نشد';
+        }
+      });
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden && timer !== null) stopMusic();
+      });
+    })();
+  </script>
   <script type="module">
     // ذرات سه‌بعدی سبک؛ هنگام مخفی‌شدن تب، رندر متوقف می‌شود.
     const canvas = document.getElementById('particle-field');

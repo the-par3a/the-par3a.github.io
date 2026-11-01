@@ -41,12 +41,79 @@ section h2:before{content:"✳";display:inline-block;margin-left:10px;font-size:
 .final-box p:nth-child(8){border-color:rgba(167,243,107,.2)!important;background:linear-gradient(90deg,transparent,rgba(167,243,107,.075),transparent)!important}
 @media(max-width:700px){.content-box{backdrop-filter:none;-webkit-backdrop-filter:none}.content-box:hover:after{opacity:0}.story-opening{min-width:65%}.thought{margin:15px 0!important}.revelation-line{padding:16px 18px!important}.book-line{font-size:1.18rem!important}}
 
+
+/* Responsive layout and the always-visible Naambarak companion. */
+.naaktab-mascot{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:24;width:88px;display:flex;flex-direction:column;align-items:center;gap:2px;pointer-events:none;filter:drop-shadow(0 10px 18px rgba(0,0,0,.35));animation:mascot-drift 3.8s ease-in-out infinite}
+.mascot-body{width:76px;height:76px;display:grid;place-items:center;border-radius:27px;background:radial-gradient(circle at 50% 42%,rgba(192,132,252,.24),rgba(18,22,32,.88) 72%);border:1px solid rgba(216,180,254,.45);box-shadow:0 0 26px rgba(168,85,247,.2),inset 0 1px rgba(255,255,255,.12);position:relative}
+.mascot-svg{width:68px;height:68px;overflow:visible;animation:mascot-bob 2.7s ease-in-out infinite}
+.mascot-label{font-size:.68rem;font-weight:800;line-height:1.5;color:#ead7ff;padding:2px 10px;border:1px solid rgba(192,132,252,.28);border-radius:999px;background:rgba(13,16,25,.88);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.mascot-orbit{position:absolute;z-index:-1;width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent);opacity:.8}
+.orbit-one{top:8px;right:20px;animation:mascot-spark 2.4s ease-in-out infinite}
+.orbit-two{top:36px;left:8px;background:var(--purple-strong);box-shadow:0 0 14px var(--purple);animation:mascot-spark 3s ease-in-out infinite reverse}
+@keyframes mascot-drift{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}
+@keyframes mascot-bob{0%,100%{transform:translateY(1px) scale(1)}50%{transform:translateY(-3px) scale(1.035)}}
+@keyframes mascot-spark{0%,100%{opacity:.25;transform:scale(.7)}50%{opacity:1;transform:scale(1.25)}}
+@media(min-width:1100px){.container{width:min(940px,calc(100% - 64px));padding-top:68px}.content-box{padding:clamp(30px,3vw,48px)}.content-box p{font-size:1.055rem;line-height:2.18}.nav{min-height:76px}.nav-links{gap:22px}}
+@media(min-width:701px) and (max-width:980px){.wrap,.footer-inner{width:calc(100% - 48px)}.container{width:calc(100% - 64px);max-width:860px}.nav{align-items:flex-start;flex-direction:column;padding:12px 0;gap:8px}.nav-links{width:100%;gap:8px 20px}.nav-links a{font-size:.84rem}}
+@media(max-width:700px){
+  html{scroll-padding-top:128px}
+  .topbar{position:sticky}
+  .nav{width:100%;padding:10px 16px 9px;gap:8px}
+  .brand{font-size:.92rem}
+  .nav-links{width:100%;display:flex;flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-inline:contain;gap:8px;padding:3px 0 7px;scrollbar-width:thin;scrollbar-color:rgba(192,132,252,.35) transparent}
+  .nav-links a{flex:0 0 auto;white-space:nowrap;padding:5px 10px;border:1px solid rgba(255,255,255,.07);border-radius:999px;background:rgba(255,255,255,.025);font-size:.78rem}
+  .container{width:calc(100% - 28px);padding:30px 0 46px}
+  section{scroll-margin-top:132px;margin-bottom:50px;contain-intrinsic-size:auto 700px}
+  h1{font-size:clamp(1.75rem,7vw,2.55rem);line-height:1.55;margin:0 8px 20px}
+  h2{font-size:clamp(1.35rem,5.5vw,1.8rem);margin:0 0 15px}
+  .content-box{padding:20px 15px;border-radius:17px}
+  .content-box p{font-size:.96rem;line-height:2.05;padding:7px 8px;margin-bottom:11px}
+  .question-box p:nth-child(2){font-size:1rem}
+  .final-box p:first-child{font-size:1.12rem}
+  .copyright-notice{overflow-wrap:anywhere}
+  .reading-mode-toggle{left:12px;bottom:max(12px,env(safe-area-inset-bottom));font-size:.78rem;padding:9px 12px}
+  .naaktab-mascot{right:max(10px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));width:66px}
+  .mascot-body{width:58px;height:58px;border-radius:20px}
+  .mascot-svg{width:53px;height:53px}
+  .mascot-label{font-size:.59rem;padding:1px 8px}
+  .mascot-orbit{width:6px;height:6px}
+  .story-opening{min-width:0;width:fit-content;max-width:100%;font-size:1.35rem!important}
+  .revelation-line{font-size:1.2rem!important}
+  .book-line{font-size:1.12rem!important}
+}
+@media(max-width:380px){
+  .wrap,.footer-inner{width:calc(100% - 24px)}
+  .container{width:calc(100% - 22px)}
+  .content-box{padding:17px 12px}
+  .content-box p{font-size:.91rem;line-height:2}
+  .nav{padding-inline:12px}
+  .reading-mode-toggle{max-width:calc(100vw - 100px)}
+}
+@media(hover:none){.content-box:hover{border-color:rgba(192,132,252,.32);box-shadow:0 12px 32px rgba(0,0,0,.16),inset 0 1px rgba(255,255,255,.045)}.content-box:hover:after{opacity:0}}
+
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}html.reveal-enabled section{opacity:1;transform:none}}
 </style>
 </head><body>
   <div class="reading-progress" aria-hidden="true"><span></span></div>
   <button class="reading-mode-toggle" type="button" aria-pressed="false">حالت مطالعه</button>
   <div class="bg-overlay" aria-hidden="true"></div>
+  <div class="naaktab-mascot" aria-label="نامبارک، همراه کوچک ناکتاب" role="img">
+    <span class="mascot-orbit orbit-one" aria-hidden="true"></span>
+    <span class="mascot-orbit orbit-two" aria-hidden="true"></span>
+    <div class="mascot-body" aria-hidden="true">
+      <svg viewBox="0 0 96 96" class="mascot-svg">
+        <path d="M24 34 18 18l20 9M72 34l6-16-20 9" fill="#a7f36b" stroke="#d9f99d" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M18 43Q18 23 48 23t30 20v24Q78 84 48 84T18 67Z" fill="#9b70d6" stroke="#dec5ff" stroke-width="3"/>
+        <path d="M25 45Q29 30 48 30t23 15v19Q71 76 48 76T25 64Z" fill="#c49af2"/>
+        <ellipse cx="37" cy="53" rx="4" ry="6" fill="#171323"/><ellipse cx="59" cy="53" rx="4" ry="6" fill="#171323"/>
+        <path d="M42 64q6 5 12 0" fill="none" stroke="#39264e" stroke-width="3" stroke-linecap="round"/>
+        <path d="M13 57q-9 3-5 13 5 6 13-1M83 57q9 3 5 13-5 6-13-1" fill="none" stroke="#dec5ff" stroke-width="4" stroke-linecap="round"/>
+        <path d="M34 83v6m28-6v6" stroke="#a7f36b" stroke-width="5" stroke-linecap="round"/>
+        <path d="m15 35-5-4m76 4 5-4" stroke="#a7f36b" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="mascot-label">نامبارک</span>
+  </div>
 <header class="topbar">
   <nav class="nav wrap" aria-label="ناوبری اصلی">
     <a class="brand" href="./index.html"><span class="brand-mark">P</span><span>پارسا <span dir="ltr">/ PARSA</span></span></a>
@@ -279,6 +346,22 @@ section h2:before{content:"✳";display:inline-block;margin-left:10px;font-size:
   window.addEventListener('scroll', updateProgress, { passive: true });
   window.addEventListener('resize', updateProgress);
   updateProgress();
+
+  // The mascot remains fixed to the viewport and gently responds to page scrolling.
+  const mascot = document.querySelector('.naaktab-mascot');
+  let mascotFrame = 0;
+  let lastScrollY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    if (mascotFrame) return;
+    mascotFrame = requestAnimationFrame(() => {
+      const delta = Math.max(-1, Math.min(1, (window.scrollY - lastScrollY) / 36));
+      mascot.style.setProperty('--scroll-tilt', (delta * 5) + 'deg');
+      mascot.style.setProperty('--scroll-lift', (-delta * 3) + 'px');
+      mascot.style.transform = 'translateY(var(--scroll-lift, 0px)) rotate(var(--scroll-tilt, 0deg))';
+      lastScrollY = window.scrollY;
+      mascotFrame = 0;
+    });
+  }, { passive: true });
 
   // Reading mode improves contrast and line spacing without changing the story.
   const readingToggle = document.querySelector('.reading-mode-toggle');

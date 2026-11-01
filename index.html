@@ -143,6 +143,38 @@
     .music-label { color: #f2f5f9; font-size: .83rem; }
     .music-hint { color: #a3adbd; font-size: .68rem; font-weight: 500; }
     .music-toggle[aria-pressed="true"] .music-hint { color: var(--accent); }
+
+    .music-studio { position: fixed; inset: 0; z-index: 20; display: grid; place-items: center; padding: 22px; background: rgba(5,7,13,.88); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .22s, visibility .22s; }
+    .music-studio.is-open { opacity: 1; visibility: visible; pointer-events: auto; }
+    .studio-shell { width: min(720px,100%); max-height: min(900px,calc(100dvh - 44px)); overflow: auto; padding: clamp(20px,4vw,34px); border: 1px solid rgba(192,132,252,.3); border-radius: 26px; background: radial-gradient(ellipse at 50% 0%,rgba(124,58,237,.18),transparent 48%),#111522; box-shadow: 0 25px 100px #0009; }
+    .studio-header { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+    .studio-header h2 { margin:0; }
+    .studio-subtitle { margin:6px 0 0; color:var(--muted); font-size:.9rem; }
+    .studio-close { width:40px;height:40px;border:1px solid var(--line);border-radius:12px;background:#ffffff08;color:var(--text);font-size:1.7rem;cursor:pointer; }
+    .studio-visual { position:relative; display:grid; place-items:center; min-height:210px; margin:25px 0; overflow:hidden; border:1px solid rgba(192,132,252,.2);border-radius:22px;background:radial-gradient(circle at 50% 48%,rgba(168,85,247,.17),transparent 48%),linear-gradient(135deg,#17182b,#101d27); }
+    .studio-orb { position:absolute;width:126px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#d8b4fe,#8b5cf6 34%,#312e81 70%,transparent 72%);filter:drop-shadow(0 0 32px #a855f755);opacity:.7; }
+    .studio-wave { position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:5px;opacity:.7; }
+    .studio-wave i { width:3px;height:18%;border-radius:9px;background:linear-gradient(#a7f36b,#c084fc);transform:scaleY(.35); }
+    .music-studio.is-playing .studio-wave i { animation: studio-wave 850ms ease-in-out infinite alternate; }
+    .studio-wave i:nth-child(3n) { animation-delay:-.4s!important; } .studio-wave i:nth-child(3n + 1) { animation-delay:-.65s!important; }
+    @keyframes studio-wave { from{transform:scaleY(.35)} to{transform:scaleY(2.3)} }
+    .studio-status { position:absolute;bottom:14px;color:#d7c7f5;font-size:.78rem; }
+    .studio-controls { display:grid;grid-template-columns:1fr 1fr;gap:14px; }
+    .studio-control-block { padding:15px;border:1px solid #ffffff12;border-radius:16px;background:#ffffff05; }
+    .control-heading { display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px; }
+    .control-heading label { font-size:.88rem;font-weight:700; }
+    .control-heading span,.control-heading output { color:var(--accent);font-size:.72rem; }
+    .studio-control-block select { width:100%;padding:11px;border:1px solid #343b4c;border-radius:10px;background:#171d2b;color:var(--text);font:inherit;font-size:.85rem; }
+    .studio-control-block input { width:100%;accent-color:var(--accent);cursor:pointer; }
+    .studio-actions { display:flex;gap:10px;margin-top:18px; }
+    .studio-actions button { min-height:48px;padding:10px 16px;border-radius:12px;font:700 .87rem "Vazirmatn",sans-serif;cursor:pointer; }
+    .studio-play { flex:1;border:1px solid var(--accent);background:var(--accent);color:#14200d; }
+    .studio-next { border:1px solid #51416e;background:#211b32;color:#e9ddff; }
+    .studio-next:disabled { opacity:.4;cursor:not-allowed; }
+    .studio-footnote { margin:15px 0 0;color:#8f9bad;font-size:.75rem; }
+    @media(max-width:540px) { .music-studio{padding:10px}.studio-shell{max-height:calc(100dvh - 20px);padding:18px;border-radius:20px}.studio-controls{grid-template-columns:1fr}.studio-visual{min-height:155px;margin:18px 0}.studio-actions{flex-direction:column}.studio-actions button{width:100%} }
+    @media(prefers-reduced-motion:reduce){.music-studio,.studio-wave i{transition:none!important;animation:none!important}}
+
     @media (prefers-reduced-motion: reduce) {
       [data-reveal].reveal-pending { opacity: 1; transform: none; transition: none; }
     }
@@ -367,13 +399,30 @@
     </section>
   </main>
 
-  <button class="music-toggle" id="music-toggle" type="button" aria-pressed="false" aria-label="پخش موسیقی حماسی پس‌زمینه">
-    <span class="music-icon" aria-hidden="true">▶</span>
+  <button class="music-toggle" id="music-toggle" type="button" aria-haspopup="dialog" aria-controls="music-studio">
+    <span class="music-icon" aria-hidden="true">♫</span>
     <span class="music-copy">
-      <span class="music-label">موسیقی حماسی</span>
-      <span class="music-hint">برای پخش کلیک کن</span>
+      <span class="music-label">استودیوی موسیقی</span>
+      <span class="music-hint">ساخت موسیقی زنده</span>
     </span>
   </button>
+  <section class="music-studio" id="music-studio" role="dialog" aria-modal="true" aria-labelledby="studio-title" aria-hidden="true">
+    <div class="studio-shell">
+      <header class="studio-header">
+        <div><p class="section-kicker">WEB AUDIO LAB / LIVE GENERATOR</p><h2 id="studio-title">استودیوی موسیقی</h2><p class="studio-subtitle">هر بار یک قطعهٔ تازه؛ ساخته‌شده همین‌جا، در مرورگر تو.</p></div>
+        <button class="studio-close" id="studio-close" type="button" aria-label="بستن استودیو">×</button>
+      </header>
+      <div class="studio-visual" id="studio-visual" aria-hidden="true"><div class="studio-orb"></div><div class="studio-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="studio-status" id="studio-status">آمادهٔ ساخت موسیقی</span></div>
+      <div class="studio-controls">
+        <div class="studio-control-block"><div class="control-heading"><label for="music-style">سبک موسیقی</label><span>STYLE</span></div><select id="music-style"><option value="cinematic">سینمایی و حماسی</option><option value="ambient">آرام و فضایی</option><option value="electronic">الکترونیک</option><option value="retro">رترو و بازی‌گونه</option></select></div>
+        <div class="studio-control-block"><div class="control-heading"><label for="music-mood">حال‌وهوا</label><span>MOOD</span></div><select id="music-mood"><option value="uplifting">امیدوارکننده</option><option value="mysterious">مرموز</option><option value="dreamy">رویاگونه</option><option value="intense">پر انرژی</option></select></div>
+        <div class="studio-control-block"><div class="control-heading"><label for="music-tempo">سرعت موسیقی</label><output id="tempo-value" for="music-tempo">۹۶ BPM</output></div><input id="music-tempo" type="range" min="55" max="160" value="96"></div>
+        <div class="studio-control-block"><div class="control-heading"><label for="music-volume">بلندی صدا</label><output id="volume-value" for="music-volume">۳۵٪</output></div><input id="music-volume" type="range" min="0" max="100" value="35"></div>
+      </div>
+      <div class="studio-actions"><button class="studio-play" id="studio-play" type="button"><span id="studio-play-icon">▶</span><span id="studio-play-label">ساخت و پخش موسیقی</span></button><button class="studio-next" id="studio-next" type="button" disabled>↻ ساخت قطعهٔ جدید</button></div>
+      <p class="studio-footnote">صدا به‌صورت الگوریتمی با Web Audio API تولید می‌شود؛ هیچ فایل صوتی بارگیری نمی‌شود. برای شروع، دکمهٔ پخش را بزن.</p>
+    </div>
+  </section>
   <footer>
     <div class="wrap footer-inner">
       <p>ساخته‌شده با کنجکاوی، یادگیری و کمی کد. · پارسا © ۱۴۰۵</p>
@@ -410,124 +459,122 @@
       targets.forEach((el) => observer.observe(el));
     })();
 
-    // موسیقی سینمایی ساخته‌شده در لحظه با Web Audio API؛ بدون فایل صوتی.
+    // استودیوی تولید موسیقی رویه‌ای با Web Audio API؛ هر بار seed و ملودی تازه.
     (() => {
-      const button = document.getElementById('music-toggle');
-      if (!button) return;
-      const label = button.querySelector('.music-label');
-      const hint = button.querySelector('.music-hint');
-      const icon = button.querySelector('.music-icon');
-      let context = null;
-      let master = null;
-      let timer = null;
-      let step = 0;
-
-      // مینور حماسی با حرکت آکوردی و ملودی صعودی.
-      const progression = [
-        { bass: 55.00, chord: [110.00, 130.81, 164.81], melody: [220.00, 261.63, 293.66, 329.63] },
-        { bass: 43.65, chord: [87.31, 130.81, 174.61], melody: [261.63, 293.66, 349.23, 392.00] },
-        { bass: 65.41, chord: [130.81, 164.81, 196.00], melody: [329.63, 392.00, 440.00, 392.00] },
-        { bass: 49.00, chord: [98.00, 146.83, 196.00], melody: [293.66, 349.23, 392.00, 440.00] }
-      ];
-
-      function tone(frequency, startAt, duration, volume, type, endFrequency) {
-        const osc = context.createOscillator();
-        const gain = context.createGain();
-        const filter = context.createBiquadFilter();
-        osc.type = type;
-        osc.frequency.setValueAtTime(frequency, startAt);
-        if (endFrequency) osc.frequency.exponentialRampToValueAtTime(endFrequency, startAt + duration);
-        filter.type = 'lowpass';
-        filter.frequency.setValueAtTime(type === 'sawtooth' ? 1250 : 2200, startAt);
-        gain.gain.setValueAtTime(0.0001, startAt);
-        gain.gain.exponentialRampToValueAtTime(volume, startAt + Math.min(.09, duration * .2));
-        gain.gain.exponentialRampToValueAtTime(0.0001, startAt + duration);
-        osc.connect(filter);
-        filter.connect(gain);
-        gain.connect(master);
-        osc.start(startAt);
-        osc.stop(startAt + duration + .03);
+      const openButton = document.getElementById('music-toggle');
+      const panel = document.getElementById('music-studio');
+      const closeButton = document.getElementById('studio-close');
+      const playButton = document.getElementById('studio-play');
+      const nextButton = document.getElementById('studio-next');
+      const styleInput = document.getElementById('music-style');
+      const moodInput = document.getElementById('music-mood');
+      const tempoInput = document.getElementById('music-tempo');
+      const volumeInput = document.getElementById('music-volume');
+      const tempoValue = document.getElementById('tempo-value');
+      const volumeValue = document.getElementById('volume-value');
+      const status = document.getElementById('studio-status');
+      const playLabel = document.getElementById('studio-play-label');
+      const playIcon = document.getElementById('studio-play-icon');
+      let audio = null, master = null, timer = null, step = 0, melody = [], chordRoots = [], playing = false;
+      let activeNodes = new Set();
+      const scales = {
+        uplifting:[0,2,4,7,9,12,14,16,19],
+        mysterious:[0,2,3,6,7,9,10,12,15],
+        dreamy:[0,2,5,7,9,12,14,17,19],
+        intense:[0,2,4,5,7,9,11,12,16]
+      };
+      const modes = {
+        cinematic:{wave:'sawtooth',bass:'triangle',beat:4,octave:0,filter:1500},
+        ambient:{wave:'sine',bass:'sine',beat:2,octave:1,filter:850},
+        electronic:{wave:'square',bass:'sawtooth',beat:4,octave:1,filter:2400},
+        retro:{wave:'triangle',bass:'square',beat:4,octave:1,filter:1900}
+      };
+      const fa = n => new Intl.NumberFormat('fa-IR').format(n);
+      function updateReadouts(){
+        tempoValue.textContent = fa(Number(tempoInput.value)) + ' BPM';
+        volumeValue.textContent = fa(Number(volumeInput.value)) + '٪';
+        if(master && audio) master.gain.setTargetAtTime(Number(volumeInput.value)/100*.42,audio.currentTime,.06);
+        if(playing) restartClock();
       }
-
-      function playBar() {
-        if (!context || context.state !== 'running') return;
-        const now = context.currentTime + .025;
-        const bar = progression[Math.floor(step / 4) % progression.length];
-        const beat = step % 4;
-
-        // باس عمیق و ضربهٔ کوبه‌ای نرم در ابتدای هر میزان
-        if (beat === 0) {
-          tone(bar.bass, now, 1.45, .19, 'triangle');
-          tone(bar.bass * 2, now, .24, .09, 'sine', bar.bass * 1.25);
-          bar.chord.forEach((note, i) => {
-            tone(note, now + i * .018, 1.65, .045, 'sawtooth');
-          });
+      function openStudio(){
+        panel.classList.add('is-open'); panel.setAttribute('aria-hidden','false');
+        document.body.style.overflow='hidden'; closeButton.focus();
+      }
+      function closeStudio(){
+        panel.classList.remove('is-open'); panel.setAttribute('aria-hidden','true');
+        document.body.style.overflow=''; openButton.focus();
+      }
+      function makeComposition(){
+        const scale=scales[moodInput.value], root=styleInput.value==='ambient'?196:styleInput.value==='retro'?220:styleInput.value==='electronic'?146.83:164.81;
+        const pick=()=>scale[Math.floor(Math.random()*scale.length)];
+        melody=Array.from({length:32},(_,i)=> root*Math.pow(2,(pick()+(i%8===0?12:0))/12));
+        chordRoots=Array.from({length:8},(_,i)=>root*Math.pow(2,[0,3,5,7][i%4]/12));
+        step=0;
+      }
+      function playTone(freq,when,duration,level,wave,filterHz){
+        if(!audio||!master)return;
+        const osc=audio.createOscillator(), gain=audio.createGain(), filter=audio.createBiquadFilter();
+        osc.type=wave;osc.frequency.setValueAtTime(freq,when);
+        filter.type='lowpass';filter.frequency.setValueAtTime(filterHz||1400,when);
+        gain.gain.setValueAtTime(.0001,when);
+        gain.gain.exponentialRampToValueAtTime(Math.max(.0002,level),when+.025);
+        gain.gain.exponentialRampToValueAtTime(.0001,when+duration);
+        osc.connect(filter);filter.connect(gain);gain.connect(master);
+        activeNodes.add(osc);
+        osc.onended=()=>{activeNodes.delete(osc);osc.disconnect();filter.disconnect();gain.disconnect();};
+        osc.start(when);osc.stop(when+duration+.04);
+      }
+      function tick(){
+        if(!audio||audio.state!=='running'||!playing)return;
+        const now=audio.currentTime+.035, mode=modes[styleInput.value], beat=step%4, bar=Math.floor(step/4);
+        const note=melody[step%melody.length], root=chordRoots[bar%chordRoots.length];
+        const base=styleInput.value==='ambient'?.48:.22;
+        if(beat===0){
+          [1,1.25,1.5].forEach((ratio,i)=>playTone(root*ratio,now+i*.012,Math.max(.45,60/Number(tempoInput.value)*2.8),base*.15,mode.wave,mode.filter));
+          playTone(root/2,now,.5,base*.55,mode.bass,mode.filter);
         }
-
-        // ملودی روشن با رنگ ارکسترال
-        const note = bar.melody[beat];
-        tone(note, now, .72, .075, 'sawtooth');
-        tone(note * 2, now + .012, .48, .018, 'sine');
-
-        // ضرب آرام برای حس ریتم سینمایی
-        if (beat === 0 || beat === 2) {
-          tone(92, now, .22, .075, 'sine', 38);
-        }
+        const noteDuration=60/Number(tempoInput.value)*.82;
+        playTone(note,now,noteDuration,styleInput.value==='ambient'?.09:.12,mode.wave,mode.filter);
+        if(styleInput.value!=='ambient' && beat%2===0) playTone(58,now,.16,.07,'sine',180);
+        if(styleInput.value==='electronic' && beat===2) playTone(note*2,now,.12,.045,'square',2600);
         step++;
       }
-
-      async function startMusic() {
-        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContextClass) {
-          label.textContent = 'پخش در این مرورگر ممکن نیست';
-          hint.textContent = 'مرورگر از Web Audio پشتیبانی نمی‌کند';
-          button.disabled = true;
-          return;
-        }
-        context = context || new AudioContextClass();
-        await context.resume();
-        master = master || context.createGain();
-        master.gain.setValueAtTime(.48, context.currentTime);
-        master.connect(context.destination);
-        playBar();
-        timer = window.setInterval(playBar, 470);
-        button.setAttribute('aria-pressed', 'true');
-        button.setAttribute('aria-label', 'توقف موسیقی حماسی');
-        icon.textContent = 'Ⅱ';
-        label.textContent = 'موسیقی حماسی';
-        hint.textContent = 'در حال پخش · توقف';
+      function restartClock(){
+        if(timer!==null)clearInterval(timer);
+        if(playing)timer=window.setInterval(tick,60000/Number(tempoInput.value));
       }
-
-      function stopMusic() {
-        if (timer !== null) window.clearInterval(timer);
-        timer = null;
-        if (master && context) {
-          master.gain.cancelScheduledValues(context.currentTime);
-          master.gain.setTargetAtTime(.0001, context.currentTime, .09);
-        }
-        if (context && context.state === 'running') context.suspend();
-        button.setAttribute('aria-pressed', 'false');
-        button.setAttribute('aria-label', 'پخش موسیقی حماسی پس‌زمینه');
-        icon.textContent = '▶';
-        label.textContent = 'موسیقی حماسی';
-        hint.textContent = 'برای پخش کلیک کن';
+      async function startNew(){
+        const AudioContextClass=window.AudioContext||window.webkitAudioContext;
+        if(!AudioContextClass){status.textContent='مرورگر از Web Audio پشتیبانی نمی‌کند';return;}
+        audio=audio||new AudioContextClass();
+        await audio.resume();
+        if(master)master.disconnect();
+        master=audio.createGain();master.gain.value=Number(volumeInput.value)/100*.42;master.connect(audio.destination);
+        makeComposition();playing=true;tick();restartClock();
+        panel.classList.add('is-playing');status.textContent='در حال ساخت و پخش یک قطعهٔ تازه';
+        playLabel.textContent='توقف موسیقی';playIcon.textContent='Ⅱ';nextButton.disabled=false;
       }
-
-      button.addEventListener('click', async () => {
-        if (timer !== null) {
-          stopMusic();
-          return;
-        }
-        try {
-          await startMusic();
-        } catch (error) {
-          stopMusic();
-          hint.textContent = 'پخش در دسترس نیست';
-        }
+      async function stop(){
+        playing=false;if(timer!==null)clearInterval(timer);timer=null;
+        panel.classList.remove('is-playing');
+        if(master&&audio){master.gain.setTargetAtTime(.0001,audio.currentTime,.07);await new Promise(r=>setTimeout(r,180));}
+        if(audio&&audio.state==='running')await audio.suspend();
+        status.textContent='پخش متوقف شد';playLabel.textContent='ادامهٔ پخش';playIcon.textContent='▶';
+      }
+      openButton.addEventListener('click',openStudio);
+      closeButton.addEventListener('click',closeStudio);
+      panel.addEventListener('click',e=>{if(e.target===panel)closeStudio();});
+      document.addEventListener('keydown',e=>{if(e.key==='Escape'&&panel.classList.contains('is-open'))closeStudio();});
+      playButton.addEventListener('click',async()=>{
+        if(playing){await stop();return;}
+        try{await startNew();}catch(error){status.textContent='شروع صدا ممکن نشد؛ دوباره تلاش کن.';}
       });
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden && timer !== null) stopMusic();
-      });
+      nextButton.addEventListener('click',async()=>{try{await startNew();}catch(error){status.textContent='ساخت قطعهٔ جدید ناموفق بود.';}});
+      tempoInput.addEventListener('input',updateReadouts);
+      volumeInput.addEventListener('input',updateReadouts);
+      [styleInput,moodInput].forEach(el=>el.addEventListener('change',()=>{if(playing)startNew().catch(()=>{});}));
+      document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing)stop();});
+      updateReadouts();
     })();
 
   </script>

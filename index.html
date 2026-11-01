@@ -153,6 +153,23 @@
     .studio-close { width:40px;height:40px;border:1px solid var(--line);border-radius:12px;background:#ffffff08;color:var(--text);font-size:1.7rem;cursor:pointer; }
     .studio-visual { position:relative; display:grid; place-items:center; min-height:210px; margin:25px 0; overflow:hidden; border:1px solid rgba(192,132,252,.2);border-radius:22px;background:radial-gradient(circle at 50% 48%,rgba(168,85,247,.17),transparent 48%),linear-gradient(135deg,#17182b,#101d27); }
     .studio-orb { position:absolute;width:126px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#d8b4fe,#8b5cf6 34%,#312e81 70%,transparent 72%);filter:drop-shadow(0 0 32px #a855f755);opacity:.7; }
+    .pixel-dancer { position:relative;z-index:2;width:112px;height:128px;display:grid;place-items:center;image-rendering:pixelated;transform-origin:50% 85%;filter:drop-shadow(0 8px 12px #0007); }
+    .pixel-dancer svg { width:100%;height:100%;overflow:visible;shape-rendering:crispEdges; }
+    .pixel-dancer .dance-shadow { transform-origin:center; }
+    .pixel-dancer .dance-left-leg,.pixel-dancer .dance-right-leg,.pixel-dancer .dance-left-arm,.pixel-dancer .dance-right-arm { transform-box:fill-box; }
+    .music-studio.is-playing .pixel-dancer { animation:pixel-bounce .42s steps(2,end) infinite alternate; }
+    .music-studio.is-playing .dance-left-leg { transform-origin:top center;animation:pixel-kick-left .42s steps(2,end) infinite alternate; }
+    .music-studio.is-playing .dance-right-leg { transform-origin:top center;animation:pixel-kick-right .42s steps(2,end) infinite alternate; }
+    .music-studio.is-playing .dance-left-arm { transform-origin:top right;animation:pixel-arm-left .42s steps(2,end) infinite alternate; }
+    .music-studio.is-playing .dance-right-arm { transform-origin:top left;animation:pixel-arm-right .42s steps(2,end) infinite alternate; }
+    .music-studio.is-playing .dance-shadow { animation:pixel-shadow .42s steps(2,end) infinite alternate; }
+    @keyframes pixel-bounce { from{transform:translateY(5px) rotate(-4deg)} to{transform:translateY(-7px) rotate(4deg)} }
+    @keyframes pixel-kick-left { from{transform:rotate(22deg)} to{transform:rotate(-28deg)} }
+    @keyframes pixel-kick-right { from{transform:rotate(-24deg)} to{transform:rotate(26deg)} }
+    @keyframes pixel-arm-left { from{transform:rotate(-28deg)} to{transform:rotate(35deg)} }
+    @keyframes pixel-arm-right { from{transform:rotate(28deg)} to{transform:rotate(-35deg)} }
+    @keyframes pixel-shadow { from{transform:scaleX(1);opacity:.45} to{transform:scaleX(.68);opacity:.2} }
+
     .studio-wave { position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:5px;opacity:.7; }
     .studio-wave i { width:3px;height:18%;border-radius:9px;background:linear-gradient(#a7f36b,#c084fc);transform:scaleY(.35); }
     .music-studio.is-playing .studio-wave i { animation: studio-wave 850ms ease-in-out infinite alternate; }
@@ -412,7 +429,21 @@
         <div><p class="section-kicker">WEB AUDIO LAB / LIVE GENERATOR</p><h2 id="studio-title">استودیوی موسیقی</h2><p class="studio-subtitle">هر بار یک قطعهٔ تازه؛ ساخته‌شده همین‌جا، در مرورگر تو.</p></div>
         <button class="studio-close" id="studio-close" type="button" aria-label="بستن استودیو">×</button>
       </header>
-      <div class="studio-visual" id="studio-visual" aria-hidden="true"><div class="studio-orb"></div><div class="studio-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="studio-status" id="studio-status">آمادهٔ ساخت موسیقی</span></div>
+      <div class="studio-visual" id="studio-visual" aria-hidden="true"><div class="studio-orb"></div><div class="pixel-dancer">
+          <svg viewBox="0 0 64 76" role="presentation" aria-hidden="true">
+            <g class="dance-shadow"><rect x="18" y="69" width="29" height="4" fill="#080b12"/></g>
+            <g class="dance-left-leg"><rect x="22" y="52" width="9" height="15" fill="#8b5cf6"/><rect x="17" y="65" width="13" height="6" fill="#a7f36b"/></g>
+            <g class="dance-right-leg"><rect x="34" y="52" width="9" height="15" fill="#8b5cf6"/><rect x="35" y="65" width="13" height="6" fill="#a7f36b"/></g>
+            <rect x="19" y="25" width="27" height="29" fill="#a7f36b"/>
+            <rect x="15" y="31" width="5" height="17" fill="#8b5cf6"/><rect x="45" y="31" width="5" height="17" fill="#8b5cf6"/>
+            <g class="dance-left-arm"><rect x="8" y="28" width="8" height="19" fill="#c084fc"/><rect x="5" y="23" width="9" height="9" fill="#a7f36b"/></g>
+            <g class="dance-right-arm"><rect x="47" y="28" width="8" height="19" fill="#c084fc"/><rect x="50" y="23" width="9" height="9" fill="#a7f36b"/></g>
+            <rect x="17" y="7" width="31" height="22" fill="#c084fc"/><rect x="22" y="2" width="21" height="7" fill="#c084fc"/>
+            <rect x="22" y="15" width="6" height="6" fill="#111522"/><rect x="37" y="15" width="6" height="6" fill="#111522"/>
+            <rect x="29" y="23" width="9" height="3" fill="#f2f5f9"/>
+            <rect x="25" y="34" width="5" height="5" fill="#111522"/><rect x="36" y="34" width="5" height="5" fill="#111522"/>
+          </svg>
+        </div><div class="studio-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="studio-status" id="studio-status">آمادهٔ ساخت موسیقی</span></div>
       <div class="studio-controls">
         <div class="studio-control-block"><div class="control-heading"><label for="music-style">سبک موسیقی</label><span>STYLE</span></div><select id="music-style"><option value="cinematic">سینمایی و حماسی</option><option value="ambient">آرام و فضایی</option><option value="electronic">الکترونیک</option><option value="retro">رترو و بازی‌گونه</option></select></div>
         <div class="studio-control-block"><div class="control-heading"><label for="music-mood">حال‌وهوا</label><span>MOOD</span></div><select id="music-mood"><option value="uplifting">امیدوارکننده</option><option value="mysterious">مرموز</option><option value="dreamy">رویاگونه</option><option value="intense">پر انرژی</option></select></div>

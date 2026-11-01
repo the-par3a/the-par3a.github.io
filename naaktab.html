@@ -365,17 +365,21 @@ section h2:before{content:"✳";display:inline-block;margin-left:10px;font-size:
   const chapterTargets = chapterLinks
     .map((link) => ({ link, target: document.querySelector(link.getAttribute('href')) }))
     .filter((item) => item.target);
+  const chapterNav = document.querySelector('.nav-links');
   const activateChapter = (link) => {
+    const alreadyActive = link.getAttribute('aria-current') === 'location';
     chapterLinks.forEach((item) => {
-      if (item === link) {
-        item.setAttribute('aria-current', 'location');
-        if (window.matchMedia('(max-width: 980px)').matches) {
-          item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        }
-      } else {
-        item.removeAttribute('aria-current');
-      }
+      if (item === link) item.setAttribute('aria-current', 'location');
+      else item.removeAttribute('aria-current');
     });
+    // Move only the horizontal chapter strip; scrollIntoView would move the whole page.
+    if (!alreadyActive && chapterNav && window.matchMedia('(max-width: 980px)').matches) {
+      const navRect = chapterNav.getBoundingClientRect();
+      const linkRect = link.getBoundingClientRect();
+      const targetLeft = chapterNav.scrollLeft + linkRect.left - navRect.left
+        - (chapterNav.clientWidth - linkRect.width) / 2;
+      chapterNav.scrollTo({ left: targetLeft, behavior: 'smooth' });
+    }
   };
   chapterLinks.forEach((link) => link.addEventListener('click', () => activateChapter(link)));
   if ('IntersectionObserver' in window) {

@@ -91,6 +91,18 @@ section h2:before{content:"✳";display:inline-block;margin-left:10px;font-size:
 }
 @media(hover:none){.content-box:hover{border-color:rgba(192,132,252,.32);box-shadow:0 12px 32px rgba(0,0,0,.16),inset 0 1px rgba(255,255,255,.045)}.content-box:hover:after{opacity:0}}
 
+
+/* Sticky chapter navigator with a live active-section indicator. */
+.topbar{position:sticky;top:0;z-index:40;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(11,13,18,.86);box-shadow:0 8px 26px rgba(0,0,0,.12);transition:background .25s ease,border-color .25s ease}
+.nav-links a{position:relative;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;padding:8px 12px;border:1px solid transparent;border-radius:999px;transition:color .22s ease,background .22s ease,border-color .22s ease,box-shadow .22s ease}
+.nav-links a[aria-current="location"]{color:#e9d5ff;background:linear-gradient(100deg,rgba(192,132,252,.17),rgba(167,243,107,.07));border-color:rgba(192,132,252,.34);box-shadow:inset 0 1px rgba(255,255,255,.06),0 0 18px rgba(168,85,247,.08)}
+.nav-links a[aria-current="location"]:after{content:"";position:absolute;bottom:2px;right:22%;left:22%;height:2px;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--purple));box-shadow:0 0 10px rgba(192,132,252,.55)}
+.nav-links{scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+@media(min-width:981px){.nav{gap:14px}.nav-links{gap:5px}.nav-links a{font-size:.83rem;padding:8px 10px}}
+@media(max-width:980px){.topbar{background:rgba(11,13,18,.93)}.nav-links{max-width:100%;overflow-x:auto;flex-wrap:nowrap;overscroll-behavior-x:contain;scroll-snap-type:x proximity;padding:5px 2px 9px}.nav-links a{flex:0 0 auto;scroll-snap-align:center}}
+@media(max-width:700px){.topbar{top:0}.nav{align-items:stretch}.nav-links{width:calc(100vw - 24px);margin-inline:-4px}.nav-links a{padding:7px 12px;font-size:.78rem}.nav-links a[aria-current="location"]:after{right:24%;left:24%}}
+
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}html.reveal-enabled section{opacity:1;transform:none}}
 </style>
 </head><body>
@@ -346,6 +358,39 @@ section h2:before{content:"✳";display:inline-block;margin-left:10px;font-size:
   window.addEventListener('scroll', updateProgress, { passive: true });
   window.addEventListener('resize', updateProgress);
   updateProgress();
+
+
+  // Chapter navigation: highlight the visible chapter and keep its tab in view.
+  const chapterLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+  const chapterTargets = chapterLinks
+    .map((link) => ({ link, target: document.querySelector(link.getAttribute('href')) }))
+    .filter((item) => item.target);
+  const activateChapter = (link) => {
+    chapterLinks.forEach((item) => {
+      if (item === link) {
+        item.setAttribute('aria-current', 'location');
+        if (window.matchMedia('(max-width: 980px)').matches) {
+          item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      } else {
+        item.removeAttribute('aria-current');
+      }
+    });
+  };
+  chapterLinks.forEach((link) => link.addEventListener('click', () => activateChapter(link)));
+  if ('IntersectionObserver' in window) {
+    const chapterObserver = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      const match = chapterTargets.find((item) =>
+        item.target === visible.target || item.target.closest('section') === visible.target
+      );
+      if (match) activateChapter(match.link);
+    }, { rootMargin: '-22% 0px -58% 0px', threshold: [0, .1, .25, .5] });
+    const observed = new Set(chapterTargets.map((item) => item.target.closest('section') || item.target));
+    observed.forEach((target) => chapterObserver.observe(target));
+  }
 
   // The mascot remains fixed to the viewport and gently responds to page scrolling.
   const mascot = document.querySelector('.naaktab-mascot');

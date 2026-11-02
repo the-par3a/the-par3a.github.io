@@ -207,6 +207,33 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 @media(max-width:600px){.choice-options{grid-template-columns:1fr;gap:9px}.choice-option{min-height:52px}.choice-node,.route-result{padding:17px;border-radius:16px}}
 @media(prefers-reduced-motion:reduce){.choice-response.is-visible,.route-result.is-visible{animation:none}.choice-option{transition:none}}
 
+
+/* Opening question and adaptive story entrance */
+.reader-gate{position:relative;isolation:isolate;max-width:820px;margin:clamp(28px,7vw,76px) auto clamp(45px,8vw,90px);padding:clamp(24px,5vw,54px);overflow:hidden;border:1px solid rgba(192,132,252,.3);border-radius:28px;background:radial-gradient(ellipse at 50% -15%,rgba(168,85,247,.18),transparent 55%),linear-gradient(145deg,rgba(21,24,38,.97),rgba(11,17,25,.98));box-shadow:0 28px 90px rgba(0,0,0,.32),inset 0 1px rgba(255,255,255,.06);text-align:center}
+.gate-orb{width:72px;height:72px;margin:0 auto 22px;display:grid;place-items:center;border-radius:23px;border:1px solid rgba(192,132,252,.45);background:linear-gradient(145deg,rgba(192,132,252,.2),rgba(167,243,107,.09));box-shadow:0 0 45px rgba(168,85,247,.15);transform:rotate(-8deg)}
+.gate-orb span{width:27px;height:38px;border:2px solid #d8b4fe;border-radius:6px;box-shadow:0 0 20px rgba(192,132,252,.6);background:linear-gradient(180deg,rgba(192,132,252,.16),rgba(167,243,107,.13))}
+.gate-eyebrow{margin:0 0 10px;color:#c4b5fd;font-size:.75rem;letter-spacing:.18em;direction:ltr}
+.reader-gate h1{margin:0 0 14px;font-size:clamp(1.65rem,4vw,2.5rem)}
+.gate-lead{max-width:620px;margin:0 auto 26px;color:#cbd5e1;line-height:2.05}
+.gate-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;text-align:right}
+.gate-option{display:flex;align-items:center;gap:13px;min-width:0;min-height:83px;padding:14px;border-radius:16px;border:1px solid rgba(203,213,225,.13);background:rgba(255,255,255,.035);color:#eef2ff;text-align:right;font:inherit;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.gate-option:hover{transform:translateY(-2px);border-color:rgba(192,132,252,.48);background:rgba(168,85,247,.09)}
+.gate-option[aria-pressed="true"]{border-color:rgba(167,243,107,.6);background:linear-gradient(115deg,rgba(167,243,107,.1),rgba(192,132,252,.13));box-shadow:0 0 0 1px rgba(167,243,107,.08)}
+.gate-index{flex:0 0 37px;width:37px;height:37px;display:grid;place-items:center;border-radius:12px;background:rgba(192,132,252,.12);color:#d8b4fe;font-size:.75rem;direction:ltr}
+.gate-option strong,.gate-option small{display:block}
+.gate-option strong{font-size:.91rem;line-height:1.8}
+.gate-option small{margin-top:3px;color:#9ca3af;font-size:.76rem;line-height:1.8}
+.gate-note{margin:17px 0;color:#929daf;font-size:.78rem;line-height:1.9}
+.gate-start{min-width:min(100%,280px);padding:13px 22px;border:1px solid rgba(167,243,107,.35);border-radius:999px;background:linear-gradient(100deg,rgba(167,243,107,.16),rgba(192,132,252,.18));color:#f0fdf4;font:inherit;font-weight:750;cursor:pointer;transition:opacity .2s,transform .2s}
+.gate-start:hover:not(:disabled){transform:translateY(-2px)}
+.gate-start:disabled{opacity:.42;cursor:not-allowed}
+.container.is-locked>.intro-section,.container.is-locked>#horror,.container.is-locked>#revelation,.container.is-locked>#truth{display:none!important}
+.container.is-locked{padding-top:1px!important}
+.path-narrative{padding:13px 17px;margin:18px 0;border-right:3px solid #a7f36b;border-radius:10px;background:linear-gradient(100deg,rgba(167,243,107,.055),rgba(192,132,252,.055));color:#e5e7eb;line-height:2.05;animation:choiceReveal .35s ease both}
+.path-narrative[hidden]{display:none!important}
+@media(max-width:640px){.reader-gate{margin:22px auto 38px;padding:22px 16px;border-radius:21px}.gate-options{grid-template-columns:1fr;gap:9px}.gate-option{min-height:72px;padding:11px}.gate-option strong{font-size:.86rem}.gate-option small{font-size:.73rem}}
+@media(prefers-reduced-motion:reduce){.gate-option,.gate-start{transition:none}.path-narrative{animation:none}}
+
 </style>
 </head><body>
   <div class="reading-progress" aria-hidden="true"><span></span></div>
@@ -228,7 +255,22 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 
     
 
-    <div class="container">
+    <div class="container is-locked">
+
+  <section class="reader-gate" id="reader-gate" aria-labelledby="gate-title">
+    <div class="gate-orb" aria-hidden="true"><span></span></div>
+    <p class="gate-eyebrow">NAKTAB · یک روایت تعاملی</p>
+    <h1 id="gate-title" class="gradient-text">پیش از ورود، یک سؤال</h1>
+    <p class="gate-lead">رابطه‌ات با صفحه‌های نورانی چطور است؟ پاسخ درست یا غلطی وجود ندارد. فقط نزدیک‌ترین گزینه به تجربهٔ خودت را انتخاب کن تا داستان از همان نقطه آغاز شود.</p>
+    <div class="gate-options" role="group" aria-label="انتخاب میزان استفاده از گوشی">
+      <button class="gate-option" type="button" data-profile="light" aria-pressed="false"><span class="gate-index">۰۱</span><span><strong>بیشتر وقت‌ها با هدف مشخص</strong><small>برای کار، یادگیری یا ارتباط سراغ گوشی می‌روم.</small></span></button>
+      <button class="gate-option" type="button" data-profile="habit" aria-pressed="false"><span class="gate-index">۰۲</span><span><strong>گاهی بی‌آنکه متوجه شوم</strong><small>بعضی وقت‌ها بی‌هدف صفحه را باز می‌کنم.</small></span></button>
+      <button class="gate-option" type="button" data-profile="absorbed" aria-pressed="false"><span class="gate-index">۰۳</span><span><strong>گاهی زمان از دستم در می‌رود</strong><small>پیش می‌آید بیشتر از چیزی که قصد داشتم سرگرم بمانم.</small></span></button>
+      <button class="gate-option" type="button" data-profile="central" aria-pressed="false"><span class="gate-index">۰۴</span><span><strong>بخش بزرگی از روزم با گوشی می‌گذرد</strong><small>صفحه‌ها در برنامهٔ روزانه‌ام حضور پررنگی دارند.</small></span></button>
+    </div>
+    <p class="gate-note">این پرسش یک آزمون یا تشخیص نیست؛ فقط راهی برای انتخاب زاویهٔ ورود به یک داستان خیالی است.</p>
+    <button class="gate-start" id="gate-start" type="button" disabled>هنوز انتخابی نکرده‌ای <span aria-hidden="true">←</span></button>
+  </section>
   <section class="intro-section" aria-labelledby="intro-title">
     <h1 id="intro-title" class="gradient-text">ناکتاب؛ وقتی صفحه، تمام جهان می‌شود</h1>
     <div class="content-box intro-box">
@@ -248,6 +290,7 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
     <h2 class="gradient-text">بخش اول: آویختگی</h2>
     <div class="content-box story-text">
       <p class="story-opening">بیدار شدم...</p>
+      <p class="path-narrative" id="path-opening" hidden></p>
       <p class="thought">دیدم؛ یا شاید ندیدم. اصلاً دیدن چیست؟ نه... نمی‌دانم. آیا نادانم؟</p>
       <p>سرم گیج می‌رفت. هیچ‌گاه مانند دیگران احساسات را تجربه نکرده بودم. می‌دیدم، اما درک نمی‌کردم؛ و درک کردن، آن‌قدرها هم آسان نبود. درک انسان... شاید خود نوعی حیوان باشد.</p>
       <p>نمی‌دانم چرا، اما همه‌جا را شاخه‌هایی سیاه، لزج و تپنده فراگرفته بودند. تمام دیوارهای این مکان تنگ و تاریک از همان جنس بودند؛ گویی چیزی زنده، سراسر این فضا را در اختیار گرفته بود. هیچ نوری به چشم نمی‌خورد. شاخه‌ها همه‌جا را فتح کرده بودند.</p>
@@ -281,6 +324,7 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
   </section>
 
   <section id="revelation">
+    <p class="path-narrative" id="path-chapter-two" hidden></p>
     <h2 class="gradient-text">بخش دوم: فیلترِ تکامل</h2>
     <div class="content-box">
       <p>حال دختر دوباره خوب به نظر می‌رسید. به مستطیل سفید خیره شده بود و رضایت در چهره‌اش موج می‌زد؛ با این حال، چیزی در عمق وجودش فریاد می‌کشید.</p>
@@ -342,6 +386,7 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
   </section>
 
   <section id="truth">
+    <p class="path-narrative" id="path-chapter-three" hidden></p>
     <h2 class="gradient-text">بخش سوم: مستطیل‌ها</h2>
     <div class="content-box">
       <p>جوانی حدوداً هجده‌ساله به من نزدیک شد. روی لباسش تصویر مستطیلی شکسته دیده می‌شد؛ نشانی عجیب که انگار معنایی فراتر از یک نقش ساده داشت.</p>
@@ -439,6 +484,7 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
       <div class="choice-response" data-response="a">به مستطیل نگاه می‌کنم و از خودم می‌پرسم: «برای چه آمده‌ام؟» شاید شناختن دلیل یک انتخاب، آغاز آزادی باشد.</div>
       <div class="choice-response" data-response="b">راه خروج را پیش می‌گیرم. هنوز همه پاسخ‌ها را نمی‌دانم، اما می‌توانم بعداً با ذهنی آرام‌تر به آن‌ها برگردم.</div>
     </div>
+    <p class="path-narrative" id="path-final" hidden></p>
     <div class="content-box final-box">
       <p id="final" style="scroll-margin-top:110px"><strong>پایان؛ یا شاید آغاز</strong></p>
       <p>بار دیگر به تالار نگاه کردم. مستطیل‌ها هنوز می‌درخشیدند؛ پیام‌ها، تصویرها و صداها هنوز از دلشان عبور می‌کردند و رشته‌ها، نامرئی و پیوسته، میان آدم‌ها کشیده شده بودند. اما حالا می‌دانستم پشت هر صفحه، انسانی ایستاده است؛ با نیازها، نگرانی‌ها، خاطره‌ها و انتخاب‌های خودش.</p>
@@ -601,6 +647,98 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
   updateRoute();
 
 })();
+
+  // Reader profile: a non-diagnostic narrative starting point chosen by the reader.
+  const readerProfiles = {
+    light: {
+      opening:'مستطیل کوچکی در دستم بود. آن را روشن می‌کردم، چیزی می‌جستم و دوباره کنار می‌گذاشتم. بااین‌حال، در این تالار عجیب فهمیدم حتی رابطه‌ای آرام با نور هم می‌تواند پرسش‌هایی ناشناخته داشته باشد.',
+      chapterTwo:'در تالار، به کسانی فکر کردم که صفحه را با هدفی روشن باز می‌کنند؛ درست مثل خودم. اما هدف روشن همیشه به معنای شناختن تمام اثرهای یک عادت نیست.',
+      chapterThree:'برای نخستین بار از خودم پرسیدم: آیا من فقط از صفحه استفاده می‌کنم، یا گاهی بی‌آنکه بفهمم از آن فرمان می‌گیرم؟',
+      ending:'مسیر تو از کنجکاوی آغاز شد: نه برای متهم‌کردن فناوری، بلکه برای دیدن مرز باریک میان استفاده و عادت.'
+    },
+    habit: {
+      opening:'مستطیل در دستم روشن شد و پیش از آنکه بدانم چرا، انگشتم روی نور لغزید. انگار حرکتی آشنا بود؛ حرکتی که گاهی پیش از شکل‌گرفتن یک تصمیم انجام می‌شد.',
+      chapterTwo:'صدای تالار برایم ناآشنا نبود. بعضی آدم‌ها بی‌آنکه پرسشی داشته باشند، به نور نگاه می‌کردند؛ درست شبیه لحظه‌هایی که دستم بی‌دلیل به سوی صفحه می‌رفت.',
+      chapterThree:'به یاد آوردم چند بار فقط برای چند ثانیه صفحه را باز کرده بودم و بعد، زمان شکل دیگری پیدا کرده بود. شاید پرسش اصلی این بود: چه چیزی مرا به آن بازمی‌گرداند؟',
+      ending:'مسیر تو از شناختن لحظه‌های خودکار گذشت؛ همان فاصله کوتاه میان بازکردن صفحه و به‌یادآوردن دلیل آن.'
+    },
+    absorbed: {
+      opening:'نور مستطیل مرا به خود کشید. وقتی سر بلند کردم، نمی‌دانستم چقدر گذشته است. این حس برایم غریبه نبود؛ گاهی زمان در میان تصویرها و صداها بی‌صدا ناپدید می‌شد.',
+      chapterTwo:'در تالار، جریان بی‌پایان نورها را دیدم. هر صفحه وعده‌ای تازه داشت و هر وعده، راهی برای ماندن. فهمیدم چرا گاهی پایان‌دادن به یک گشت‌وگذار ساده دشوار می‌شود.',
+      chapterThree:'از خودم پرسیدم چه نشانه‌ای می‌تواند مرا به زمان حال برگرداند؛ یک مکث، یک هدف روشن، یا تصمیمی که پیش از روشن‌شدن صفحه گرفته‌ام؟',
+      ending:'مسیر تو درباره بازپس‌گرفتن لحظه‌ها بود؛ نه با ترس از فناوری، بلکه با پیدا کردن مکثی که انتخاب را دوباره ممکن می‌کند.'
+    },
+    central: {
+      opening:'مستطیل نورانی تنها شیء آشنا در آن تاریکی بود. نورش راه را نشان می‌داد، اما گاهی آن‌قدر نزدیک می‌شد که دیگر اطرافم را نمی‌دیدم. شاید به همین دلیل تالار، هم آشنا بود و هم غریب.',
+      chapterTwo:'جمعیت را تماشا کردم؛ هرکس در جهان کوچکی از نور زندگی می‌کرد. بعضی صفحه‌ها راه ارتباط بودند، بعضی پناهی برای لحظه‌های خالی و بعضی فقط عادتی روزمره.',
+      chapterThree:'فکر کردم اگر صفحه بخش بزرگی از روزم را پر می‌کند، چه چیزهایی بیرون از قاب آن منتظر من مانده‌اند؟ شاید لازم نبود همه‌چیز را کنار بگذارم؛ فقط باید دوباره برای چیزهای دیگر جا باز می‌کردم.',
+      ending:'مسیر تو به بازنگری در جای صفحه‌ها در زندگی رسید؛ نه حذف همه پیوندها، بلکه انتخاب آگاهانه‌تر اینکه چه چیزی در مرکز بماند.'
+    }
+  };
+  let selectedProfile = null;
+  const gate = document.getElementById('reader-gate');
+  const gateStart = document.getElementById('gate-start');
+  const container = document.querySelector('.container');
+  const gateOptions = [...document.querySelectorAll('.gate-option')];
+  const setPathText = (id, value) => {
+    const element = document.getElementById(id);
+    if (!element) return;
+    element.textContent = value;
+    element.hidden = false;
+  };
+  gateOptions.forEach((button) => button.addEventListener('click', () => {
+    selectedProfile = button.dataset.profile;
+    gateOptions.forEach((option) => option.setAttribute('aria-pressed', String(option === button)));
+    gateStart.disabled = false;
+    gateStart.innerHTML = 'ورود به داستان <span aria-hidden="true">←</span>';
+  }));
+  gateStart.addEventListener('click', () => {
+    if (!selectedProfile) return;
+    const route = readerProfiles[selectedProfile];
+    setPathText('path-opening',route.opening);
+    setPathText('path-chapter-two',route.chapterTwo);
+    setPathText('path-chapter-three',route.chapterThree);
+    setPathText('path-final',route.ending);
+    container.classList.remove('is-locked');
+    gate.hidden = true;
+    document.querySelector('.intro-section')?.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  // Update later story passages whenever an in-story choice changes.
+  const chapterTwo = document.getElementById('path-chapter-two');
+  const chapterThree = document.getElementById('path-chapter-three');
+  const finalPath = document.getElementById('path-final');
+  const pathConsequences = {
+    '1a':'صدای دختر آرام‌تر شد. این بار نه نور را خاموش کردم و نه او را از آن دور کردم؛ فقط جایی برای شنیدن باقی گذاشتم.',
+    '1b':'دختر به من نگاه کرد. فهمیدم حتی نیت خوب هم اگر بدون شنیدن آغاز شود، ممکن است فاصله‌ای تازه بسازد.',
+    '2a':'از دور، تفاوت‌ها را کنار هم گذاشتم. هر رشته داستان خودش را داشت و هیچ نشانه‌ای به‌تنهایی تمام حقیقت نبود.',
+    '2b':'جوان مکث کرد و گفت: «وقتی کسی واقعاً گوش می‌دهد، لازم نیست برای پاسخ‌دادن عجله کنم.»',
+    '3a':'پیش از خروج، یک پرسش را با خودم برداشتم: «برای چه این صفحه را باز می‌کنم؟»',
+    '3b':'از تالار بیرون رفتم؛ نه با پاسخ همه پرسش‌ها، بلکه با این آگاهی که می‌توانم بعداً دوباره و آگاهانه‌تر به آن‌ها برگردم.'
+  };
+  const chapterTwoBase = chapterTwo?.textContent || '';
+  const chapterThreeBase = chapterThree?.textContent || '';
+  const finalBase = finalPath?.textContent || '';
+  const originalChoiceHandler = (node,button) => {
+    const step = node.dataset.choiceStep;
+    const value = button.dataset.value;
+    const passage = pathConsequences[step+value];
+    if (step === '1' && chapterTwo) chapterTwo.textContent = chapterTwoBase + ' ' + passage;
+    if (step === '2' && chapterThree) chapterThree.textContent = chapterThreeBase + ' ' + passage;
+    if (step === '3' && finalPath) finalPath.textContent = finalBase + ' ' + passage;
+  };
+  routeNodes.forEach((node) => {
+    node.querySelectorAll('.choice-option').forEach((button) => {
+      button.addEventListener('click', () => originalChoiceHandler(node,button));
+    });
+  });
+  // The result card now reflects the opening profile as well as the three decisions.
+  const priorUpdateRoute = updateRoute;
+  updateRoute = () => {
+    priorUpdateRoute();
+    if (!routeResult.classList.contains('is-visible') || !selectedProfile) return;
+    routeDetail.textContent = readerProfiles[selectedProfile].ending + ' ' + routeDetail.textContent;
+  };
+
 </script>
 </body>
 </html>

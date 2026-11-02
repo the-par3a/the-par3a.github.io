@@ -725,19 +725,15 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
     if (step === '1' && chapterTwo) chapterTwo.textContent = chapterTwoBase + ' ' + passage;
     if (step === '2' && chapterThree) chapterThree.textContent = chapterThreeBase + ' ' + passage;
     if (step === '3' && finalPath) finalPath.textContent = finalBase + ' ' + passage;
+    if (selectedProfile && routeNodes.every((item) => routeChoices[item.dataset.choiceStep])) {
+      routeDetail.textContent = readerProfiles[selectedProfile].ending;
+    }
   };
   routeNodes.forEach((node) => {
     node.querySelectorAll('.choice-option').forEach((button) => {
       button.addEventListener('click', () => originalChoiceHandler(node,button));
     });
   });
-  // The result card now reflects the opening profile as well as the three decisions.
-  const priorUpdateRoute = updateRoute;
-  updateRoute = () => {
-    priorUpdateRoute();
-    if (!routeResult.classList.contains('is-visible') || !selectedProfile) return;
-    routeDetail.textContent = readerProfiles[selectedProfile].ending + ' ' + routeDetail.textContent;
-  };
 
 </script>
 </body>

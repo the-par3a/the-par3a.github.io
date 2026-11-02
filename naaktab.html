@@ -181,6 +181,32 @@ body{position:static!important}
 body>.topbar,.topbar,header.topbar{position:relative!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;inset:auto!important;transform:none!important;animation:none!important}
 .container>section{content-visibility:visible!important;contain:none!important;contain-intrinsic-size:none!important;opacity:1!important;transform:none!important}
 html.reveal-enabled .container>section{opacity:1!important;transform:none!important}
+
+/* Interactive branching narrative */
+.choice-node,.route-result{margin:34px 0 12px;padding:clamp(18px,3.5vw,30px);border:1px solid rgba(192,132,252,.3);border-radius:20px;background:linear-gradient(145deg,rgba(25,24,42,.94),rgba(13,21,28,.96));box-shadow:0 16px 44px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.05)}
+.choice-kicker{display:flex;align-items:center;gap:9px;color:#c4b5fd;font-size:.78rem;letter-spacing:.04em;margin-bottom:10px}
+.choice-kicker:before{content:"";width:8px;height:8px;border-radius:50%;background:#a7f36b;box-shadow:0 0 14px #a7f36b}
+.choice-node h3,.route-result h3{margin:0 0 12px;color:#f5f3ff;font-size:clamp(1.08rem,2.6vw,1.35rem)}
+.choice-prompt{color:#d5d9e5;line-height:2;margin:0 0 18px}
+.choice-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.choice-option{min-width:0;min-height:58px;padding:13px 15px;border-radius:14px;border:1px solid rgba(203,213,225,.16);background:rgba(255,255,255,.045);color:#eef2ff;font:inherit;line-height:1.8;text-align:right;cursor:pointer;transition:transform .2s,border-color .2s,background .2s,box-shadow .2s}
+.choice-option:hover{transform:translateY(-2px);border-color:rgba(192,132,252,.6);background:rgba(168,85,247,.12)}
+.choice-option[aria-pressed="true"]{border-color:rgba(167,243,107,.65);background:linear-gradient(120deg,rgba(167,243,107,.12),rgba(192,132,252,.14));box-shadow:0 0 0 1px rgba(167,243,107,.12),0 8px 24px rgba(0,0,0,.16)}
+.choice-response{display:none;margin-top:16px;padding:15px 17px;border-right:3px solid #a7f36b;border-radius:10px;background:rgba(167,243,107,.055);color:#e2e8f0;line-height:2}
+.choice-response.is-visible{display:block;animation:choiceReveal .35s ease both}
+@keyframes choiceReveal{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.route-result{display:none;border-color:rgba(167,243,107,.36);background:radial-gradient(ellipse at 90% 0,rgba(167,243,107,.1),transparent 48%),linear-gradient(145deg,rgba(25,24,42,.96),rgba(13,21,28,.98))}
+.route-result.is-visible{display:block;animation:choiceReveal .5s ease both}
+.route-result p{line-height:2}
+.route-symbol{width:54px;height:54px;display:grid;place-items:center;margin-bottom:14px;border-radius:17px;border:1px solid rgba(192,132,252,.35);background:linear-gradient(145deg,rgba(192,132,252,.2),rgba(167,243,107,.1));font-size:1.45rem}
+.route-progress{display:flex;gap:7px;margin:18px 0 5px}
+.route-progress span{height:5px;flex:1;border-radius:9px;background:rgba(255,255,255,.1)}
+.route-progress span.done{background:linear-gradient(90deg,#a7f36b,#c084fc);box-shadow:0 0 12px rgba(167,243,107,.25)}
+.route-reset{margin-top:12px;padding:10px 15px;border-radius:999px;border:1px solid rgba(192,132,252,.35);background:rgba(192,132,252,.1);color:#f3e8ff;font:inherit;cursor:pointer}
+.route-reset:hover{background:rgba(192,132,252,.2)}
+@media(max-width:600px){.choice-options{grid-template-columns:1fr;gap:9px}.choice-option{min-height:52px}.choice-node,.route-result{padding:17px;border-radius:16px}}
+@media(prefers-reduced-motion:reduce){.choice-response.is-visible,.route-result.is-visible{animation:none}.choice-option{transition:none}}
+
 </style>
 </head><body>
   <div class="reading-progress" aria-hidden="true"><span></span></div>
@@ -239,6 +265,19 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
       <p>خواستم او را از آن وضعیت بیرون بیاورم. همین که فاصله‌اش با مستطیل بیشتر شد، لبخندش محو شد و گریه‌ای بی‌امان جایش را گرفت. گریه می‌کرد و من فقط نگاهش می‌کردم. با خودم گفتم شاید اشتباه کرده‌ام؛ شاید چیزی را که برای او معنایی داشته، بی‌آنکه بفهمم از او گرفته‌ام.</p>
       <p>دوباره به همان وضعیت پیشین بازگشت. آرام شد؛ و من، حیران‌تر از قبل، به این فکر فرو رفتم که چه چیزی می‌تواند اندوه را به آرامش و آرامش را به وابستگی تبدیل کند.</p>
     </div>
+
+    <div class="choice-node" data-choice-step="1">
+      <div class="choice-kicker">تصمیم اول · روبه‌روی دختر</div>
+      <h3>نخستین مکث</h3>
+      <p class="choice-prompt">دختر هنوز به مستطیل خیره است. حالا که فهمیده‌ای جداکردنش ممکن است او را بترساند، چه می‌کنی؟</p>
+      <div class="choice-options">
+        <button class="choice-option" type="button" data-value="a" aria-pressed="false">کنارش می‌مانم و حرفش را می‌شنوم.</button>
+        <button class="choice-option" type="button" data-value="b" aria-pressed="false">دوباره تلاش می‌کنم او را از پیوند جدا کنم.</button>
+      </div>
+      <div class="choice-response" data-response="a">کنارش می‌نشینم. این بار به‌جای تصمیم‌گرفتن برای او، می‌پرسم چه چیزی در آن نور پیدا می‌کند. شاید پاسخ، چیزی فراتر از وابستگی باشد.</div>
+      <div class="choice-response" data-response="b">دستم را جلو می‌برم؛ اما مکث می‌کنم. نجات‌دادن کسی بدون فهمیدن خواسته‌اش، شاید شکل دیگری از نادیده‌گرفتن او باشد.</div>
+    </div>
+
   </section>
 
   <section id="revelation">
@@ -269,6 +308,19 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
       <p>با صدایی بلند پرسیدم. ناگهان صدایی از میان جمعیت برخاست:</p>
       <p class="dialogue"><span class="quote">«یک تازه‌وارد دیگر؟»</span></p>
     </div>
+
+    <div class="choice-node" data-choice-step="2">
+      <div class="choice-kicker">تصمیم دوم · تالار شش‌ضلعی‌ها</div>
+      <h3>در میان جمعیت</h3>
+      <p class="choice-prompt">صداهای بسیاری از تالار می‌آیند. برای فهمیدن حقیقت، کدام مسیر را انتخاب می‌کنی؟</p>
+      <div class="choice-options">
+        <button class="choice-option" type="button" data-value="a" aria-pressed="false">به‌جای دخالت، آدم‌ها را با دقت مشاهده می‌کنم.</button>
+        <button class="choice-option" type="button" data-value="b" aria-pressed="false">با یکی از افراد وارد گفت‌وگو می‌شوم.</button>
+      </div>
+      <div class="choice-response" data-response="a">کمی عقب می‌ایستم و تفاوت رشته‌ها، نورها و رفتار آدم‌ها را می‌بینم. شاید الگوها پیش از پاسخ‌ها خودشان را نشان بدهند.</div>
+      <div class="choice-response" data-response="b">به جوانی نزدیک می‌شوم و آرام می‌پرسم چه چیزی برایش مهم است. این بار قرار نیست پاسخ را به او تحمیل کنم.</div>
+    </div>
+
   </section>
 
   <section id="author-note">
@@ -375,6 +427,18 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
       <p class="book-line">این کتاب، یک <strong>ناکتاب</strong> بود.</p>
       <p>جمله‌های برجسته و پررنگ آن را از ابتدا دوباره بخوانید.</p>
       </div>
+    
+    <div class="choice-node" data-choice-step="3">
+      <div class="choice-kicker">تصمیم سوم · مستطیل خودت</div>
+      <h3>آخرین انتخاب</h3>
+      <p class="choice-prompt">حالا رشته باریک خودت را هم دیده‌ای. پیش از خروج از تالار چه تصمیمی می‌گیری؟</p>
+      <div class="choice-options">
+        <button class="choice-option" type="button" data-value="a" aria-pressed="false">از خودم می‌پرسم چرا این صفحه را روشن می‌کنم.</button>
+        <button class="choice-option" type="button" data-value="b" aria-pressed="false">بی‌درنگ از تالار بیرون می‌روم.</button>
+      </div>
+      <div class="choice-response" data-response="a">به مستطیل نگاه می‌کنم و از خودم می‌پرسم: «برای چه آمده‌ام؟» شاید شناختن دلیل یک انتخاب، آغاز آزادی باشد.</div>
+      <div class="choice-response" data-response="b">راه خروج را پیش می‌گیرم. هنوز همه پاسخ‌ها را نمی‌دانم، اما می‌توانم بعداً با ذهنی آرام‌تر به آن‌ها برگردم.</div>
+    </div>
     <div class="content-box final-box">
       <p id="final" style="scroll-margin-top:110px"><strong>پایان؛ یا شاید آغاز</strong></p>
       <p>بار دیگر به تالار نگاه کردم. مستطیل‌ها هنوز می‌درخشیدند؛ پیام‌ها، تصویرها و صداها هنوز از دلشان عبور می‌کردند و رشته‌ها، نامرئی و پیوسته، میان آدم‌ها کشیده شده بودند. اما حالا می‌دانستم پشت هر صفحه، انسانی ایستاده است؛ با نیازها، نگرانی‌ها، خاطره‌ها و انتخاب‌های خودش.</p>
@@ -388,6 +452,16 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
       <p><strong>حالا به سؤال آغاز داستان برگرد: آخرین بار که بی‌هدف گوشی‌ات را باز کردی، چقدر گذشت تا متوجه زمان شوی؟ آیا پاسخت تغییری کرده است؟</strong></p>
       <p><strong>ناکتاب؛ پایانِ یک روایت، آغازِ انتخابی آگاهانه‌تر.</strong></p>
     </div>
+
+    <div class="route-result" id="route-result" aria-live="polite" aria-atomic="true">
+      <div class="route-symbol" aria-hidden="true">⬡</div>
+      <div class="choice-kicker">ردّ انتخاب‌های تو</div>
+      <h3 id="route-title">مسیر تو شکل گرفت</h3>
+      <p id="route-copy"></p>
+      <p id="route-detail" class="thought"></p>
+      <button class="route-reset" type="button" id="route-reset">↻ تجربه دوباره مسیر</button>
+    </div>
+
   </section>
 </div>
 
@@ -469,3 +543,64 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
   document.querySelectorAll('.container > section').forEach((section) => {
     section.classList.add('is-visible');
   });
+
+  // Branching narrative: each choice reveals a different passage and shapes the final reflection.
+  const routeChoices = {};
+  const routeNodes = [...document.querySelectorAll('[data-choice-step]')];
+  const routeResult = document.getElementById('route-result');
+  const routeTitle = document.getElementById('route-title');
+  const routeCopy = document.getElementById('route-copy');
+  const routeDetail = document.getElementById('route-detail');
+  const routeReset = document.getElementById('route-reset');
+  const updateRoute = () => {
+    const count = Object.keys(routeChoices).length;
+    const progress = document.querySelector('.route-progress');
+    if (progress) progress.querySelectorAll('span').forEach((item, index) => item.classList.toggle('done', index < count));
+    if (count !== 3) {
+      routeResult.classList.remove('is-visible');
+      routeResult.style.display = 'none';
+      return;
+    }
+    const reflective = Object.values(routeChoices).filter((value) => value === 'a').length;
+    const routes = [
+      {title:'راهِ مکث',symbol:'◌',copy:'تو پیش از هر چیز، به مکث و فاصله‌گرفتن از واکنش فوری بها دادی. در مسیر تو، فهمیدن مقدم بر تغییر دادن است.',detail:'این مسیر یادآوری می‌کند که آگاهی همیشه با یک حرکت بزرگ آغاز نمی‌شود؛ گاهی با یک سؤال آرام شروع می‌شود.'},
+      {title:'راهِ جست‌وجو',symbol:'⌕',copy:'انتخاب‌هایت میان مشاهده و عمل حرکت کردند. تو نه همه‌چیز را پذیرفتی و نه بی‌درنگ کنار کشیدی؛ دنبال معنای پشت اتفاق‌ها گشتی.',detail:'این مسیر یک پاسخ قطعی ندارد؛ ارزشش در پرسیدن، سنجیدن و آماده‌بودن برای بازنگری است.'},
+      {title:'راهِ مشاهده',symbol:'⬡',copy:'تو بیشتر از آنکه بخواهی جهان دیگران را تغییر بدهی، تلاش کردی سازوکار آن را بفهمی. نگاهت به جزئیات و تفاوت‌ها برگشت.',detail:'مشاهده به‌تنهایی کافی نیست، اما می‌تواند شروع انتخابی سنجیده‌تر باشد.'},
+      {title:'راهِ پرسش',symbol:'✧',copy:'در هر سه دوراهی، تصمیم گرفتی پیش از واکنش، دلیل و معنای اتفاق را پیدا کنی. مسیر تو از پرسش‌کردن ساخته شد.',detail:'پرسیدن قرار نیست تو را از زندگی دور کند؛ می‌تواند کمک کند آگاهانه‌تر در آن حضور داشته باشی.'}
+    ];
+    const selected = reflective === 3 ? routes[3] : reflective === 2 ? routes[0] : reflective === 1 ? routes[1] : routes[2];
+    routeTitle.textContent = selected.title;
+    routeCopy.textContent = selected.copy;
+    routeDetail.textContent = selected.detail;
+    routeResult.querySelector('.route-symbol').textContent = selected.symbol;
+    routeResult.style.display = 'block';
+    routeResult.classList.add('is-visible');
+  };
+  routeNodes.forEach((node) => {
+    node.querySelectorAll('.choice-option').forEach((button) => {
+      button.addEventListener('click', () => {
+        const step = node.dataset.choiceStep;
+        const value = button.dataset.value;
+        routeChoices[step] = value;
+        node.querySelectorAll('.choice-option').forEach((option) => option.setAttribute('aria-pressed', String(option === button)));
+        node.querySelectorAll('.choice-response').forEach((response) => response.classList.toggle('is-visible', response.dataset.response === value));
+        updateRoute();
+      });
+    });
+  });
+  if (routeReset) routeReset.addEventListener('click', () => {
+    Object.keys(routeChoices).forEach((key) => delete routeChoices[key]);
+    routeNodes.forEach((node) => {
+      node.querySelectorAll('.choice-option').forEach((button) => button.setAttribute('aria-pressed','false'));
+      node.querySelectorAll('.choice-response').forEach((response) => response.classList.remove('is-visible'));
+    });
+    updateRoute();
+    routeNodes[0]?.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  // Show the route card only after all three decisions have been made.
+  updateRoute();
+
+})();
+</script>
+</body>
+</html>

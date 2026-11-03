@@ -714,7 +714,7 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
   }
 
   document.addEventListener('click', event => {
-    const profile = event.target.closest('.gate-option[ data-profile], .gate-option[data-profile]');
+    const profile = event.target.closest('.gate-option[data-profile]');
     const choice = event.target.closest('.choice-option[data-value]');
     if (profile) savedChoices.profile = profile.dataset.profile;
     if (choice) {

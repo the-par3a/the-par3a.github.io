@@ -234,6 +234,27 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 @media(max-width:640px){.reader-gate{margin:22px auto 38px;padding:22px 16px;border-radius:21px}.gate-options{grid-template-columns:1fr;gap:9px}.gate-option{min-height:72px;padding:11px}.gate-option strong{font-size:.86rem}.gate-option small{font-size:.73rem}}
 @media(prefers-reduced-motion:reduce){.gate-option,.gate-start{transition:none}.path-narrative{animation:none}}
 
+
+/* Field notes: a persistent, reader-facing clue journal. */
+.field-notes{margin:34px 0 42px;padding:clamp(20px,3vw,30px);border:1px solid rgba(167,243,107,.34);border-radius:22px;background:linear-gradient(145deg,rgba(26,39,34,.82),rgba(15,19,29,.94));box-shadow:0 16px 38px rgba(0,0,0,.2)}
+.field-notes-head{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+.field-notes h2{margin:0;text-align:right;font-size:clamp(1.25rem,3vw,1.7rem);color:#d9f99d}
+.field-notes h2:after{display:none}
+.field-notes-intro{color:var(--muted);font-size:.9rem;margin:8px 0 18px}
+.clue-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.clue-entry{min-height:116px;padding:15px;border:1px solid rgba(192,132,252,.22);border-radius:15px;background:rgba(255,255,255,.025);transition:border-color .2s,background .2s}
+.clue-entry.is-unlocked{border-color:rgba(167,243,107,.38);background:rgba(167,243,107,.055)}
+.clue-entry h3{margin:0 0 6px;font-size:.98rem;color:#e9d5ff}
+.clue-entry p{margin:0;color:var(--muted);font-size:.86rem;line-height:1.9}
+.clue-entry .clue-state{display:inline-block;margin-top:9px;font-size:.72rem;color:#a3adbd}
+.clue-entry.is-unlocked .clue-state{color:var(--accent)}
+.field-notes-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:16px}
+.field-notes-count{font-size:.82rem;color:#d9f99d;font-weight:800}
+.field-notes-reset{border:1px solid rgba(192,132,252,.35);border-radius:999px;padding:8px 13px;background:rgba(192,132,252,.08);color:var(--text);font:700 .78rem Vazirmatn,Tahoma,sans-serif;cursor:pointer}
+.field-notes-reset:hover{border-color:var(--accent)}
+#afterimage .content-box{border-color:rgba(216,180,254,.42)}
+@media(max-width:620px){.clue-list{grid-template-columns:1fr}.field-notes{padding:18px 14px}.field-notes-head{align-items:flex-start}}
+
 </style>
 </head><body>
   <div class="reading-progress" aria-hidden="true"><span></span></div>
@@ -373,6 +394,35 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 <p>شاید روشن‌اندیشی در برابر امر ناشناخته، توانایی ایستادن میان دو وسوسه باشد: انکار چیزی که هنوز توضیحی ندارد، و باورکردن چیزی که هنوز شاهدی برایش نداریم. می‌توان از راز نترسید، بی‌آنکه آن را به افسانه‌ای قطعی تبدیل کرد.</p>
 <p><strong>در آخرین صفحهٔ دفتر ثبت، جمله‌ای با دست‌خطی ناشناس پیدا شد: «اگر روزی آسمان نقشهٔ شهر را کامل کرد، به مرکز آن نگاه نکنید.» زیر جمله، تاریخ فردا نوشته شده بود.</strong></p>
 </div>
+
+<section id="afterimage" aria-labelledby="afterimage-title" data-clue-unlock="4">
+<h2 id="afterimage-title" class="gradient-text">فصل چهارم: تاریخِ فردا</h2>
+<div class="content-box story-text">
+<p class="story-opening">صبحِ بعد، شهر به یاد آورد که هنوز به دنیا نیامده است.</p>
+<p>ساعت هفت و دوازده دقیقه، ادارهٔ ثبت رویش گزارشی دریافت کرد که در سربرگ آن تاریخِ روز بعد درج شده بود. گزارش نه از رصدخانه آمده بود و نه از شبکهٔ شهری؛ از دبیرخانه‌ای ارسال شده بود که طبق نقشهٔ رسمی، هنوز ساخته نشده بود. در فهرست گیرندگان، نام همهٔ اعضای گروه دیده می‌شد. کنار نام لیلا، عبارت «حاضر در جلسهٔ پیشین» ثبت شده بود؛ جلسه‌ای که هیچ‌کدام به خاطر نمی‌آوردند.</p>
+<p>دکتر سهرابی فایل را روی نمایشگر باز کرد. متن کوتاه بود: «مرحلهٔ نخست با موفقیت به پایان رسید. حافظهٔ محلی تثبیت شده است. برای آغاز مرحلهٔ دوم، حضور ناظر لازم است.» پایین صفحه، امضایی نبود؛ فقط مختصاتی که با مرکز هندسی نقشهٔ رویش تطبیق داشت.</p>
+<p>نادری، که تا آن لحظه ساکت مانده بود، گفت: «این مختصات را می‌شناسم.» بعد از جیب داخلی کتش عکسی بیرون آورد؛ عکس قدیمی همان زمینی که شهر روی آن ساخته شده بود. در پس‌زمینه، پیش از آنکه حتی نخستین خیابان خاک‌برداری شود، ساختمانی مدور دیده می‌شد. در نسخهٔ امروز عکس، ساختمان وجود نداشت. در نسخهٔ قدیمی، سایهٔ کسی کنار در ایستاده بود.</p>
+<p>لیلا تصویر را بزرگ کرد. چهره واضح نبود، اما دست راست آن شخص روی شیشه قرار داشت؛ درست در همان نقطه‌ای که در تصویر تازه، انعکاس اتاق کنترل دیده می‌شد. او آهسته گفت: «این عکس را چه زمانی گرفته‌اند؟»</p>
+<p class="thought">نادری جواب نداد. به پشت عکس نگاه می‌کرد؛ جایی که با مدادی کم‌رنگ نوشته شده بود: «برای وقتی که شهر، ناظر خودش را شناخت.»</p>
+<p>در همان لحظه، نمایشگر خاموش شد. روی شیشهٔ سیاه آن، به‌جای چهرهٔ حاضران، اتاقی خالی منعکس می‌شد؛ اتاقی با پنجره‌ای رو به آسمانی روشن. روی میز آن اتاق، نسخه‌ای از همین عکس قرار داشت. دستی از بیرون قاب وارد شد، عکس را برداشت و پشت آن چیزی نوشت.</p>
+<p class="revelation-line">«مرحلهٔ دوم، از لحظه‌ای آغاز می‌شود که خواننده این جمله را به خاطر بسپارد.»</p>
+<p>هیچ‌کس حرفی نزد. برای نخستین بار، مسئله فقط این نبود که شهر چه چیزی را پنهان می‌کند؛ پرسش این بود که آیا مشاهده‌گر بیرون از این ماجرا ایستاده است، یا از ابتدا بخشی از آن بوده. سهرابی فایل را نبست. نادری عکس را برنگرداند. لیلا به شیشه نگاه کرد و منتظر ماند تا انعکاس، یک حرکت دیرتر از او انجام دهد.</p>
+<p class="book-line">در دفتر ثبت، تاریخِ فردا پاک شده بود؛ اما جای دست‌خط باقی مانده بود.</p>
+</div>
+</section>
+
+<section class="field-notes" id="field-notes" aria-labelledby="field-notes-title">
+<div class="field-notes-head"><h2 id="field-notes-title">دفترچهٔ کشفیات</h2><span class="choice-kicker">FIELD NOTES · ROYESH</span></div>
+<p class="field-notes-intro">سرنخ‌ها با رسیدن به فصل مربوط باز می‌شوند. این دفترچه روی همین دستگاه ذخیره می‌شود؛ می‌توانی هر زمان مسیر خواندن را از نو تجربه کنی.</p>
+<div class="clue-list" aria-live="polite">
+<article class="clue-entry" data-clue-card="1"><h3>۱. هفتادوسه ثانیه</h3><p>زمانی که در ثبت دستگاه‌ها ناپدید می‌شود؛ نخستین شکاف میان ساعت شهر و تجربهٔ ساکنان.</p><span class="clue-state">قفل است</span></article>
+<article class="clue-entry" data-clue-card="2"><h3>۲. صدای هم‌زمان</h3><p>صدای لیلا از بلندگوی خاموش؛ در حالی که خود او کنار دستگاه ایستاده است.</p><span class="clue-state">قفل است</span></article>
+<article class="clue-entry" data-clue-card="3"><h3>۳. شهرِ آن‌سوی آینه</h3><p>تصویری از رویشی دیگر؛ شهری با تفاوت‌هایی که نمی‌توان آن‌ها را صرفاً با خطای تصویر توضیح داد.</p><span class="clue-state">قفل است</span></article>
+<article class="clue-entry" data-clue-card="4"><h3>۴. ناظر</h3><p>گزارشی از فردا و جمله‌ای که مرز میان خواننده و جهان داستان را به پرسش می‌کشد.</p><span class="clue-state">قفل است</span></article>
+</div>
+<div class="field-notes-foot"><span class="field-notes-count" id="field-notes-count">۰ از ۴ سرنخ کشف شده</span><button class="field-notes-reset" type="button" id="field-notes-reset">پاک‌کردن دفترچه و شروع دوباره</button></div>
+</section>
+
 <div class="route-result" id="route-result" aria-live="polite" aria-atomic="true">
 <div class="route-symbol" aria-hidden="true">⬡</div><div class="choice-kicker">ردّ انتخاب‌های تو</div><h3 id="route-title">نقشهٔ مسیر تو</h3><p id="route-copy"></p><p id="route-detail" class="thought"></p><button class="route-reset" type="button" id="route-reset">↻ تجربه دوباره مسیر</button>
 </div></section>
@@ -598,5 +648,91 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
   });
 })();
 </script>
+
+<script>
+(() => {
+  const storageKey = 'royesh-field-notes-v1';
+  const cards = [...document.querySelectorAll('[data-clue-card]')];
+  const countLabel = document.getElementById('field-notes-count');
+  const resetButton = document.getElementById('field-notes-reset');
+  if (!cards.length || !countLabel || !resetButton) return;
+
+  let unlocked = [];
+  let savedChoices = {};
+  const readSaved = () => {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(storageKey) || '{}');
+      unlocked = Array.isArray(parsed.unlocked) ? parsed.unlocked.map(Number).filter(n => n >= 1 && n <= 4) : [];
+      savedChoices = parsed.choices && typeof parsed.choices === 'object' ? parsed.choices : {};
+    } catch (_) {
+      unlocked = [];
+      savedChoices = {};
+    }
+  };
+  const persist = () => {
+    try { localStorage.setItem(storageKey, JSON.stringify({unlocked:[...new Set(unlocked)],choices:savedChoices})); }
+    catch (_) { /* Private browsing or storage restrictions: the journal still works for this visit. */ }
+  };
+  const render = () => {
+    const unique = [...new Set(unlocked)];
+    cards.forEach(card => {
+      const open = unique.includes(Number(card.dataset.clueCard));
+      card.classList.toggle('is-unlocked', open);
+      const state = card.querySelector('.clue-state');
+      if (state) state.textContent = open ? 'کشف شده' : 'قفل است';
+    });
+    countLabel.textContent = unique.length.toLocaleString('fa-IR') + ' از ۴ سرنخ کشف شده';
+  };
+  const unlock = (number) => {
+    if (!unlocked.includes(number)) {
+      unlocked.push(number);
+      persist();
+      render();
+    }
+  };
+  readSaved();
+  render();
+
+  const watched = [
+    ['horror',1], ['revelation',2], ['truth',3], ['afterimage',4]
+  ];
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const match = watched.find(([id]) => entry.target.id === id);
+          if (match) unlock(match[1]);
+        }
+      });
+    }, {threshold:0.18});
+    watched.forEach(([id]) => {
+      const target = document.getElementById(id);
+      if (target) observer.observe(target);
+    });
+  } else {
+    watched.forEach(([,number]) => unlock(number));
+  }
+
+  document.addEventListener('click', event => {
+    const profile = event.target.closest('.gate-option[ data-profile], .gate-option[data-profile]');
+    const choice = event.target.closest('.choice-option[data-value]');
+    if (profile) savedChoices.profile = profile.dataset.profile;
+    if (choice) {
+      const node = choice.closest('[data-choice-step]');
+      if (node) savedChoices[node.dataset.choiceStep] = choice.dataset.value;
+    }
+    if (profile || choice) persist();
+  });
+
+  resetButton.addEventListener('click', () => {
+    unlocked = [];
+    savedChoices = {};
+    try { localStorage.removeItem(storageKey); } catch (_) {}
+    render();
+    document.getElementById('reader-gate')?.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+})();
+</script>
+
 </body>
 </html>

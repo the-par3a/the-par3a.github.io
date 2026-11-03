@@ -739,5 +739,90 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 })();
 </script>
 
+
+<script>
+/* Independent entry controller: keeps the gate working even if another page script fails. */
+(() => {
+  const gate = document.getElementById('reader-gate');
+  const start = document.getElementById('gate-start');
+  const page = document.querySelector('.container');
+  if (!gate || !start || !page) return;
+
+  const profiles = {
+    curious: {
+      opening: 'The first thing that caught your attention was the contradiction between the city map and the arrangement of the stars—as if the sky showed a design that did not yet exist on the ground.',
+      chapterTwo: 'The more carefully you compared the data, the thinner the line became between instrument error and an unknown event. No hypothesis had won.',
+      chapterThree: 'On the final night, instead of staring at the central light, you followed the small changes around the image. Perhaps the clue lay in something not yet complete.',
+      ending: 'You entered the mystery through a contradiction and learned that seeing a pattern is not the same as understanding its origin.'
+    },
+    maker: {
+      opening: 'Instead of simply staring at the image, you thought about building an instrument that could record the phenomenon independently of networks and human interpretation.',
+      chapterTwo: 'The instruments were built, but every measurement raised a new question. Precision did not remove the mystery; it gave it a more precise shape.',
+      chapterThree: 'When the data conflicted, you realized that building new instruments was not enough; their limitations had to be understood, too.',
+      ending: 'Your path began with building, but led to humility before something that could not yet be measured.'
+    },
+    listener: {
+      opening: 'You sought out those who had dreamed of the unknown street. Each account was vague on its own; together, they formed a troubling pattern.',
+      chapterTwo: 'Listening to the accounts was not easy; some memories contradicted one another. Still, you dismissed none without a reason.',
+      chapterThree: "On the final night, you heard Leila's voice through the speaker while she was in the room at the same time. This time, the team's silence weighed more heavily than any answer.",
+      ending: 'You approached the mystery by listening, but learned that a human account is a clue, not proof.'
+    },
+    skeptic: {
+      opening: 'You first questioned the timestamps, device connections, and possibility of a shared error. Before facing the unknown, you had to take familiar explanations seriously.',
+      chapterTwo: 'Independent tests ruled out simple hypotheses, but could not identify the phenomenon. Disproving one explanation did not prove another.',
+      chapterThree: 'In the final report, rather than choosing an exciting answer, you documented every open hypothesis and the limits of the evidence.',
+      ending: 'Your skepticism did not block curiosity; it helped you distinguish a genuine mystery from a convenient explanation.'
+    }
+  };
+  const slotIds = ['path-opening', 'path-chapter-two', 'path-chapter-three', 'path-final'];
+
+  document.addEventListener('click', (event) => {
+    const target = event.target instanceof Element ? event.target : event.target?.parentElement;
+    if (!target) return;
+
+    const option = target.closest('#reader-gate .gate-option[data-profile]');
+    if (option) {
+      const profile = option.dataset.profile;
+      if (!profiles[profile]) return;
+      gate.dataset.selectedProfile = profile;
+      gate.querySelectorAll('.gate-option[data-profile]').forEach((item) => {
+        item.setAttribute('aria-pressed', String(item === option));
+      });
+      start.disabled = false;
+      start.removeAttribute('disabled');
+      start.style.pointerEvents = 'auto';
+      start.setAttribute('aria-disabled', 'false');
+      start.textContent = 'Enter the story ←';
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      return;
+    }
+
+    if (target.closest('#gate-start')) {
+      const profile = gate.dataset.selectedProfile;
+      if (!profiles[profile]) {
+        start.disabled = false;
+        start.removeAttribute('disabled');
+        start.setAttribute('aria-disabled', 'true');
+        return;
+      }
+      const route = profiles[profile];
+      [route.opening, route.chapterTwo, route.chapterThree, route.ending].forEach((value, index) => {
+        const slot = document.getElementById(slotIds[index]);
+        if (slot) {
+          slot.textContent = value;
+          slot.hidden = false;
+        }
+      });
+      page.classList.remove('is-locked');
+      gate.hidden = true;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      document.querySelector('.intro-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, true);
+})();
+</script>
+
 </body>
   </html>

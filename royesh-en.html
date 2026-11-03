@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b0d12">
-<meta name="description" content="رویش؛ داستانی تعاملی دربارهٔ راز کیهانی، حافظه و مرزهای شناخت.">
-<title>رویش | شهری میان نقشه و واقعیت</title>
+<meta name="description" content="Royesh: an interactive story about cosmic mystery, memory, and the limits of knowledge.">
+<title>Royesh | A City Between Map and Reality</title>
 <style>
 @font-face{font-family:Vazirmatn;src:url("./fonts/Vazirmatn.woff2") format("woff2");font-style:normal;font-weight:100 900;font-display:swap}
 :root{color-scheme:dark;--bg:#0b0d12;--panel:rgba(18,22,32,.72);--text:#f2f5f9;--muted:#a3adbd;--line:rgba(192,132,252,.25);--accent:#a7f36b;--purple:#c084fc;--purple-strong:#d8b4fe;--blue:#8bc7ff;--radius:22px}
@@ -258,18 +258,18 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 </style>
 </head><body>
   <div class="reading-progress" aria-hidden="true"><span></span></div>
-  <button class="reading-mode-toggle" type="button" aria-pressed="false">حالت مطالعه</button>
+  <button class="reading-mode-toggle" type="button" aria-pressed="false">Reading mode</button>
   <div class="bg-overlay" aria-hidden="true"></div>
 <header class="topbar">
   <nav class="nav wrap" aria-label="ناوبری اصلی">
-    <a class="brand" href="./index.html"><span class="brand-mark">P</span><span>پارسا <span dir="ltr">/ PARSA</span></span></a>
+    <a class="brand" href="./index.html"><span class="brand-mark">P</span><span>Parsa <span dir="ltr">/ PARSA</span></span></a>
     <div class="nav-links">
-      <a href="./index.html">صفحهٔ اصلی</a>
-      <a href="#horror">نقشهٔ شهر</a>
-      <a href="#revelation">ایده و آزمایش</a>
-      <a href="#truth">آیندهٔ رویش</a>
-      <a href="#author-note">یادداشت نویسنده</a>
-      <a href="#final">پایان</a>
+      <a href="./index.html">Home</a>
+      <a href="#horror">City Map</a>
+      <a href="#revelation">Ideas & Experiments</a>
+      <a href="#truth">Royesh's Future</a>
+      <a href="#author-note">Author's Note</a>
+      <a href="#final">The End</a>
     </div>
   </nav>
 </header>
@@ -280,163 +280,163 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 <div class="container is-locked">
 <section class="reader-gate" id="reader-gate" aria-labelledby="gate-title">
 <div class="gate-orb" aria-hidden="true"><span></span></div><p class="gate-eyebrow">A NEW WORLD · 2042</p>
-<h1 id="gate-title" class="gradient-text">رویش؛ جایی بیرون از حافظهٔ آسمان</h1>
-<p class="gate-lead">هجده ماه پس از تأسیس رویش، پدیده‌ای در آسمان و حافظهٔ ساکنان ظاهر شده که هیچ‌یک از ابزارهای شهر قادر به توضیحش نیستند. هر شب، ستاره‌ای در نقطه‌ای ثابت خاموش می‌شود؛ و هر صبح، کسی چیزی را به یاد می‌آورد که هرگز اتفاق نیفتاده است.</p>
-<p class="gate-lead">از کدام دریچه به این راز نزدیک می‌شوی؟ انتخاب تو زاویهٔ دید آغازین را تغییر می‌دهد؛ نه آنچه در انتظار شهر است.</p>
+<h1 id="gate-title" class="gradient-text">Royesh: Beyond the Sky's Memory</h1>
+<p class="gate-lead">Eighteen months after Royesh was founded, an unexplained phenomenon has emerged in the sky and in the memories of its residents. Every night, a star vanishes from a fixed point; every morning, someone remembers something that never happened.</p>
+<p class="gate-lead">Through which lens will you approach this mystery? Your choice changes your starting perspective—not what awaits the city.</p>
 <div class="gate-options" role="group" aria-label="زاویه ورود به جهان رویش">
-<button class="gate-option" type="button" data-profile="curious" aria-pressed="false"><span class="gate-index">۰۱</span><span><strong>ردیابی یک تناقض</strong><small>می‌خواهم بدانم چرا نقشه با آنچه در شهر می‌گذرد تفاوت دارد.</small></span></button>
-<button class="gate-option" type="button" data-profile="maker" aria-pressed="false"><span class="gate-index">۰۲</span><span><strong>آزمودن یک امکان</strong><small>می‌خواهم امکان ساختن راهی تازه را بررسی کنم.</small></span></button>
-<button class="gate-option" type="button" data-profile="listener" aria-pressed="false"><span class="gate-index">۰۳</span><span><strong>شنیدن روایت‌های متعارض</strong><small>می‌خواهم بفهمم هرکس از کدام جای شهر به مسئله نگاه می‌کند.</small></span></button>
-<button class="gate-option" type="button" data-profile="skeptic" aria-pressed="false"><span class="gate-index">۰۴</span><span><strong>امتحان‌کردن ادعاها</strong><small>پیش از پذیرفتن هر نتیجه، می‌خواهم حدود اعتبارش را بدانم.</small></span></button>
+<button class="gate-option" type="button" data-profile="curious" aria-pressed="false"><span class="gate-index">۰۱</span><span><strong>Trace a contradiction</strong><small>I want to understand why the map differs from what is happening in the city.</small></span></button>
+<button class="gate-option" type="button" data-profile="maker" aria-pressed="false"><span class="gate-index">۰۲</span><span><strong>Test a possibility</strong><small>I want to explore whether a new path can be built.</small></span></button>
+<button class="gate-option" type="button" data-profile="listener" aria-pressed="false"><span class="gate-index">۰۳</span><span><strong>Hear conflicting accounts</strong><small>I want to understand how people see the problem from different parts of the city.</small></span></button>
+<button class="gate-option" type="button" data-profile="skeptic" aria-pressed="false"><span class="gate-index">۰۴</span><span><strong>Question the claims</strong><small>Before accepting any conclusion, I want to know how reliable it is.</small></span></button>
 </div>
-<p class="gate-note">این انتخاب‌ها برچسب شخصیت نیستند؛ چهار نقطهٔ ورودند. ممکن است در ادامه، موضعی دیگر برایت قانع‌کننده‌تر شود.</p>
-<button class="gate-start" id="gate-start" type="button" disabled>ورود به روایت <span aria-hidden="true">←</span></button>
+<p class="gate-note">These choices are not personality labels; they are four possible entry points. Another perspective may become more convincing as the story unfolds.</p>
+<button class="gate-start" id="gate-start" type="button" disabled>Enter the story <span aria-hidden="true">←</span></button>
 </section>
 
 <section class="intro-section" aria-labelledby="intro-title">
-<h1 id="intro-title" class="gradient-text">رویش؛ شهری که آسمان به خاطرش نمی‌آید</h1>
+<h1 id="intro-title" class="gradient-text">Royesh: The City the Sky Cannot Remember</h1>
 <div class="content-box intro-box">
-<p><strong>رویش، سال ۲۰۴۲.</strong> از دور، شهر شبیه طرحی تازه از دل خاک بیرون‌آمده است: خیابان‌های مستقیم، بلوک‌های هم‌اندازه و ساختمانی شیشه‌ای که قرار است روزی مرکز اداری شهر باشد. از نزدیک، نظم هندسی نقشه جای خود را به زندگی داده است؛ به دیوارهایی که هنوز رنگ نشده‌اند، مغازه‌هایی که زودتر از پیاده‌روها رونق گرفته‌اند و مردمی که هرکدام برای این مکان معنایی متفاوت قائل‌اند.</p>
-<p>هجده ماه از تأسیس شهر می‌گذرد و نزدیک به هشت هزار نفر در آن زندگی می‌کنند. در هفده شب گذشته، ساعت‌های دیجیتال مرکز شهر دقیقاً در ساعت ۰۳:۱۷ برای هفتادوسه ثانیه از کار افتاده‌اند؛ نه خاموش، بلکه متوقف. دوربین‌ها در همان بازه تصویری یکسان ثبت کرده‌اند: خیابانی خالی، زیر آسمانی که آرایش ستارگانش با هیچ تاریخ ثبت‌شده‌ای تطبیق ندارد. عجیب‌تر آن‌که چند نفر از ساکنان، صبح روز بعد، از قدم‌زدن در همان خیابان حرف زده‌اند؛ خیابانی که در شهر وجود ندارد.</p>
-<p>شورا ابتدا اختلال‌ها را مسئله‌ای فنی می‌دانست. اما وقتی رصدخانهٔ شهر گزارش کرد که در ساعت ۰۳:۱۷، نور ستارگان در داده‌های خام به الگویی شبیه نقشهٔ خیابان‌های رویش تبدیل می‌شود، موضوع از محدودهٔ یک نقص فنی بیرون رفت. الگو هر شب کامل‌تر می‌شد؛ گویی چیزی از بالا، طرح شهر را با دقتی غیرممکن بازخوانی می‌کرد.</p>
-<p>گروهی محدود از پژوهشگران، مهندسان و ساکنان مأمور شده‌اند تا پیش از آن‌که شورا شهر را تخلیه یا پدیده را پنهان کند، منشأ این رخدادها را بررسی کنند. تو به این گروه پیوسته‌ای. مأموریت رسمی ساده است: تعیین اینکه با خطایی در ابزارها روبه‌رو هستید یا پدیده‌ای که هنوز زبان مناسبی برای توصیفش ندارید.</p>
-<p class="thought">اگر آسمان، شهر را پیش از ساخته‌شدنش می‌شناخته، پس چه چیزی روی این دشت بنا شده است؟ و چرا بعضی از ساکنان، خاطرات مکانی را دارند که هنوز وجود ندارد؟</p>
+<p><strong>Royesh, 2042.</strong> From a distance, the city looks like a fresh blueprint rising from the earth: straight streets, uniform blocks, and a glass building intended to become its administrative center. Up close, the map's geometric order has given way to life—unpainted walls, shops thriving before the sidewalks are finished, and people who each see this place differently.</p>
+<p>Eighteen months have passed since the city was founded, and nearly eight thousand people live here. For the past seventeen nights, the digital clocks downtown have stopped—not switched off, but frozen—for exactly seventy-three seconds at 03:17. During that interval, the cameras record the same image: an empty street beneath a sky whose star pattern matches no recorded date. Stranger still, several residents have spoken the next morning of walking along that very street—a street that does not exist in the city.</p>
+<p>At first, the council considered the disruptions a technical problem. But when the observatory reported that, at 03:17, starlight in the raw data formed a pattern resembling Royesh's street map, the matter went beyond a technical fault. The pattern grew more complete every night, as though something above were rereading the city's blueprint with impossible precision.</p>
+<p>A small team of researchers, engineers, and residents has been tasked with investigating these events before the council evacuates the city or conceals the phenomenon. You have joined them. The official mission is simple: determine whether you are dealing with faulty instruments or a phenomenon for which you do not yet have the language.</p>
+<p class="thought">If the sky knew the city before it was built, then what exactly has been built on this plain? And why do some residents remember a place that does not yet exist?</p>
 </div></section>
 
 <section id="horror">
-<h2 class="gradient-text">فصل اول: خیابانی که در هیچ نقشه‌ای نبود</h2>
+<h2 class="gradient-text">Chapter One: The Street on No Map</h2>
 <div class="content-box story-text">
-<p class="story-opening">ساعت ۰۳:۱۷ بود. برای هفتادوسه ثانیه، شهر از حرکت بازماند؛ دست‌کم در تمام دستگاه‌هایی که زمان را ثبت می‌کردند.</p>
+<p class="story-opening">It was 03:17. For seventy-three seconds, the city stopped moving—or at least every device that recorded time said it did.</p>
 <p class="path-narrative" id="path-opening" hidden></p>
-<p>در اتاق کنترل رصدخانه، نقشهٔ شهر روی نمایشگر اصلی می‌درخشید. کنار آن، تصویر آسمان شب قبل باز بود؛ تصویری که در آن ستاره‌ها به‌جای پراکندگی طبیعی، خطوطی منظم ساخته بودند. خطوط، خیابان‌های رویش را نشان می‌دادند؛ حتی کوچه‌ای را که هنوز خاک‌برداری نشده بود. دکتر سهرابی تصویر را بزرگ کرد و گفت: «این تطبیق تصادفی نیست. اما هنوز نمی‌دانیم داریم چه چیزی را می‌بینیم.»</p>
-<p>نخستین فرضیه، خطای هم‌زمان در سامانهٔ زمان‌سنجی و دوربین‌ها بود. اما ساعت‌های مکانیکی، دستگاه‌های مستقل و حتی زمان‌سنجی ثبت‌شده در یک ایستگاه هواشناسی بیرون شهر، همان توقف هفتادوسه‌ثانیه‌ای را تأیید می‌کردند. هیچ‌کس نمی‌توانست توضیح دهد چرا یک اختلال محلی، در دستگاهی بیرون از محدوده نیز ثبت شده است.</p>
-<p>لیلا، دانشجوی جوان اخترفیزیک که در رصدخانه کار می‌کرد، پوشه‌ای روی میز گذاشت. هفت نفر از ساکنان، مستقل از یکدیگر، از خوابی مشابه گفته بودند: خیابانی باریک با چراغ‌هایی آبی، ساختمانی بدون پنجره و صدایی که نام شهر را از انتهای تونلی تاریک تکرار می‌کرد. جزئیات روایت‌ها یکسان نبود، اما همه در یک نکته اشتراک داشتند: در خواب، شهر از بالا دیده می‌شد؛ درست با همان آرایشی که ستاره‌ها نشان می‌دادند.</p>
-<p>دکتر سهرابی گفت: «خاطره، به‌تنهایی مدرک وجود یک مکان نیست. اما وقتی روایت‌های مستقل با الگویی که در داده‌های نجومی دیده‌ایم هم‌پوشانی دارند، نمی‌توانیم آن‌ها را صرفاً کنار بگذاریم.»</p>
-<p>سرایدار رصدخانه، مردی سالخورده به نام نادری، به تصویر خیره ماند. گفت بیست سال پیش، در شهری دیگر، همین الگو را در عکسی قدیمی دیده؛ عکسی که پس از زلزله از بایگانی یک مرکز پژوهشی ناپدید شده بود. هیچ سندی برای ادعایش نداشت. تنها چیزی که به یاد می‌آورد، نامی بود که پشت عکس نوشته بودند: «نقشهٔ آستانه». </p>
-<p>لیلا به داده‌های خام اشاره کرد. «این نقشه فقط شبیه شهر ما نیست. هر شب یک خیابان تازه به آن اضافه می‌شود؛ خیابانی که هنوز نساخته‌ایم. انگار تصویر، جلوتر از ما حرکت می‌کند.»</p>
-<p>در سکوت اتاق، صدای فن‌ها بلندتر به نظر می‌رسید. روی نمایشگر، خط تازه‌ای در حاشیهٔ نقشه ظاهر شد؛ خطی که به هیچ خیابان موجودی وصل نبود. سپس نامی کوتاه زیر آن ثبت شد: «میدانِ بازگشت». هیچ‌کس آن را تایپ نکرده بود. سامانهٔ رصدخانه به شبکهٔ شهرداری متصل نبود.</p>
-<p>نزدیک سپیده‌دم، تو و لیلا به نقطه‌ای رفتید که مختصات خط تازه را نشان می‌داد. آنجا زمینی خالی بود؛ بی‌ساختمان، بی‌چراغ و بی‌نشانه. اما قطب‌نمای دستی، با هر قدم به سوی مرکز زمین می‌چرخید. در ضبط صدای لیلا، صدای باد ثبت شد؛ و در پس‌زمینه، صدای آرام زنی که نام تو را گفت. لیلا آن صدا را نشنیده بود. فایل، زمان ثبت‌شده‌ای متعلق به هفتادوسه ثانیه پیش‌تر داشت.</p>
-<p>گروه تصمیم گرفت رخدادها را بدون تفسیر شتاب‌زده ثبت کند: زمان توقف ساعت‌ها، تغییرات نقشهٔ ستاره‌ای، روایت خواب‌ها و هر نشانه‌ای که در محل مختصات تازه دیده می‌شود. قرار شد هیچ‌کس به‌تنهایی به محل نرود و داده‌های خام در چند سامانهٔ مستقل نگهداری شوند.</p>
-<p class="thought">آنچه روی آسمان دیده می‌شد، شاید نقشه نبود؛ شاید خاطره‌ای بود که هنوز اتفاق نیفتاده بود.</p>
+<p>در اتاق کنترل رصدخانه، City Map روی نمایشگر اصلی می‌درخشید. کنار آن، تصویر آسمان شب قبل باز بود؛ تصویری که در آن ستاره‌ها به‌جای پراکندگی طبیعی، خطوطی منظم ساخته بودند. خطوط، خیابان‌های رویش را نشان می‌دادند؛ حتی کوچه‌ای را که هنوز خاک‌برداری نشده بود. دکتر سهرابی تصویر را بزرگ کرد و گفت: «این تطبیق تصادفی نیست. اما هنوز نمی‌دانیم داریم چه چیزی را می‌بینیم.»</p>
+<p>The first hypothesis was a simultaneous fault in the timekeeping system and the cameras. But mechanical clocks, independent devices, and even a weather station outside the city all confirmed the same seventy-three-second pause. No one could explain why a local disruption had also been recorded beyond the city's limits.</p>
+<p>Leila, a young astrophysics student working at the observatory, placed a folder on the table. Seven residents, independently of one another, had described a similar dream: a narrow street with blue lights, a windowless building, and a voice repeating the city's name from the end of a dark tunnel. The details differed, but all shared one feature: in the dream, the city was seen from above, arranged exactly as the stars appeared.</p>
+<p>“A memory alone is not proof that a place exists,” Dr. Sohrabi said. “But when independent accounts overlap with a pattern in our astronomical data, we cannot simply dismiss them.”</p>
+<p>Naderi, the observatory's elderly caretaker, stared at the image. He said he had seen the same pattern in an old photograph twenty years earlier, in another city—a photograph that vanished from a research center's archive after an earthquake. He had no evidence to support his claim. The only thing he remembered was the title written on the back: “The Threshold Map.” </p>
+<p>Leila pointed to the raw data. “This map doesn't merely resemble our city. A new street is added every night—a street we haven't built yet. It's as if the image is moving ahead of us.”</p>
+<p>In the room's silence, the fans seemed louder. A new line appeared at the edge of the map, unconnected to any existing street. Then a short name appeared beneath it: “Return Square.” No one had typed it. The observatory system was not connected to the municipal network.</p>
+<p>Near dawn, you and Leila went to the coordinates of the new line. It was an empty plot: no buildings, lights, or signs. Yet a handheld compass turned toward the center of the plot with every step. Leila's audio recording captured the wind—and, in the background, a quiet woman's voice saying your name. Leila had not heard it. The file carried a timestamp from seventy-three seconds earlier.</p>
+<p>The team decided to document events without rushing to interpret them: clock stoppages, changes in the star map, dream accounts, and anything observed at the new coordinates. No one would visit the site alone, and raw data would be stored on several independent systems.</p>
+<p class="thought">What appeared in the sky might not have been a map. It might have been a memory of something that had not happened yet.</p>
 </div>
 <div class="choice-node" data-choice-step="1">
-<div class="choice-kicker">تصمیم اول · مرز میان مشاهده و توهم</div><h3>کدام فرضیه را نخست به آزمایش می‌گذاری؟</h3>
-<p class="choice-prompt">هر مسیر ممکن است بخشی از راز را روشن کند؛ یا شما را به توضیحی مطمئن اما نادرست برساند.</p>
+<div class="choice-kicker">Decision One · Between Observation and Illusion</div><h3>Which hypothesis will you test first?</h3>
+<p class="choice-prompt">Each path may reveal part of the mystery—or lead you to a confident but mistaken explanation.</p>
 <div class="choice-options">
-<button class="choice-option" type="button" data-value="a" aria-pressed="false">با ساکنان گفت‌وگو کنم و روایت خواب‌ها، خاطرات ناهم‌خوان و تجربه‌های شخصی را با جزئیات ثبت کنم.</button>
-<button class="choice-option" type="button" data-value="b" aria-pressed="false">داده‌های زمان‌سنجی و رصد را مستقل بازبینی کنم و احتمال خطای مشترک دستگاه‌ها را بسنجم.</button>
+<button class="choice-option" type="button" data-value="a" aria-pressed="false">Interview residents and carefully document their dreams, conflicting memories, and personal experiences.</button>
+<button class="choice-option" type="button" data-value="b" aria-pressed="false">Independently review the timekeeping and observation data, and test the possibility of a shared equipment failure.</button>
 </div>
-<div class="choice-response" data-response="a">روایت‌ها به شکل نگران‌کننده‌ای به هم نزدیک بودند. چند نفر از خیابانی حرف می‌زدند که در شهر وجود نداشت؛ یکی حتی جزئیات دری را توصیف کرد که گروه بعداً در نقشهٔ ستاره‌ای، درست در انتهای خیابان تازه‌ظاهرشده، پیدا کرد. هیچ‌کدام پیش از آن تصویر را ندیده بودند.</div>
-<div class="choice-response" data-response="b">بازبینی دستگاه‌ها خطای نرم‌افزاری را رد کرد، اما تناقض تازه‌ای ساخت: ساعت‌ها متوقف شده بودند، درحالی‌که حافظهٔ بعضی دستگاه‌ها هفتادوسه ثانیه دادهٔ اضافی ثبت کرده بود. انگار زمان نه حذف، بلکه از جایی دیگر به ثبت‌ها افزوده شده بود.</div>
+<div class="choice-response" data-response="a">The accounts were disturbingly similar. Several people described a street that did not exist; one even described a door the team later found on the star map, right at the end of the newly appeared street. None had seen the image beforehand.</div>
+<div class="choice-response" data-response="b">The equipment review ruled out a software bug, but uncovered a new contradiction: the clocks had stopped, while some devices had recorded an extra seventy-three seconds of data. It was as if time had not been erased, but added to the records from somewhere else.</div>
 </div></section>
 
 <section id="revelation">
-<h2 class="gradient-text">فصل دوم: صدایی از سوی دیگرِ زمان</h2><p class="path-narrative" id="path-chapter-two" hidden></p>
+<h2 class="gradient-text">Chapter Two: A Voice from the Other Side of Time</h2><p class="path-narrative" id="path-chapter-two" hidden></p>
 <div class="content-box story-text">
-<p>سه شب بعد، در ساعت ۰۳:۱۷، بلندگوی خاموش رصدخانه روشن شد. صدایی خش‌دار، اما واضح، جمله‌ای کوتاه پخش کرد: «اگر این پیام را می‌شنوید، هنوز در شهرِ نخست هستید.» سپس صدای چند نفر آمد که با هم صحبت می‌کردند؛ یکی از صداها متعلق به لیلا بود. او همان لحظه کنار تو ایستاده بود و با وحشت به بلندگو نگاه می‌کرد.</p>
-<p>دکتر سهرابی پیشنهاد کرد دستگاهی مستقل در محل مختصات تازه نصب کنند؛ مجموعه‌ای از حسگرهای مغناطیسی، ساعت اتمی قابل‌حمل و دوربین‌های بدون اتصال شبکه. هدف، شکار یک موجود نبود؛ می‌خواستند بفهمند آیا آن نقطه قوانین اندازه‌گیری را تغییر می‌دهد یا نه. لیلا پیشنهاد دیگری داشت: پیام را دوباره پخش کنند و بررسی کنند آیا پاسخ تازه‌ای دریافت می‌شود.</p>
-<p>لیلا با صدایی آرام گفت: «اگر آن صدا واقعاً از آینده باشد، هر پاسخی که بدهیم شاید همان چیزی را بسازد که قرار است از آن فرار کنیم. اما اگر پاسخ ندهیم، از کجا بفهمیم آن سوی پیام چه چیزی منتظر است؟»</p>
-<p>نادری گفت: «من صدای خودم را هم در فایل شنیدم. اما چیزی که گفت، حرفی نبود که من زده باشم. از شهری حرف می‌زد که اسمش رویش نبود؛ شهری که می‌گفتند باید دروازه را پیش از طلوع بست.»</p>
-<p>دکتر سهرابی تأکید کرد که هیچ‌کس نباید صدای ضبط‌شده را به‌عنوان مدرک قطعی ارتباط با آینده معرفی کند. «شباهت صدا می‌تواند خطای ادراکی باشد. زمان‌مهرها می‌توانند دست‌کاری شده باشند. اما اگر همهٔ این‌ها را کنار هم بگذاریم، هنوز پدیده‌ای داریم که توضیح معمولی برایش پیدا نکرده‌ایم.»</p>
-<p>پروتکل بررسی نوشته شد: دستگاه‌ها مستقل باشند؛ هیچ داده‌ای بازنویسی نشود؛ هر رخداد از چند زاویه ثبت شود؛ روایت شخصی از مشاهدهٔ فیزیکی جدا بماند؛ و هیچ‌کس در بازهٔ اختلال تنها نماند. اگر پیام دوباره پخش شد، گروه فقط یک پرسش از پیش تعیین‌شده مطرح می‌کرد: «شما کجا هستید؟»</p>
-<p>اختلاف در گروه بالا گرفت. بعضی‌ها می‌خواستند محل را تخلیه کنند؛ برخی معتقد بودند پدیده شاید خطری نداشته باشد و حتی بتواند دریچه‌ای به شناخت تازه باز کند. لیلا از همه کمتر حرف می‌زد. او نسخه‌ای از صدای ضبط‌شده را بارها گوش داده بود و می‌گفت در انتهای فایل، صدای خودش را می‌شنود که جمله‌ای را زمزمه می‌کند: «این بار، در را باز نکن.»</p>
-<p>در پایان جلسه، دکتر سهرابی گفت: «شاید پرسش درست این نباشد که آن‌طرف چیست. شاید باید اول بفهمیم چرا چیزی آن‌طرف، شکل شهر ما را می‌شناسد.»</p>
-<p class="quote">«ناشناخته، فقط چیزی نیست که هنوز توضیحش نداده‌ایم؛ گاهی چیزی است که توضیح‌دادنش، خودِ مسئله را تغییر می‌دهد.»</p>
+<p>Three nights later, at 03:17, the observatory's silent loudspeaker switched on. A crackling but clear voice delivered a short message: “If you can hear this message, you are still in the first city.” Then several people could be heard talking. One voice belonged to Leila. She was standing beside you, staring at the speaker in alarm.</p>
+<p>Dr. Sohrabi proposed installing an independent instrument package at the new coordinates: magnetic sensors, a portable atomic clock, and cameras with no network connection. The goal was not to hunt for a creature; they wanted to find out whether that location altered the rules of measurement. Leila had another suggestion: replay the message and see whether a new response arrived.</p>
+<p>Leila spoke quietly. “If that voice really comes from the future, any answer we give might create the very thing we're trying to escape. But if we don't answer, how will we know what's waiting on the other side of the message?”</p>
+<p>“I heard my own voice in the recording, too,” Naderi said. “But it said things I never said. It spoke of a city that wasn't called Royesh—a city where they said the gate had to be closed before sunrise.”</p>
+<p>Dr. Sohrabi insisted that no one should present the recording as definitive proof of communication with the future. “Voice similarity can be a perceptual error. Timestamps can be manipulated. But even after considering all that, we still have a phenomenon for which we have no ordinary explanation.”</p>
+<p>The investigation protocol was written: instruments must be independent; no data may be overwritten; every event must be recorded from multiple angles; personal accounts must be kept separate from physical observations; and no one may be alone during the disruption. If the message played again, the team would ask only one prearranged question: “Where are you?”</p>
+<p>Disagreement spread through the team. Some wanted to evacuate the site; others believed the phenomenon might be harmless and could even open a door to new knowledge. Leila spoke less than anyone. She had replayed the recording many times and said that, at its end, she could hear her own voice whispering: “This time, don't open the door.”</p>
+<p>در The End جلسه، دکتر سهرابی گفت: «شاید پرسش درست این نباشد که آن‌طرف چیست. شاید باید اول بفهمیم چرا چیزی آن‌طرف، شکل شهر ما را می‌شناسد.»</p>
+<p class="quote">“The unknown is not merely something we have yet to explain; sometimes, explaining it changes the very problem itself.”</p>
 </div>
 <div class="choice-node" data-choice-step="2">
-<div class="choice-kicker">تصمیم دوم · وسوسهٔ پاسخ</div><h3>با پیام ناشناس چه می‌کنی؟</h3>
-<p class="choice-prompt">پاسخ‌دادن شاید اطلاعاتی بدهد؛ اما ممکن است ارتباطی را آغاز کند که پایانش معلوم نیست.</p>
+<div class="choice-kicker">Decision Two · The Temptation to Answer</div><h3>What will you do with the unknown message?</h3>
+<p class="choice-prompt">پاسخ‌دادن شاید اطلاعاتی بدهد؛ اما ممکن است ارتباطی را آغاز کند که The Endش معلوم نیست.</p>
 <div class="choice-options">
-<button class="choice-option" type="button" data-value="a" aria-pressed="false">پیام را با پرسش از پیش تعیین‌شده پاسخ دهم و فقط یک تبادل کوتاه و کنترل‌شده انجام دهم.</button>
-<button class="choice-option" type="button" data-value="b" aria-pressed="false">پخش پیام را متوقف کنم و به جای ارتباط، داده‌های مستقل و آثار فیزیکی پدیده را بررسی کنم.</button>
+<button class="choice-option" type="button" data-value="a" aria-pressed="false">Reply with the prearranged question and allow only one brief, controlled exchange.</button>
+<button class="choice-option" type="button" data-value="b" aria-pressed="false">Stop playing the message and focus on independent data and physical traces instead of making contact.</button>
 </div>
-<div class="choice-response" data-response="a">پاسخ فقط یک بار ارسال شد: «شما کجا هستید؟» پس از هفتادوسه ثانیه، بلندگو خش‌خش کرد و صدایی گفت: «در همان جایی که شما خواهید بود.» سپس صدای لیلا شنیده شد که با لحنی بی‌احساس گفت: «ما هنوز شما را نساخته‌ایم.»</div>
-<div class="choice-response" data-response="b">بررسی مستقل نشان داد در محل مختصات، میدان مغناطیسی تغییر می‌کند، اما هیچ منبع انرژی شناخته‌شده‌ای وجود ندارد. خاک نمونه‌برداری‌شده ترکیب عجیبی نداشت؛ بااین‌حال، ساعت اتمی قابل‌حمل در آن نقطه، هفتادوسه ثانیه جلوتر از زمان مرجع حرکت می‌کرد. هیچ‌کدام از این یافته‌ها منشأ پدیده را روشن نمی‌کرد.</div>
+<div class="choice-response" data-response="a">The question was sent once: “Where are you?” After seventy-three seconds, the speaker crackled. A voice replied, “In the same place you will be.” Then Leila's voice followed, emotionless: “We haven't built you yet.”</div>
+<div class="choice-response" data-response="b">Independent tests showed that the magnetic field changed at the coordinates, yet no known energy source was present. The soil sample had an ordinary composition. Still, the portable atomic clock ran seventy-three seconds ahead of the reference time at that location. None of these findings explained the phenomenon.</div>
 </div></section>
 
 <section id="author-note">
-<h2 class="gradient-text">میان علم و ناشناخته</h2><div class="content-box">
-<p>علم با ناشناخته دشمن نیست؛ با ادعای بی‌پشتوانه دشمن است. اگر پدیده‌ای توضیحی ندارد، این ناتوانی مجوز ساختن هر توضیح دلخواهی نیست. باید مشاهده را از تعبیر، و احتمال را از واقعیت جدا نگه داشت.</p>
-<p>خاطره می‌تواند سرنخ باشد، نه حکم نهایی. دستگاه می‌تواند داده ثبت کند، اما معنای داده را تعیین نمی‌کند. حتی دقیق‌ترین اندازه‌گیری‌ها نیز ممکن است در برابر پدیده‌ای ناشناخته، فقط مرز نادانی ما را روشن‌تر کنند.</p>
-<p>روشن‌اندیشی در برابر راز، به معنای خاموش‌کردن تخیل نیست؛ یعنی اجازه ندهیم تخیل جای شواهد بنشیند. می‌توان از امکان‌های ناممکن پرسید، بی‌آنکه نخستین پاسخ را حقیقت بنامیم.</p>
-<p class="thought">شاید بزرگ‌ترین خطر، خودِ ناشناخته نباشد؛ اطمینانی باشد که پیش از شناختن آن پیدا می‌کنیم.</p>
+<h2 class="gradient-text">Between Science and the Unknown</h2><div class="content-box">
+<p>Science is not the enemy of the unknown; it is the enemy of unsupported claims. The absence of an explanation does not give us permission to invent any explanation we like. We must distinguish observation from interpretation, and possibility from fact.</p>
+<p>A memory can be a clue, not a final verdict. An instrument can record data, but it cannot decide what that data means. Even the most precise measurements may do no more than reveal the boundaries of our ignorance when faced with an unknown phenomenon.</p>
+<p>Clear thinking in the face of mystery does not mean silencing the imagination; it means not allowing imagination to take the place of evidence. We can ask about seemingly impossible possibilities without calling the first answer the truth.</p>
+<p class="thought">Perhaps the greatest danger is not the unknown itself, but the certainty we develop before we understand it.</p>
 </div></section>
 
 <section id="truth">
-<h2 class="gradient-text">فصل سوم: شهری در سوی دیگرِ آینه</h2><p class="path-narrative" id="path-chapter-three" hidden></p>
+<h2 class="gradient-text">Chapter Three: A City on the Other Side of the Mirror</h2><p class="path-narrative" id="path-chapter-three" hidden></p>
 <div class="content-box story-text">
-<p>در شب بیست‌ویکم، گروه در محل مختصات مستقر شد. هیچ‌کس نام آنجا را «میدان بازگشت» به زبان نمی‌آورد. ساعت اتمی، دوربین‌ها و حسگرها روشن بودند. آسمان صاف بود؛ اما در نمایشگر، ستاره‌ای دیده می‌شد که چشم غیرمسلح قادر به دیدنش نبود. ساعت ۰۳:۱۶:۵۹، تمام دستگاه‌ها یک‌باره عددی یکسان ثبت کردند: ۰۰:۰۰:۰۰.</p>
-<p>برای هفتادوسه ثانیه، صدای محیط قطع شد. نه باد، نه خش‌خش لباس‌ها و نه صدای نفس‌ها در میکروفن‌ها ثبت نشد. اما دوربین‌ها تصویر داشتند: در آن‌ها، گروه از پشت شیشه به شهری نگاه می‌کرد که دقیقاً شبیه رویش بود؛ با همان ساختمان‌ها، همان خیابان‌ها و همان رصدخانه. فقط آسمانش خالی بود و پنجره‌های همهٔ خانه‌ها روشن.</p>
-<p>وقتی زمان به حرکت برگشت، روی نمایشگرها تصویری تازه ظاهر شد: شهری که دیده بودند، در نقشهٔ رسمی وجود نداشت؛ اما در آن تصویر، ساختمان رصدخانه هنوز ساخته نشده بود. در جای آن، سازه‌ای مدور قرار داشت که از مرکز آن نوری کم‌رنگ به آسمان می‌تابید. لیلا تصویر را بزرگ کرد. پشت پنجرهٔ یکی از ساختمان‌ها، گروهی ایستاده بودند. یکی از آن‌ها دستش را بالا آورد؛ درست همان لحظه که لیلا دستش را پایین آورد.</p>
-<p>داده‌ها نشان می‌دادند در سوی دیگر تصویر، زمان با رویه‌ای متفاوت می‌گذرد؛ یا دست‌کم چنین به نظر می‌رسید. یک ساعت بعد، فایل صوتی‌ای در سامانه ظاهر شد که زمان ثبت آن، سه روز جلوتر بود. صدای دکتر سهرابی در آن می‌گفت: «اگر این را می‌شنوید، به هیچ‌وجه به تصویر دوم نگاه نکنید.»</p>
-<p>لیلا تصویر دوم را باز نکرد. اما تصویر، بی‌آنکه کسی لمسش کند، روی نمایشگر ظاهر شد: همان شهر، این بار از زاویهٔ بالاتر. در مرکز آن، سازهٔ مدور روشن بود و خیابان‌ها مثل رگ‌هایی باریک به آن می‌رسیدند. در حاشیهٔ تصویر، جمله‌ای ثبت شده بود: «شهر نخست، نسخهٔ آزمایشی بود.»</p>
-<p>دکتر سهرابی گفت ممکن است تصویر، بازتابی از داده‌های خودشان باشد؛ الگوریتمی که از نقشه و تصاویر شهر ساخته شده است. اما سامانهٔ رصدخانه هیچ مدل مولدی نداشت و تصویر در حافظهٔ آفلاین دوربینی ثبت شده بود که فقط ضبط می‌کرد. هیچ‌کس نمی‌توانست توضیح دهد جمله چگونه به فایل افزوده شده است.</p>
-<p>در آخرین شب بررسی، گروه به دو دسته تقسیم شد. نیمی در رصدخانه ماندند و نیمی در محل مختصات. ساعت ۰۳:۱۷، ستارهٔ تازه خاموش نشد؛ این بار، تمام ستاره‌های ثبت‌شده برای هفتادوسه ثانیه در الگویی واحد قرار گرفتند. روی نقشهٔ آسمان، خیابان‌های رویش کامل شدند و در مرکز آن، نقطه‌ای روشن پدیدار شد. سپس صدای ضبط‌شدهٔ لیلا، از بلندگو پخش شد: «این بار، در را باز نکن.»</p>
-<p>گروه نتوانست نتیجه‌ای قطعی اعلام کند. هیچ شاهدی برای وجود جهانی موازی به دست نیامده بود؛ اما فرضیهٔ خطای فنی نیز با تمام داده‌ها سازگار نبود. گزارش نهایی سه امکان را باز گذاشت: اختلال ناشناخته در اندازه‌گیری، پدیده‌ای طبیعی اما ناشناخته، یا رخدادی که چارچوب‌های فعلی علم برای توضیحش کافی نبودند. هیچ‌کدام اثبات نشده بود.</p>
-<p>یکی از اعضای شورا پرسید: «پس بالاخره آن‌طرف چه بود؟»</p>
-<p>دکتر سهرابی پاسخ داد: «نمی‌دانیم. و اگر کسی اکنون ادعا کند که می‌داند، باید از او بپرسیم بر اساس کدام شاهد. ما فقط می‌دانیم چیزی در داده‌ها ثبت شده که هنوز توضیحی برایش نداریم.»</p>
-<p>آن شب، برای نخستین بار پس از هفده روز، ساعت‌ها در ۰۳:۱۷ متوقف نشدند. اما روی نمایشگر خاموش رصدخانه، بازتابی از اتاق دیده می‌شد که در آن همه ایستاده بودند؛ جز یک نفر. در تصویر، جای خالی تو بود. پشت شیشه، کسی با دست روی بخار نوشته بود: «به خانه خوش آمدی.»</p>
+<p>On the twenty-first night, the team gathered at the coordinates. No one called the place “Return Square” aloud. The atomic clock, cameras, and sensors were running. The sky was clear, yet the display showed a star invisible to the naked eye. At 03:16:59, every device suddenly recorded the same number: 00:00:00.</p>
+<p>For seventy-three seconds, all ambient sound vanished. The microphones recorded no wind, rustling clothes, or breathing. But the cameras kept recording. Their footage showed the team looking through glass at a city exactly like Royesh, with the same buildings, streets, and observatory. Only its sky was empty, and every house had illuminated windows.</p>
+<p>When time resumed, a new image appeared on the displays. The city they had seen did not exist on any official map; in the image, the observatory had not yet been built. In its place stood a circular structure, a faint light shining skyward from its center. Leila enlarged the image. A group stood behind a window in one of the buildings. One of them raised a hand at the exact moment Leila lowered hers.</p>
+<p>The data suggested that time flowed differently on the other side of the image—or at least seemed to. An hour later, an audio file appeared in the system with a timestamp three days in the future. Dr. Sohrabi's voice said: “If you're hearing this, do not look at the second image. Under any circumstances.”</p>
+<p>Leila did not open the second image. But it appeared on the display without anyone touching it: the same city, now seen from higher up. The circular structure glowed at its center, and the streets reached toward it like narrow veins. Along the edge of the image, a sentence appeared: “The first city was a prototype.”</p>
+<p>Dr. Sohrabi suggested that the image might be a reflection of their own data, generated by an algorithm using the city's maps and photographs. But the observatory had no generative model, and the image had been recorded in the offline memory of a camera that only captured footage. No one could explain how the sentence had been added to the file.</p>
+<p>On the final night of the investigation, the team split in two. Half stayed at the observatory; the rest remained at the coordinates. At 03:17, no new star went dark. Instead, every recorded star aligned into a single pattern for seventy-three seconds. Royesh's streets were completed on the sky map, and a bright point appeared at their center. Then Leila's recorded voice played through the speaker: “This time, don't open the door.”</p>
+<p>The team could not reach a definitive conclusion. There was no evidence that a parallel world existed, yet the technical-failure hypothesis did not fit all the data either. The final report left three possibilities open: an unknown measurement anomaly, a natural but unfamiliar phenomenon, or an event beyond the explanatory reach of current science. None had been proven.</p>
+<p>A council member asked, “So what was on the other side, after all?”</p>
+<p>Dr. Sohrabi replied, “We don't know. And if anyone now claims to know, we should ask what evidence supports that claim. All we know is that something was recorded in the data, and we still cannot explain it.”</p>
+<p>That night, for the first time in seventeen days, the clocks did not stop at 03:17. But the observatory's dark display reflected the room where everyone stood—except one person. Your place in the image was empty. On the other side of the glass, someone had written in the condensation: “Welcome home.”</p>
 </div>
 <div class="choice-node" data-choice-step="3">
-<div class="choice-kicker">تصمیم سوم · مرز کنجکاوی</div><h3>وقتی پدیده پاسخی قطعی نمی‌دهد، قدم بعدی چیست؟</h3>
-<p class="choice-prompt">گروه باید تصمیم بگیرد آیا بررسی را گسترش دهد یا فعلاً شواهد موجود را حفظ و منتشر کند.</p>
+<div class="choice-kicker">Decision Three · The Limits of Curiosity</div><h3>When a phenomenon offers no definite answer, what should happen next?</h3>
+<p class="choice-prompt">The team must decide whether to expand the investigation or preserve and publish the evidence already collected.</p>
 <div class="choice-options">
-<button class="choice-option" type="button" data-value="a" aria-pressed="false">بررسی را با ابزارهای مستقل ادامه دهم، اما تماس مستقیم را متوقف و محل را محدود کنم.</button>
-<button class="choice-option" type="button" data-value="b" aria-pressed="false">همهٔ داده‌های خام و روایت‌ها را منتشر کنم تا گروه‌های مستقل بتوانند تحلیل را تکرار کنند.</button>
+<button class="choice-option" type="button" data-value="a" aria-pressed="false">Continue investigating with independent instruments, but stop direct contact and restrict access to the site.</button>
+<button class="choice-option" type="button" data-value="b" aria-pressed="false">Publish all raw data and accounts so independent teams can repeat the analysis.</button>
 </div>
-<div class="choice-response" data-response="a">بررسی با حسگرهای مستقل ادامه یافت، اما گروه هیچ پیام دیگری نفرستاد. داده‌ها به‌صورت آفلاین ذخیره شدند و دسترسی به محل محدود ماند. این تصمیم پاسخ را دورتر کرد، اما امکان تکرار آزمایش را حفظ کرد.</div>
-<div class="choice-response" data-response="b">گزارش کامل، بدون حذف صداهای نامتعارف یا داده‌های ناسازگار منتشر شد. چند گروه پژوهشی درخواست دسترسی کردند. هنوز معلوم نبود این شفافیت راهی به سوی پاسخ باز می‌کند یا فقط دامنهٔ پرسش را بزرگ‌تر خواهد کرد.</div>
+<div class="choice-response" data-response="a">The investigation continued with independent sensors, but the team sent no further messages. Data were stored offline and access to the site remained restricted. This choice moved an answer further away, but preserved the possibility of repeating the experiment.</div>
+<div class="choice-response" data-response="b">The full report was published without omitting unusual sounds or inconsistent data. Several research teams requested access. It remained unclear whether this transparency would lead to an answer or merely widen the question.</div>
 </div>
 <p class="path-narrative" id="path-final" hidden></p>
 <div class="content-box final-box">
-<p><strong>رویش با یک پاسخ ساخته نشد؛ با دقیق‌ترشدن پرسش‌هایش شکل گرفت.</strong> نقشه اصلاح شد، طرحی موقت در برابر زندگی واقعی قرار گرفت، خطایی در محاسبه آشکار شد و گزارشی منتشر شد که از پنهان‌کردن ناتمامی خود شرم نداشت.</p>
-<p>لیلا دیگر دربارهٔ صدایی که نامش را گفته بود حرف نزد. دکتر سهرابی داده‌ها را در چند مرکز مستقل فرستاد. نادری نسخه‌ای از عکس قدیمی را از حافظه‌اش بازسازی کرد؛ پشت آن، همان نشان هندسی دیده می‌شد. هیچ‌کس نمی‌دانست عکس از کجا آمده یا چرا نام رویش روی آن نوشته شده بود.</p>
-<p>شاید روشن‌اندیشی در برابر امر ناشناخته، توانایی ایستادن میان دو وسوسه باشد: انکار چیزی که هنوز توضیحی ندارد، و باورکردن چیزی که هنوز شاهدی برایش نداریم. می‌توان از راز نترسید، بی‌آنکه آن را به افسانه‌ای قطعی تبدیل کرد.</p>
-<p><strong>در آخرین صفحهٔ دفتر ثبت، جمله‌ای با دست‌خطی ناشناس پیدا شد: «اگر روزی آسمان نقشهٔ شهر را کامل کرد، به مرکز آن نگاه نکنید.» زیر جمله، تاریخ فردا نوشته شده بود.</strong></p>
+<p><strong>Royesh was not built around a single answer; it took shape as its questions became more precise.</strong> The map was revised, a temporary plan was tested against real life, a calculation error was uncovered, and a report was published without hiding what remained unfinished.</p>
+<p>Leila never spoke again about the voice that had said her name. Dr. Sohrabi sent the data to several independent centers. Naderi reconstructed the old photograph from memory; the same geometric symbol appeared on its back. No one knew where the photograph had come from, or why Royesh's name had been written on it.</p>
+<p>Perhaps clear thinking in the face of the unknown means standing between two temptations: denying what we cannot yet explain, and believing what we do not yet have evidence for. We can face a mystery without turning it into an unquestionable legend.</p>
+<p><strong>در آخرین صفحهٔ دفتر ثبت، جمله‌ای با دست‌خطی ناشناس پیدا شد: «اگر روزی آسمان City Map را کامل کرد، به مرکز آن نگاه نکنید.» زیر جمله، تاریخ فردا نوشته شده بود.</strong></p>
 </div>
 
 <section id="afterimage" aria-labelledby="afterimage-title" data-clue-unlock="4">
-<h2 id="afterimage-title" class="gradient-text">فصل چهارم: تاریخِ فردا</h2>
+<h2 id="afterimage-title" class="gradient-text">Chapter Four: Tomorrow's Date</h2>
 <div class="content-box story-text">
-<p class="story-opening">صبحِ بعد، شهر به یاد آورد که هنوز به دنیا نیامده است.</p>
-<p>ساعت هفت و دوازده دقیقه، ادارهٔ ثبت رویش گزارشی دریافت کرد که در سربرگ آن تاریخِ روز بعد درج شده بود. گزارش نه از رصدخانه آمده بود و نه از شبکهٔ شهری؛ از دبیرخانه‌ای ارسال شده بود که طبق نقشهٔ رسمی، هنوز ساخته نشده بود. در فهرست گیرندگان، نام همهٔ اعضای گروه دیده می‌شد. کنار نام لیلا، عبارت «حاضر در جلسهٔ پیشین» ثبت شده بود؛ جلسه‌ای که هیچ‌کدام به خاطر نمی‌آوردند.</p>
-<p>دکتر سهرابی فایل را روی نمایشگر باز کرد. متن کوتاه بود: «مرحلهٔ نخست با موفقیت به پایان رسید. حافظهٔ محلی تثبیت شده است. برای آغاز مرحلهٔ دوم، حضور ناظر لازم است.» پایین صفحه، امضایی نبود؛ فقط مختصاتی که با مرکز هندسی نقشهٔ رویش تطبیق داشت.</p>
-<p>نادری، که تا آن لحظه ساکت مانده بود، گفت: «این مختصات را می‌شناسم.» بعد از جیب داخلی کتش عکسی بیرون آورد؛ عکس قدیمی همان زمینی که شهر روی آن ساخته شده بود. در پس‌زمینه، پیش از آنکه حتی نخستین خیابان خاک‌برداری شود، ساختمانی مدور دیده می‌شد. در نسخهٔ امروز عکس، ساختمان وجود نداشت. در نسخهٔ قدیمی، سایهٔ کسی کنار در ایستاده بود.</p>
-<p>لیلا تصویر را بزرگ کرد. چهره واضح نبود، اما دست راست آن شخص روی شیشه قرار داشت؛ درست در همان نقطه‌ای که در تصویر تازه، انعکاس اتاق کنترل دیده می‌شد. او آهسته گفت: «این عکس را چه زمانی گرفته‌اند؟»</p>
-<p class="thought">نادری جواب نداد. به پشت عکس نگاه می‌کرد؛ جایی که با مدادی کم‌رنگ نوشته شده بود: «برای وقتی که شهر، ناظر خودش را شناخت.»</p>
-<p>در همان لحظه، نمایشگر خاموش شد. روی شیشهٔ سیاه آن، به‌جای چهرهٔ حاضران، اتاقی خالی منعکس می‌شد؛ اتاقی با پنجره‌ای رو به آسمانی روشن. روی میز آن اتاق، نسخه‌ای از همین عکس قرار داشت. دستی از بیرون قاب وارد شد، عکس را برداشت و پشت آن چیزی نوشت.</p>
-<p class="revelation-line">«مرحلهٔ دوم، از لحظه‌ای آغاز می‌شود که خواننده این جمله را به خاطر بسپارد.»</p>
-<p>هیچ‌کس حرفی نزد. برای نخستین بار، مسئله فقط این نبود که شهر چه چیزی را پنهان می‌کند؛ پرسش این بود که آیا مشاهده‌گر بیرون از این ماجرا ایستاده است، یا از ابتدا بخشی از آن بوده. سهرابی فایل را نبست. نادری عکس را برنگرداند. لیلا به شیشه نگاه کرد و منتظر ماند تا انعکاس، یک حرکت دیرتر از او انجام دهد.</p>
-<p class="book-line">در دفتر ثبت، تاریخِ فردا پاک شده بود؛ اما جای دست‌خط باقی مانده بود.</p>
+<p class="story-opening">The next morning, the city remembered that it had not yet been born.</p>
+<p>At 7:12 a.m., Royesh's registry office received a report dated the following day. It had come neither from the observatory nor the city network, but from an administrative office that, according to the official map, had not yet been built. Every team member was listed as a recipient. Beside Leila's name were the words “Present at the previous meeting”—a meeting none of them remembered.</p>
+<p>دکتر سهرابی فایل را روی نمایشگر باز کرد. متن کوتاه بود: «مرحلهٔ نخست با موفقیت به The End رسید. حافظهٔ محلی تثبیت شده است. برای آغاز مرحلهٔ دوم، حضور ناظر لازم است.» پایین صفحه، امضایی نبود؛ فقط مختصاتی که با مرکز هندسی نقشهٔ رویش تطبیق داشت.</p>
+<p>Naderi, silent until then, said, “I know these coordinates.” He took a photograph from the inside pocket of his coat: an old picture of the very land on which the city had been built. In the background, before the first street had even been excavated, stood a circular building. The building was absent from the modern version of the photograph. In the old one, someone's shadow stood beside its door.</p>
+<p>Leila enlarged the image. The person's face was unclear, but their right hand rested against the glass—exactly where the control room's reflection appeared in the new image. She asked quietly, “When was this photograph taken?”</p>
+<p class="thought">Naderi did not answer. He was looking at the back of the photograph, where faint pencil marks read: “For the day the city recognizes its own observer.”</p>
+<p>At that moment, the display went dark. Its black glass reflected an empty room instead of the people present—a room with a window facing a bright sky. On its desk lay a copy of the same photograph. A hand reached in from beyond the frame, picked it up, and wrote something on its back.</p>
+<p class="revelation-line">“Phase Two begins the moment the reader remembers this sentence.”</p>
+<p>No one spoke. For the first time, the question was no longer merely what the city was hiding; it was whether the observer stood outside this story, or had been part of it from the beginning. Sohrabi did not close the file. Naderi did not turn the photograph over. Leila watched the glass, waiting for the reflection to make its move one beat after hers.</p>
+<p class="book-line">In the logbook, tomorrow's date had vanished—but the indentation of the handwriting remained.</p>
 </div>
 </section>
 
 <section class="field-notes" id="field-notes" aria-labelledby="field-notes-title">
-<div class="field-notes-head"><h2 id="field-notes-title">دفترچهٔ کشفیات</h2><span class="choice-kicker">FIELD NOTES · ROYESH</span></div>
-<p class="field-notes-intro">سرنخ‌ها با رسیدن به فصل مربوط باز می‌شوند. این دفترچه روی همین دستگاه ذخیره می‌شود؛ می‌توانی هر زمان مسیر خواندن را از نو تجربه کنی.</p>
+<div class="field-notes-head"><h2 id="field-notes-title">Field Notes</h2><span class="choice-kicker">FIELD NOTES · ROYESH</span></div>
+<p class="field-notes-intro">Clues unlock as you reach their corresponding chapters. These notes are saved on this device, so you can revisit the story whenever you like.</p>
 <div class="clue-list" aria-live="polite">
-<article class="clue-entry" data-clue-card="1"><h3>۱. هفتادوسه ثانیه</h3><p>زمانی که در ثبت دستگاه‌ها ناپدید می‌شود؛ نخستین شکاف میان ساعت شهر و تجربهٔ ساکنان.</p><span class="clue-state">قفل است</span></article>
-<article class="clue-entry" data-clue-card="2"><h3>۲. صدای هم‌زمان</h3><p>صدای لیلا از بلندگوی خاموش؛ در حالی که خود او کنار دستگاه ایستاده است.</p><span class="clue-state">قفل است</span></article>
-<article class="clue-entry" data-clue-card="3"><h3>۳. شهرِ آن‌سوی آینه</h3><p>تصویری از رویشی دیگر؛ شهری با تفاوت‌هایی که نمی‌توان آن‌ها را صرفاً با خطای تصویر توضیح داد.</p><span class="clue-state">قفل است</span></article>
-<article class="clue-entry" data-clue-card="4"><h3>۴. ناظر</h3><p>گزارشی از فردا و جمله‌ای که مرز میان خواننده و جهان داستان را به پرسش می‌کشد.</p><span class="clue-state">قفل است</span></article>
+<article class="clue-entry" data-clue-card="1"><h3>1. Seventy-Three Seconds</h3><p>The interval that disappears from device logs—the first gap between the city's clocks and its residents' experience.</p><span class="clue-state">Locked</span></article>
+<article class="clue-entry" data-clue-card="2"><h3>2. The Simultaneous Voice</h3><p>Leila's voice from a silent speaker, while she herself stands beside it.</p><span class="clue-state">Locked</span></article>
+<article class="clue-entry" data-clue-card="3"><h3>3. The City Beyond the Mirror</h3><p>An image of another Royesh—a city with differences that cannot be explained away as image distortion.</p><span class="clue-state">Locked</span></article>
+<article class="clue-entry" data-clue-card="4"><h3>4. The Observer</h3><p>A report from tomorrow, and a sentence that questions the boundary between the reader and the story.</p><span class="clue-state">Locked</span></article>
 </div>
-<div class="field-notes-foot"><span class="field-notes-count" id="field-notes-count">۰ از ۴ سرنخ کشف شده</span><button class="field-notes-reset" type="button" id="field-notes-reset">پاک‌کردن دفترچه و شروع دوباره</button></div>
+<div class="field-notes-foot"><span class="field-notes-count" id="field-notes-count">0 of 4 clues discovered</span><button class="field-notes-reset" type="button" id="field-notes-reset">Clear notes and start over</button></div>
 </section>
 
 <div class="route-result" id="route-result" aria-live="polite" aria-atomic="true">
-<div class="route-symbol" aria-hidden="true">⬡</div><div class="choice-kicker">ردّ انتخاب‌های تو</div><h3 id="route-title">نقشهٔ مسیر تو</h3><p id="route-copy"></p><p id="route-detail" class="thought"></p><button class="route-reset" type="button" id="route-reset">↻ تجربه دوباره مسیر</button>
+<div class="route-symbol" aria-hidden="true">⬡</div><div class="choice-kicker">Your Choices</div><h3 id="route-title">Your Story Path</h3><p id="route-copy"></p><p id="route-detail" class="thought"></p><button class="route-reset" type="button" id="route-reset">↻ Experience the story again</button>
 </div></section>
 <footer class="site-footer">
       <div class="footer-inner">
-        <p>رویش · جهانی برای پرسیدن، آزمودن و ساختن</p>
+        <p>Royesh · A world for questioning, testing, and creating</p>
         <div class="footer-links">
-          <a href="./index.html">بازگشت به سایت اصلی</a>
+          <a href="./index.html">Back to the main website</a>
         </div>
         <div class="copyright-notice" aria-label="اطلاعیهٔ حقوق نشر و استفاده">
-          <p class="copyright-title">© ۲۰۲۶ · تمامی حقوق محفوظ است</p>
+          <p class="copyright-title">© 2026 · All rights reserved</p>
           <p dir="ltr" class="copyright-en">© 2026 · All Rights Reserved</p>
-          <p>تمامی حقوق مادی و معنوی این اثر، از جمله متن، ساختار روایی و طراحی اختصاصی آن، برای پدیدآورنده محفوظ است. هرگونه بازنشر، تکثیر، اقتباس، ترجمه یا استفادهٔ تجاری از تمام یا بخشی از اثر، بدون دریافت اجازهٔ کتبی قبلی، مجاز نیست.</p>
-          <p class="copyright-warning">هشدار: استفاده یا انتشار بدون اجازه ممکن است نقض حقوق مؤلف و حقوق نشر محسوب شود و پیگیری آن از راه‌های قانونی، در حدود قوانین قابل‌اعمال، محفوظ است.</p>
+          <p>All intellectual property rights in this work—including its text, narrative structure, and original design—are reserved by its creator. Republishing, reproducing, adapting, translating, or commercially using any part of this work without prior written permission is prohibited.</p>
+          <p class="copyright-warning">Notice: Unauthorized use or distribution may constitute a violation of copyright and publication rights. Legal remedies remain available to the extent permitted by applicable law.</p>
           <p dir="ltr" class="copyright-en">Unauthorized copying, redistribution, adaptation, translation, or commercial use of this work, in whole or in part, is prohibited without prior written permission. Such use may constitute copyright infringement.</p>
         </div>
       </div>
@@ -496,7 +496,7 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
   readingToggle.addEventListener('click', () => {
     const enabled = document.body.classList.toggle('reading-mode');
     readingToggle.setAttribute('aria-pressed', String(enabled));
-    readingToggle.textContent = enabled ? 'خروج از حالت مطالعه' : 'حالت مطالعه';
+    readingToggle.textContent = enabled ? 'خروج از Reading mode' : 'Reading mode';
   });
 
   // Reveal sections only as they approach the view  // Keep every chapter in normal document flow to prevent scroll jumps.
@@ -524,10 +524,10 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
     }
     const reflective = Object.values(routeChoices).filter((value) => value === 'a').length;
     const routes = [
-      {title:'راهِ مکث',symbol:'◌',copy:'تو پیش از هر چیز، به مکث و فاصله‌گرفتن از واکنش فوری بها دادی. در مسیر تو، فهمیدن مقدم بر تغییر دادن است.',detail:'این مسیر یادآوری می‌کند که آگاهی همیشه با یک حرکت بزرگ آغاز نمی‌شود؛ گاهی با یک سؤال آرام شروع می‌شود.'},
-      {title:'راهِ جست‌وجو',symbol:'⌕',copy:'انتخاب‌هایت میان مشاهده و عمل حرکت کردند. تو نه همه‌چیز را پذیرفتی و نه بی‌درنگ کنار کشیدی؛ دنبال معنای پشت اتفاق‌ها گشتی.',detail:'این مسیر یک پاسخ قطعی ندارد؛ ارزشش در پرسیدن، سنجیدن و آماده‌بودن برای بازنگری است.'},
-      {title:'راهِ مشاهده',symbol:'⬡',copy:'تو بیشتر از آنکه بخواهی جهان دیگران را تغییر بدهی، تلاش کردی سازوکار آن را بفهمی. نگاهت به جزئیات و تفاوت‌ها برگشت.',detail:'مشاهده به‌تنهایی کافی نیست، اما می‌تواند شروع انتخابی سنجیده‌تر باشد.'},
-      {title:'راهِ پرسش',symbol:'✧',copy:'در هر سه دوراهی، تصمیم گرفتی پیش از واکنش، دلیل و معنای اتفاق را پیدا کنی. مسیر تو از پرسش‌کردن ساخته شد.',detail:'پرسیدن قرار نیست تو را از زندگی دور کند؛ می‌تواند کمک کند آگاهانه‌تر در آن حضور داشته باشی.'}
+      {title:'The Path of Pause',symbol:'◌',copy:'You valued pausing and stepping back before reacting. Along your path, understanding came before changing things.',detail:'این مسیر یادآوری می‌کند که آگاهی همیشه با یک حرکت بزرگ آغاز نمی‌شود؛ گاهی با یک سؤال آرام شروع می‌شود.'},
+      {title:'The Path of Inquiry',symbol:'⌕',copy:'Your choices moved between observation and action. You neither accepted everything nor immediately withdrew; you searched for meaning behind events.',detail:'This path offers no definitive answer; its value lies in asking, evaluating, and remaining willing to reconsider.'},
+      {title:'The Path of Observation',symbol:'⬡',copy:'Rather than trying to change other people's world, you focused on understanding how it works. Your attention returned to details and differences.',detail:'Observation alone is not enough, but it can be the beginning of a more considered choice.'},
+      {title:'The Path of Questions',symbol:'✧',copy:'At each of the three crossroads, you chose to seek reasons and meaning before reacting. Your path was shaped by questions.',detail:'Questioning is not meant to distance you from life; it can help you take part in it more consciously.'}
     ];
     const selected = reflective === 3 ? routes[3] : reflective === 2 ? routes[0] : reflective === 1 ? routes[1] : routes[2];
     routeTitle.textContent = selected.title;
@@ -568,28 +568,28 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 (() => {
   const profiles = {
     curious: {
-      opening:'نخستین چیزی که توجهت را جلب کرد، تناقض میان نقشهٔ شهر و آرایش ستارگان بود؛ انگار آسمان طرحی را نشان می‌داد که هنوز روی زمین وجود نداشت.',
-      chapterTwo:'هرچه داده‌ها را دقیق‌تر کنار هم گذاشتی، مرز میان خطای ابزار و رخدادی ناشناخته باریک‌تر شد. هیچ فرضیه‌ای هنوز پیروز نبود.',
-      chapterThree:'در شب آخر، به جای خیره‌شدن به نور مرکزی، تغییرات کوچک پیرامون تصویر را دنبال کردی؛ شاید سرنخ، در چیزی بود که هنوز کامل نشده بود.',
-      ending:'تو از دل یک تناقض وارد راز شدی؛ و آموختی که دیدن یک الگو، با فهمیدن منشأ آن یکی نیست.'
+      opening:'نخستین چیزی که توجهت را جلب کرد، تناقض میان City Map و آرایش ستارگان بود؛ انگار آسمان طرحی را نشان می‌داد که هنوز روی زمین وجود نداشت.',
+      chapterTwo:'The more carefully you compared the data, the thinner the line became between instrument error and an unknown event. No hypothesis had won.',
+      chapterThree:'On the final night, instead of staring at the central light, you followed the small changes around the image. Perhaps the clue lay in something not yet complete.',
+      ending:'You entered the mystery through a contradiction and learned that seeing a pattern is not the same as understanding its origin.'
     },
     maker: {
-      opening:'به جای آنکه فقط به تصویر خیره شوی، به ساخت ابزاری فکر کردی که بتواند پدیده را مستقل از شبکه و تفسیر انسانی ثبت کند.',
-      chapterTwo:'دستگاه‌ها ساخته شدند، اما هر اندازه‌گیری پرسشی تازه ساخت. ابزار دقیق، راز را حذف نکرد؛ فقط شکل دقیق‌تری به آن داد.',
-      chapterThree:'وقتی داده‌ها با هم ناسازگار شدند، فهمیدی ساختن ابزار تازه کافی نیست؛ باید محدودیت‌های خود ابزار را هم شناخت.',
-      ending:'مسیر تو از ساختن آغاز شد، اما به فروتنی در برابر چیزی رسید که هنوز اندازه‌پذیر نبود.'
+      opening:'Instead of simply staring at the image, you thought about building an instrument that could record the phenomenon independently of networks and human interpretation.',
+      chapterTwo:'The instruments were built, but every measurement raised a new question. Precision did not remove the mystery; it gave it a more precise shape.',
+      chapterThree:'When the data conflicted, you realized that building new instruments was not enough; their limitations had to be understood, too.',
+      ending:'Your path began with building, but led to humility before something that could not yet be measured.'
     },
     listener: {
-      opening:'تو سراغ کسانی رفتی که خواب خیابان ناشناخته را دیده بودند. هر روایت به‌تنهایی مبهم بود؛ کنار هم، الگویی نگران‌کننده می‌ساختند.',
-      chapterTwo:'گوش‌دادن به روایت‌ها آسان نبود؛ بعضی خاطره‌ها با یکدیگر تناقض داشتند. بااین‌حال، هیچ‌کدام را بی‌دلیل حذف نکردی.',
-      chapterThree:'در شب آخر، صدای لیلا را از بلندگو شنیدی؛ صدایی که هم‌زمان در اتاق حضور داشت. این بار، سکوت گروه از هر پاسخی سنگین‌تر بود.',
-      ending:'تو از راه شنیدن به راز نزدیک شدی، اما دانستی که روایت انسانی سرنخ است، نه اثبات.'
+      opening:'You sought out those who had dreamed of the unknown street. Each account was vague on its own; together, they formed a troubling pattern.',
+      chapterTwo:'Listening to the accounts was not easy; some memories contradicted one another. Still, you dismissed none without a reason.',
+      chapterThree:'On the final night, you heard Leila's voice through the speaker while she was in the room at the same time. This time, the team's silence weighed more heavily than any answer.',
+      ending:'You approached the mystery by listening, but learned that a human account is a clue, not proof.'
     },
     skeptic: {
-      opening:'تو نخست به زمان‌مهرها، اتصال دستگاه‌ها و امکان خطای مشترک شک کردی. اگر قرار بود با ناشناخته روبه‌رو شوید، باید ابتدا توضیح‌های آشنا را جدی می‌گرفتید.',
-      chapterTwo:'آزمون‌های مستقل فرضیه‌های ساده را کنار زدند، اما نتوانستند ماهیت پدیده را مشخص کنند. ردکردن یک توضیح، اثبات توضیحی دیگر نبود.',
-      chapterThree:'در گزارش نهایی، به جای انتخاب یک پاسخ هیجان‌انگیز، همهٔ فرضیه‌های باز و محدودیت‌های شواهد را ثبت کردی.',
-      ending:'تردید تو مانع کنجکاوی نشد؛ کمک کرد میان راز واقعی و توضیح دلخواه تفاوت بگذاری.'
+      opening:'You first questioned the timestamps, device connections, and possibility of a shared error. Before facing the unknown, you had to take familiar explanations seriously.',
+      chapterTwo:'Independent tests ruled out simple hypotheses, but could not identify the phenomenon. Disproving one explanation did not prove another.',
+      chapterThree:'In the final report, rather than choosing an exciting answer, you documented every open hypothesis and the limits of the evidence.',
+      ending:'Your skepticism did not block curiosity; it helped you distinguish a genuine mystery from a convenient explanation.'
     }
   };
   const gate = document.getElementById('reader-gate');
@@ -601,18 +601,18 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
   let selectedProfile = null;
   const choices = {};
   const consequences = {
-    '1a':'گفت‌وگوها به گروه نشان دادند که یک تصمیم شهری روی آدم‌ها به شکل‌های متفاوت اثر می‌گذارد؛ پس تجربه‌های محلی باید در کنار آمار دیده شوند.',
-    '1b':'جدول اطلاعات ناقص، جلوی قطعیت زودهنگام را گرفت و روشن کرد برای تصمیم درست دقیقاً چه داده‌هایی کم است.',
-    '2a':'شنیدن نگرانی‌ها باعث شد طرح از روی کاغذ بیرون بیاید و با مسیر واقعی مغازه‌ها و ساعت مدرسه هماهنگ شود.',
-    '2b':'مقایسهٔ منصفانه نشان داد هیچ طرحی در همهٔ معیارها بهترین نیست؛ باید مزایا، هزینه‌ها و محدودیت‌ها را با هم دید.',
-    '3a':'ادامهٔ آزمایش به شهر فرصت داد اصلاح‌ها را در همان محل بسنجد و پیش از گسترش، ایرادهای باقی‌مانده را پیدا کند.',
-    '3b':'انتشار گزارش، تجربه را در دسترس دیگران گذاشت؛ همراه با این یادآوری که هر محله باید شرایط خودش را بررسی کند.'
+    '1a':'Conversations showed the team that a city decision affects people in different ways, so local experiences must be considered alongside statistics.',
+    '1b':'The incomplete-data table prevented premature certainty and clarified exactly what information was missing for a sound decision.',
+    '2a':'Listening to concerns brought the plan off the page and aligned it with actual shop routes and school hours.',
+    '2b':'A fair comparison showed that no plan was best by every measure; benefits, costs, and limitations had to be considered together.',
+    '3a':'Continuing the experiment allowed the city to test revisions on site and identify remaining problems before expanding.',
+    '3b':'Publishing the report made the experience available to others, while reminding them that every neighborhood must assess its own circumstances.'
   };
   options.forEach((button) => button.addEventListener('click', () => {
     selectedProfile = button.dataset.profile;
     options.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
     start.disabled = false;
-    start.innerHTML = 'ورود به شهر <span aria-hidden="true">←</span>';
+    start.innerHTML = 'Enter the city <span aria-hidden="true">←</span>';
   }));
   start.addEventListener('click', () => {
     if (!selectedProfile) return;
@@ -642,7 +642,7 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
         target.textContent = base + ' ' + additions.join(' ');
       }
       if (routeDetail && selectedProfile && Object.keys(choices).length === 3) {
-        routeDetail.textContent = profiles[selectedProfile].ending + ' مسیر تصمیم‌هایت نیز نشان داد که برای شناخت مسئله، شنیدن دیدگاه‌ها و اصلاح راه‌حل هر سه اهمیت دارند.';
+        routeDetail.textContent = profiles[selectedProfile].ending + ' Your decisions also showed that understanding a problem requires listening to perspectives and refining solutions.';
       }
     }));
   });
@@ -679,9 +679,9 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
       const open = unique.includes(Number(card.dataset.clueCard));
       card.classList.toggle('is-unlocked', open);
       const state = card.querySelector('.clue-state');
-      if (state) state.textContent = open ? 'کشف شده' : 'قفل است';
+      if (state) state.textContent = open ? 'Discovered' : 'Locked';
     });
-    countLabel.textContent = unique.length.toLocaleString('fa-IR') + ' از ۴ سرنخ کشف شده';
+    countLabel.textContent = unique.length.toLocaleString('fa-IR') + ' از ۴ سرنخ Discovered';
   };
   const unlock = (number) => {
     if (!unlocked.includes(number)) {

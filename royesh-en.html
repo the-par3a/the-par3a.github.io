@@ -608,14 +608,19 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
     '3a':'Continuing the experiment allowed the city to test revisions on site and identify remaining problems before expanding.',
     '3b':'Publishing the report made the experience available to others, while reminding them that every neighborhood must assess its own circumstances.'
   };
-  options.forEach((button) => button.addEventListener('click', () => {
+  // Use delegated capture so profile selection works reliably on touch and desktop.
+  gate.addEventListener('click', (event) => {
+    const button = event.target.closest('.gate-option[data-profile]');
+    if (!button || !gate.contains(button)) return;
     selectedProfile = button.dataset.profile;
     options.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+    start.removeAttribute('disabled');
     start.disabled = false;
-    start.innerHTML = 'Enter the city <span aria-hidden="true">←</span>';
-  }));
+    start.style.pointerEvents = 'auto';
+    start.innerHTML = 'Enter the story <span aria-hidden="true">←</span>';
+  }, true);
   start.addEventListener('click', () => {
-    if (!selectedProfile) return;
+    if (!selectedProfile || !profiles[selectedProfile]) return;
     const route = profiles[selectedProfile];
     [route.opening,route.chapterTwo,route.chapterThree,route.ending].forEach((value,index) => {
       if (!slots[index]) return;

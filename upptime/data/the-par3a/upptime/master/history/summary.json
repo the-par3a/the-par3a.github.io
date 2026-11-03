@@ -11,9 +11,9 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 183,
-    "timeDay": 215,
-    "timeWeek": 215,
-    "timeMonth": 183,
+    "timeDay": 181,
+    "timeWeek": 198,
+    "timeMonth": 187,
     "timeYear": 183,
     "dailyMinutesDown": {}
   },
@@ -28,11 +28,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 74,
-    "timeDay": 16,
-    "timeWeek": 16,
-    "timeMonth": 74,
-    "timeYear": 74,
+    "time": 77,
+    "timeDay": 142,
+    "timeWeek": 79,
+    "timeMonth": 80,
+    "timeYear": 77,
     "dailyMinutesDown": {}
   },
   {
@@ -46,11 +46,31 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 64,
-    "timeDay": 32,
-    "timeWeek": 32,
-    "timeMonth": 64,
-    "timeYear": 64,
+    "time": 65,
+    "timeDay": 67,
+    "timeWeek": 50,
+    "timeMonth": 65,
+    "timeYear": 65,
     "dailyMinutesDown": {}
+  },
+  {
+    "name": "Owasp orange juice shop",
+    "url": "https://juice-shop.herokuapp.com/",
+    "icon": "https://icons.duckduckgo.com/ip3/juice-shop.herokuapp.com.ico",
+    "slug": "owasp-orange-juice-shop",
+    "status": "degraded",
+    "uptime": "59.54%",
+    "uptimeDay": "59.54%",
+    "uptimeWeek": "59.54%",
+    "uptimeMonth": "59.54%",
+    "uptimeYear": "59.54%",
+    "time": 4277,
+    "timeDay": 4277,
+    "timeWeek": 4277,
+    "timeMonth": 4277,
+    "timeYear": 4277,
+    "dailyMinutesDown": {
+      "2026-11-03": 0
+    }
   }
 ]

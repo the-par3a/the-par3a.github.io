@@ -1,19 +1,20 @@
 # Font licenses
 
-This directory contains the complete license texts for every font family bundled with the website.
+This directory stores the complete license texts for every bundled webfont.
 
-| Font family | Copyright holder | License | Bundled files |
-|---|---|---|---|
-| Cormorant Garamond | 2015 the Cormorant Project Authors | SIL Open Font License 1.1 | `fonts/CormorantGaramond-*.woff2` |
-| Cascadia Code | 2019–present Microsoft Corporation | SIL Open Font License 1.1 | `fonts/CascadiaCode.woff2` |
-| Inter | The Inter Project Authors | SIL Open Font License 1.1 | `fonts/InterVariable.woff2` |
-| Lora | The Lora Project Authors | SIL Open Font License 1.1 | `fonts/Lora[wght].woff2` |
-| Vazirmatn | The Vazirmatn Project Authors | SIL Open Font License 1.1 | `fonts/Vazirmatn.woff2` |
+| Family | Copyright | License file |
+|---|---|---|
+| Cormorant Garamond | 2015 the Cormorant Project Authors | [Cormorant-Garamond-OFL.txt](Cormorant-Garamond-OFL.txt) |
+| Cascadia Code | 2019–present Microsoft Corporation | [Cascadia-Code-LICENSE.txt](Cascadia-Code-LICENSE.txt) |
+| Inter | The Inter Project Authors | [Inter-font-LICENSE.txt](Inter-font-LICENSE.txt) |
+| Lora | The Lora Project Authors | [lora-font-license.txt](lora-font-license.txt) |
+| Vazirmatn | The Vazirmatn Project Authors | [Vazirmatn-font-license.txt](Vazirmatn-font-license.txt) |
 
-## Important
+## Rules to keep in mind
 
-- Each license applies to its font software, not to the website, story text, or other original site content.
-- Keep the relevant copyright notice and complete license with redistributed font files.
-- Font software must not be sold by itself.
-- Check each license before modifying or renaming a font family; reserved font names may apply.
-- The canonical inventory of bundled assets is documented in [THIRD-PARTY-NOTICES.md](../THIRD-PARTY-NOTICES.md).
+- Keep the full license and copyright notice when redistributing font files.
+- Do not sell the font software by itself.
+- Check Reserved Font Name conditions before publishing modified font software.
+- These licenses cover font software only, not the website, story, or other original assets.
+
+See [THIRD-PARTY-NOTICES.md](../THIRD-PARTY-NOTICES.md) for the exact webfont inventory and upstream project links.

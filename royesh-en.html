@@ -216,6 +216,40 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 .name-guide em{color:#d8b4fe}
 @media(max-width:700px){.name-guide{margin-bottom:36px}.name-guide ul{padding-left:20px}}
 
+/* English typography: distinct, locally available system-font stacks; no external font service. */
+:root{
+ --font-ui:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+ --font-reading:Georgia,"Times New Roman",serif;
+ --font-display:"Palatino Linotype","Book Antiqua",Georgia,serif;
+ --font-mono:"Cascadia Code",Consolas,monospace;
+}
+body{font-family:var(--font-ui)}
+h1,h2,h3,.gradient-text,.brand{font-family:var(--font-display)}
+.story-text,.intro-box,.final-box{font-family:var(--font-reading)}
+button,input,textarea,select,.nav-links{font-family:var(--font-ui)}
+code,pre,.ipa{font-family:var(--font-mono)}
+
+/* Quiet, optional name notes near the end—not part of the opening screen. */
+.name-guide{max-width:820px;margin:28px auto 34px;color:var(--muted);font:inherit}
+.name-guide>summary{display:flex;align-items:center;gap:10px;justify-content:center;cursor:pointer;list-style:none;width:max-content;max-width:100%;margin:0 auto;padding:9px 14px;border:1px solid rgba(192,132,252,.13);border-radius:999px;color:#aab3c2;font-size:.84rem;transition:border-color .2s,color .2s,background .2s}
+.name-guide>summary::-webkit-details-marker{display:none}
+.name-guide>summary::before{content:"+";font-size:1rem;color:#b9a0d8}
+.name-guide[open]>summary::before{content:"−"}
+.name-guide>summary:hover{color:#e5d8f7;border-color:rgba(192,132,252,.34);background:rgba(192,132,252,.045)}
+.name-guide-hint{font-size:.75rem;color:#7f8999}
+.name-guide-panel{max-width:760px;margin:15px auto 0;padding:clamp(16px,3vw,26px);border:1px solid rgba(192,132,252,.12);border-radius:18px;background:rgba(18,22,32,.42);font-family:var(--font-ui);font-size:.94rem;line-height:1.8}
+.name-guide-intro{margin:0 0 18px;color:#aeb8c7}
+.name-entry{padding:12px 0;border-top:1px solid rgba(255,255,255,.055)}
+.name-entry>strong{color:#e4d7f4;font-size:.98rem}
+.name-meaning{font-weight:400;color:#8994a5;font-size:.88rem}
+.name-entry p{margin:5px 0;color:#b5bfcd}
+.name-entry .name-sound{margin-top:8px;color:#d6dce5;font-size:.86rem}
+.name-sound b{color:#c8edaa;letter-spacing:.025em}
+.ipa{display:inline-block;margin-left:8px;color:#8490a1;font-size:.78rem;white-space:nowrap}
+.name-guide-footnote{margin:15px 0 0;padding-top:12px;border-top:1px solid rgba(255,255,255,.055);color:#818c9d;font-size:.78rem;line-height:1.65}
+@media(max-width:620px){.name-guide>summary{font-size:.8rem}.name-guide-panel{font-size:.9rem}.ipa{display:block;margin:3px 0 0;white-space:normal}}
+@media(prefers-reduced-motion:reduce){.name-guide>summary{transition:none}}
+
 /* Opening question and adaptive story entrance */
 .reader-gate{position:relative;isolation:isolate;max-width:820px;margin:clamp(28px,7vw,76px) auto clamp(45px,8vw,90px);padding:clamp(24px,5vw,54px);overflow:hidden;border:1px solid rgba(192,132,252,.3);border-radius:28px;background:radial-gradient(ellipse at 50% -15%,rgba(168,85,247,.18),transparent 55%),linear-gradient(145deg,rgba(21,24,38,.97),rgba(11,17,25,.98));box-shadow:0 28px 90px rgba(0,0,0,.32),inset 0 1px rgba(255,255,255,.06);text-align:center}
 .gate-orb{width:72px;height:72px;margin:0 auto 22px;display:grid;place-items:center;border-radius:23px;border:1px solid rgba(192,132,252,.45);background:linear-gradient(145deg,rgba(192,132,252,.2),rgba(167,243,107,.09));box-shadow:0 0 45px rgba(168,85,247,.15);transform:rotate(-8deg)}
@@ -301,19 +335,7 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 <button class="gate-start" id="gate-start" type="button" disabled>Enter the story <span aria-hidden="true">←</span></button>
 </section>
 
-<section class="name-guide" aria-labelledby="name-guide-title">
-<h2 id="name-guide-title" class="gradient-text">A Note on the Name</h2>
-<div class="content-box">
-<p><strong>Why “Rooyesh”?</strong> <em>Rooyesh</em> (رویش) is a Persian word meaning “growth,” “sprouting,” or “beginning to grow.” It suggests something new taking shape—like a young city, a new idea, or a mystery slowly coming into view. The story keeps its Persian name because that meaning is part of its identity. It is pronounced roughly “roo-YESH.”</p>
-<p><strong>Why keep the characters’ names?</strong> Personal names are usually kept in their original form rather than translated like ordinary words. This helps preserve a character’s identity and cultural background. Their meanings can still add another layer to the story:</p>
-<ul>
-<li><strong>Leila:</strong> A name used in Persian and many other languages, with roots in Arabic <em>Layla</em>, meaning “night.” It suits a story filled with darkness, stars, and things hidden from view.</li>
-<li><strong>Sohrabi:</strong> Dr. Sohrabi’s family name is related to <em>Sohrab</em>, a well-known figure in the Persian epic <em>Shahnameh</em>. The name is kept as a surname, not translated into an English word.</li>
-<li><strong>Naderi:</strong> Naderi is a Persian family name formed from <em>Nader</em>, a name associated with the idea of something rare or uncommon. It is also kept in its original form.</li>
-</ul>
-<p>These name notes offer cultural and linguistic context; they do not define the characters’ personalities or determine what happens to them.</p>
-</div>
-</section>
+
 
 <section class="intro-section" aria-labelledby="intro-title">
 <h1 id="intro-title" class="gradient-text">Royesh: The City the Sky Cannot Remember</h1>
@@ -448,6 +470,34 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 <div class="route-result" id="route-result" aria-live="polite" aria-atomic="true">
 <div class="route-symbol" aria-hidden="true">⬡</div><div class="choice-kicker">Your Choices</div><h3 id="route-title">Your Story Path</h3><p id="route-copy"></p><p id="route-detail" class="thought"></p><button class="route-reset" type="button" id="route-reset">↻ Experience the story again</button>
 </div></section>
+<details class="name-guide">
+<summary>About the Persian names <span class="name-guide-hint">Meaning &amp; pronunciation</span></summary>
+<div class="name-guide-panel">
+<p class="name-guide-intro">The names in this story come from Persian and the wider region. They are kept in their original form to preserve the characters’ cultural identity. Here is a little context, if you are curious.</p>
+<div class="name-entry">
+<strong>Rooyesh <span class="name-meaning">— the story’s name</span></strong>
+<p><span lang="fa" dir="rtl">رویش</span> is a Persian word for the act of growing or sprouting. It can suggest the first signs of life, the beginning of something new, or something slowly taking shape. It fits a city that is still becoming what it will be—and a mystery that reveals itself bit by bit.</p>
+<p class="name-sound">Say it: <b>roo-YESH</b> <span class="ipa">IPA: /ruːˈjeʃ/</span></p>
+</div>
+<div class="name-entry">
+<strong>Leila</strong>
+<p>Used in Persian and many other languages, Leila comes from the Arabic name Layla, linked to the word for “night.” The connection feels at home in a story of stars, darkness, and hidden memories.</p>
+<p class="name-sound">Say it: <b>lay-LAH</b> <span class="ipa">Persian IPA: /lejˈlɑː/</span></p>
+</div>
+<div class="name-entry">
+<strong>Sohrabi</strong>
+<p>Sohrabi is a Persian family name formed from Sohrab, a famous figure in the <em>Shahnameh</em>, the Persian epic poem. Keeping the family name intact preserves that cultural reference without turning it into an English label.</p>
+<p class="name-sound">Say it: <b>soh-rah-BEE</b> <span class="ipa">Persian IPA: /sohɾɒːˈbiː/</span></p>
+</div>
+<div class="name-entry">
+<strong>Naderi</strong>
+<p>Naderi is a Persian family name based on Nader, a name from Arabic <em>nādir</em>, meaning “rare” or “uncommon.” As with the other names, its original form is kept rather than translated.</p>
+<p class="name-sound">Say it: <b>nah-deh-REE</b> <span class="ipa">Persian IPA: /nɒːdeˈɾiː/</span></p>
+</div>
+<p class="name-guide-footnote"><span class="ipa">IPA</span> is a standard system for writing speech sounds. The simple guides above are meant to be easier to read; the symbols after “IPA” give a more exact guide to the Persian pronunciation.</p>
+</div>
+</details>
+
 <footer class="site-footer">
       <div class="footer-inner">
         <p>Royesh · A world for questioning, testing, and creating</p>

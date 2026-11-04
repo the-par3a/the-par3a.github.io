@@ -820,5 +820,18 @@
       }
     }
   </script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js?v=20261104-1", {
+      scope: "./",
+      updateViaCache: "none"
+    }).catch(() => {
+      // The page remains fully usable when service workers are unavailable.
+    });
+  }, { once: true });
+}
+</script>
 </body>
 </html>

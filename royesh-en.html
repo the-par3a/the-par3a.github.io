@@ -7,6 +7,9 @@
 <meta name="description" content="Royesh: an interactive story about cosmic mystery, memory, and the limits of knowledge.">
 <title>Royesh | A City Between Map and Reality</title>
 <style>
+@font-face{font-family:Inter;src:url("./fonts/InterVariable.woff2") format("woff2");font-style:normal;font-weight:100 900;font-display:swap}
+@font-face{font-family:Lora;src:url("./fonts/Lora[wght].woff2") format("woff2");font-style:normal;font-weight:400 700;font-display:swap}
+@font-face{font-family:"Cascadia Code";src:url("./fonts/CascadiaCode.woff2") format("woff2");font-style:normal;font-weight:200 700;font-display:swap}
 @font-face{font-family:Vazirmatn;src:url("./fonts/Vazirmatn.woff2") format("woff2");font-style:normal;font-weight:100 900;font-display:swap}
 :root{color-scheme:dark;--bg:#0b0d12;--panel:rgba(18,22,32,.72);--text:#f2f5f9;--muted:#a3adbd;--line:rgba(192,132,252,.25);--accent:#a7f36b;--purple:#c084fc;--purple-strong:#d8b4fe;--blue:#8bc7ff;--radius:22px}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{--grid-size:clamp(25px,4vw,42px);margin:0;min-height:100vh;overflow-x:hidden;background:radial-gradient(ellipse at 8% 8%,rgba(56,189,248,.13),transparent 32rem),radial-gradient(ellipse at 88% 18%,rgba(168,85,247,.17),transparent 31rem),radial-gradient(ellipse at 70% 72%,rgba(167,243,107,.075),transparent 30rem),radial-gradient(ellipse at 12% 82%,rgba(20,184,166,.10),transparent 34rem),radial-gradient(ellipse at 52% 45%,rgba(99,102,241,.055),transparent 42rem),var(--bg);color:var(--text);font:400 16px/2.05 Vazirmatn,Tahoma,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;isolation:isolate}
@@ -216,11 +219,11 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 .name-guide em{color:#d8b4fe}
 @media(max-width:700px){.name-guide{margin-bottom:36px}.name-guide ul{padding-left:20px}}
 
-/* English typography: distinct, locally available system-font stacks; no external font service. */
+/* English typography: self-hosted webfonts with local fallbacks; no external font service. */
 :root{
- --font-ui:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
- --font-reading:Georgia,"Times New Roman",serif;
- --font-display:"Palatino Linotype","Book Antiqua",Georgia,serif;
+ --font-ui:Inter,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+ --font-reading:Lora,Georgia,"Times New Roman",serif;
+ --font-display:"Cormorant Garamond",Lora,"Palatino Linotype","Book Antiqua",Georgia,serif;
  --font-mono:"Cascadia Code",Consolas,monospace;
 }
 body{font-family:var(--font-ui)}

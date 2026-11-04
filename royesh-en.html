@@ -208,6 +208,14 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 @media(prefers-reduced-motion:reduce){.choice-response.is-visible,.route-result.is-visible{animation:none}.choice-option{transition:none}}
 
 
+/* Name guide: cultural context for readers new to Persian names. */
+.name-guide{margin:0 auto 48px;max-width:820px}
+.name-guide .content-box{border-color:rgba(167,243,107,.28);background:linear-gradient(145deg,rgba(25,39,35,.72),rgba(15,19,29,.9))}
+.name-guide ul{position:relative;margin:8px 0 16px;padding-left:24px;color:#e5e7eb;line-height:2}
+.name-guide li{margin:8px 0;padding-left:4px}
+.name-guide em{color:#d8b4fe}
+@media(max-width:700px){.name-guide{margin-bottom:36px}.name-guide ul{padding-left:20px}}
+
 /* Opening question and adaptive story entrance */
 .reader-gate{position:relative;isolation:isolate;max-width:820px;margin:clamp(28px,7vw,76px) auto clamp(45px,8vw,90px);padding:clamp(24px,5vw,54px);overflow:hidden;border:1px solid rgba(192,132,252,.3);border-radius:28px;background:radial-gradient(ellipse at 50% -15%,rgba(168,85,247,.18),transparent 55%),linear-gradient(145deg,rgba(21,24,38,.97),rgba(11,17,25,.98));box-shadow:0 28px 90px rgba(0,0,0,.32),inset 0 1px rgba(255,255,255,.06);text-align:center}
 .gate-orb{width:72px;height:72px;margin:0 auto 22px;display:grid;place-items:center;border-radius:23px;border:1px solid rgba(192,132,252,.45);background:linear-gradient(145deg,rgba(192,132,252,.2),rgba(167,243,107,.09));box-shadow:0 0 45px rgba(168,85,247,.15);transform:rotate(-8deg)}
@@ -293,6 +301,20 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 <button class="gate-start" id="gate-start" type="button" disabled>Enter the story <span aria-hidden="true">←</span></button>
 </section>
 
+<section class="name-guide" aria-labelledby="name-guide-title">
+<h2 id="name-guide-title" class="gradient-text">A Note on the Name</h2>
+<div class="content-box">
+<p><strong>Why “Rooyesh”?</strong> <em>Rooyesh</em> (رویش) is a Persian word meaning “growth,” “sprouting,” or “beginning to grow.” It suggests something new taking shape—like a young city, a new idea, or a mystery slowly coming into view. The story keeps its Persian name because that meaning is part of its identity. It is pronounced roughly “roo-YESH.”</p>
+<p><strong>Why keep the characters’ names?</strong> Personal names are usually kept in their original form rather than translated like ordinary words. This helps preserve a character’s identity and cultural background. Their meanings can still add another layer to the story:</p>
+<ul>
+<li><strong>Leila:</strong> A name used in Persian and many other languages, with roots in Arabic <em>Layla</em>, meaning “night.” It suits a story filled with darkness, stars, and things hidden from view.</li>
+<li><strong>Sohrabi:</strong> Dr. Sohrabi’s family name is related to <em>Sohrab</em>, a well-known figure in the Persian epic <em>Shahnameh</em>. The name is kept as a surname, not translated into an English word.</li>
+<li><strong>Naderi:</strong> Naderi is a Persian family name formed from <em>Nader</em>, a name associated with the idea of something rare or uncommon. It is also kept in its original form.</li>
+</ul>
+<p>These name notes offer cultural and linguistic context; they do not define the characters’ personalities or determine what happens to them.</p>
+</div>
+</section>
+
 <section class="intro-section" aria-labelledby="intro-title">
 <h1 id="intro-title" class="gradient-text">Royesh: The City the Sky Cannot Remember</h1>
 <div class="content-box intro-box">
@@ -320,11 +342,11 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 <p class="thought">What appeared in the sky might not have been a map. It might have been a memory of something that had not happened yet.</p>
 </div>
 <div class="choice-node" data-choice-step="1">
-<div class="choice-kicker">Decision One · What Counts as Evidence?</div><h3>Where will you begin looking for the truth?</h3>
-<p class="choice-prompt">The residents remember a street that does not exist. The instruments record a pause that should be impossible. Which clue deserves your attention first?</p>
+<div class="choice-kicker">Decision One · Where Should We Look First?</div><h3>Which clue should the team investigate first?</h3>
+<p class="choice-prompt">Some residents remember a street that is not there. The instruments record a 73-second pause. Both clues matter—but the team must choose where to begin.</p>
 <div class="choice-options">
-<button class="choice-option" type="button" data-value="a" aria-pressed="false">Speak with the residents. Compare their dreams, memories, and descriptions to find the details they share—and the ones that contradict.</button>
-<button class="choice-option" type="button" data-value="b" aria-pressed="false">Set the stories aside for a moment. Compare the clocks, camera footage, and observatory records to see whether a technical failure could explain the pause.</button>
+<button class="choice-option" type="button" data-value="a" aria-pressed="false">Talk to the residents. Compare what they remember and look for details that appear in different people’s stories.</button>
+<button class="choice-option" type="button" data-value="b" aria-pressed="false">Check the evidence first. Compare the clocks, camera footage, and observatory records to see if a technical problem caused the pause.</button>
 </div>
 <div class="choice-response" data-response="a">At first, the accounts seemed too inconsistent to trust. Then the team noticed one detail repeated by people who had never met: a narrow doorway at the end of the missing street. That same shape had appeared in the latest star map. No one could explain how they knew it.</div>
 <div class="choice-response" data-response="b">The devices passed their basic checks. But their records disagreed in a way no ordinary fault could explain: while the clocks showed a seventy-three-second pause, several independent systems had captured data from that very interval. The gap was not empty. Something had been recorded inside it.</div>
@@ -344,11 +366,11 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 <p class="quote">“The unknown is not merely something we have yet to explain; sometimes, explaining it changes the very problem itself.”</p>
 </div>
 <div class="choice-node" data-choice-step="2">
-<div class="choice-kicker">Decision Two · Should We Answer Back?</div><h3>The voice knows the city. It may even know the people listening. What should the team do next?</h3>
-<p class="choice-prompt">One carefully chosen question could reveal something important. But the message may not follow the rules of an ordinary conversation.</p>
+<div class="choice-kicker">Decision Two · Should We Reply?</div><h3>A voice from the recording seems to know the city—and the people in the room. What should the team do?</h3>
+<p class="choice-prompt">A reply might give the team a clue. But they do not know who—or what—is on the other side.</p>
 <div class="choice-options">
-<button class="choice-option" type="button" data-value="a" aria-pressed="false">Send the team's single prearranged question: “Where are you?” Record the reply, then end the exchange—whatever the voice says.</button>
-<button class="choice-option" type="button" data-value="b" aria-pressed="false">Do not answer. Preserve the recording and investigate the location using independent instruments, without inviting another message.</button>
+<button class="choice-option" type="button" data-value="a" aria-pressed="false">Ask one question: “Where are you?” Record the answer, then stop the conversation.</button>
+<button class="choice-option" type="button" data-value="b" aria-pressed="false">Do not reply. Keep the recording and study the location with separate instruments. Do not invite another message.</button>
 </div>
 <div class="choice-response" data-response="a">The team asked only once: “Where are you?” Static filled the room. Then came a reply: “In the same place you will be.” A second voice followed—Leila's, but colder and strangely distant: “We haven't built you yet.” Leila, standing beside the speaker, insisted she had said nothing.</div>
 <div class="choice-response" data-response="b">The team made no reply. Instead, they compared independent readings from the site. The magnetic field shifted without a known source, the soil appeared ordinary, and the portable atomic clock ran exactly seventy-three seconds ahead of the reference. The evidence grew stronger; the explanation did not.</div>
@@ -378,11 +400,11 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 <p>That night, for the first time in seventeen days, the clocks did not stop at 03:17. But the observatory's dark display reflected the room where everyone stood—except one person. Your place in the image was empty. On the other side of the glass, someone had written in the condensation: “Welcome home.”</p>
 </div>
 <div class="choice-node" data-choice-step="3">
-<div class="choice-kicker">Decision Three · What Do We Owe the Truth?</div><h3>The evidence is incomplete, the risks are unclear, and the city wants answers. What is the most responsible next step?</h3>
-<p class="choice-prompt">A mystery can invite endless experiments. But curiosity has to be balanced with care, transparency, and the limits of what the team actually knows.</p>
+<div class="choice-kicker">Decision Three · What Should We Tell the City?</div><h3>The evidence is still incomplete, but the city wants answers. What should the team do next?</h3>
+<p class="choice-prompt">The team must decide how to continue—and how much to share—without claiming to know more than the evidence shows.</p>
 <div class="choice-options">
-<button class="choice-option" type="button" data-value="a" aria-pressed="false">Continue with carefully controlled measurements. No more replies to the voice, no solo visits, and no expansion of the investigation until the existing evidence has been checked.</button>
-<button class="choice-option" type="button" data-value="b" aria-pressed="false">Publish the complete records—including contradictions, failed tests, and personal accounts—so independent researchers can examine the evidence for themselves.</button>
+<button class="choice-option" type="button" data-value="a" aria-pressed="false">Keep investigating, but set clear limits. Use separate instruments, do not reply to the voice, and check the evidence before taking the next step.</button>
+<button class="choice-option" type="button" data-value="b" aria-pressed="false">Share all the records with other researchers—including failed tests and conflicting accounts—so they can check the evidence independently.</button>
 </div>
 <div class="choice-response" data-response="a">The team continued with independent instruments and strict safeguards. No one answered the voice again. The site remained restricted while the records were checked and stored separately. Progress was slower, but each result could be tested again.</div>
 <div class="choice-response" data-response="b">The complete report went public: raw measurements, unexplained sounds, conflicting accounts, and every failed hypothesis. Other research teams began reviewing it. For the first time, Royesh was no longer investigating alone—but the mystery had not become any smaller.</div>

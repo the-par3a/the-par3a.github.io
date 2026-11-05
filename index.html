@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preload" href="./fonts/Vazirmatn.woff2" as="font" type="font/woff2" crossorigin>
 <meta name="theme-color" content="#0b0d12">
-  <meta name="description" content="وب‌سایت شخصی پارسا؛ یادداشت‌هایی از مسیر یادگیری، برنامه‌نویسی، لینوکس و تجربه‌های خلاقانه.">
+  <meta name="description" content="وب‌سایت شخصی پارسا؛ یادداشت‌هایی از مسیر یادگیری، <span data-fa="برنامه‌نویسی" data-en="Programming">برنامه‌نویسی</span>، لینوکس و تجربه‌های خلاقانه." data-description-fa="وب‌سایت شخصی پارسا؛ یادداشت‌هایی از مسیر یادگیری، برنامه‌نویسی، لینوکس و تجربه‌های خلاقانه." data-description-en="Parsa’s personal website: projects, programming, Linux, and creative experiments.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="پارسا | وب‌سایت شخصی">
-  <meta property="og:description" content="مسیر یادگیری، تجربه‌های فنی و ایده‌هایی که کم‌کم شکل پروژه می‌گیرند.">
-  <title>پارسا | وب‌سایت شخصی</title>
+  <meta property="og:title" content="پارسا | وب‌سایت شخصی" data-title-fa="پارسا | وب‌سایت شخصی" data-title-en="Parsa | Personal Website">
+  <meta property="og:description" content="مسیر یادگیری، تجربه‌های فنی و ایده‌هایی که کم‌کم شکل پروژه می‌گیرند." data-description-fa="مسیر یادگیری، تجربه‌های فنی و ایده‌هایی که کم‌کم شکل پروژه می‌گیرند." data-description-en="A learning journey, technical experiments, and ideas turning into projects.">
+  <title data-title-fa="پارسا | وب‌سایت شخصی" data-title-en="Parsa | Personal Website">پارسا | وب‌سایت شخصی</title>
   <style>
     @font-face {
       font-family: "Vazirmatn";
@@ -50,12 +50,14 @@
       line-height: 1.9;
       -webkit-font-smoothing: antialiased;
       isolation: isolate;
+      position: relative;
+      min-height: 100vh;
     }
     /* شبکه و نورهای متحرک؛ سبک، واکنش‌گرا و بدون مزاحمت برای کلیک‌ها */
     body::before,
     body::after {
       content: "";
-      position: fixed;
+      position: absolute;
       inset: 0;
       pointer-events: none;
       z-index: 0;
@@ -80,6 +82,7 @@
       mask-image: linear-gradient(to bottom, black 0%, rgba(0,0,0,.88) 70%, rgba(0,0,0,.65) 100%);
     }
     body::after {
+      display:none;
       inset: -30%;
       background:
         radial-gradient(ellipse at 22% 28%, rgba(167, 243, 107, .13), transparent 24%),
@@ -198,6 +201,8 @@
     }
     @media (max-width: 540px) {
       .music-toggle { inset-inline-start: 12px; bottom: max(12px, env(safe-area-inset-bottom)); }
+      .page-mascot, .page-mascot * { animation:none !important; }
+      .card:hover, .button:hover { transform:none; }
     }
     a { color: inherit; }
     a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
@@ -211,6 +216,13 @@
     .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; letter-spacing: -.03em; }
     .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; background: var(--accent); color: var(--accent-ink); font-weight: 900; }
     .nav-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .language-toggle { display:inline-flex; align-items:center; gap:8px; flex:0 0 auto; min-height:40px; padding:7px 12px; border:1px solid rgba(167,243,107,.32); border-radius:12px; background:rgba(167,243,107,.07); color:var(--text); font:700 .78rem/1.4 Inter,Arial,sans-serif; cursor:pointer; }
+    .language-toggle:hover { border-color:var(--accent); background:rgba(167,243,107,.12); }
+    .language-code { color:var(--accent); letter-spacing:.04em; }
+    .language-caption { color:var(--muted); font-weight:500; }
+    html[dir="ltr"] body { font-family:Inter,"Segoe UI",Arial,sans-serif; }
+    html[dir="ltr"] .music-toggle { text-align:left; }
+    html[dir="ltr"] .footer-links a:hover { transform:translateX(3px); }
     .nav-links a { color: var(--muted); font-size: .91rem; text-decoration: none; transition: color .2s; }
     .nav-links a:hover { color: var(--accent); }
     .hero { padding-block: clamp(42px, 7vw, 76px) 76px; }
@@ -444,6 +456,7 @@
       .studio-actions { grid-template-columns: 1fr; }
       .studio-actions button { width: 100%; }
       .music-toggle { min-height: 48px; padding: 6px 11px; gap: 8px; }
+      .language-toggle { min-height:36px; padding:6px 9px; }
       .music-toggle .music-icon { flex-basis: 31px; width: 31px; height: 31px; }
       .music-label { font-size: .78rem; }
       .music-hint { font-size: .64rem; }
@@ -494,18 +507,18 @@
   </style>
 </head>
 <body>
-  <canvas id="particle-field" class="three-bg-canvas" aria-hidden="true"></canvas>
   <header class="topbar">
     <nav class="nav wrap" aria-label="ناوبری اصلی">
       <a class="brand" href="#home" aria-label="بازگشت به ابتدای صفحه">
         <span class="brand-mark" aria-hidden="true">P</span><span>پارسا <span dir="ltr">/ PARSA</span></span>
       </a>
       <div class="nav-links">
-        <a href="#about">دربارهٔ من</a>
-        <a href="#projects">پروژه‌ها</a>
-        <a href="#interests">علاقه‌مندی‌ها</a>
-        <a href="#contact">ارتباط</a>
+        <a href="#about"><span data-fa="دربارهٔ من" data-en="About">دربارهٔ من</span></a>
+        <a href="#projects"><span data-fa="پروژه‌ها" data-en="Projects">پروژه‌ها</span></a>
+        <a href="#interests"><span data-fa="علاقه‌مندی‌ها" data-en="Interests">علاقه‌مندی‌ها</span></a>
+        <a href="#contact"><span data-fa="ارتباط" data-en="Contact">ارتباط</span></a>
       </div>
+      <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch language" aria-pressed="false"><span class="language-code">EN</span><span class="language-caption" data-fa="English" data-en="فارسی">English</span></button>
     </nav>
   </header>
 
@@ -513,11 +526,11 @@
     <div class="wrap hero">
       <section class="hero-card" aria-labelledby="hero-title">
         <div class="eyebrow">PERSONAL PORTFOLIO · 2026</div>
-        <h1 id="hero-title">سلام، من پارسا هستم.<br><span class="gradient">اینجا ایده‌ها شکل می‌گیرند.</span></h1>
-        <p class="intro">از برنامه‌نویسی و لینوکس تا امنیت سیستم‌ها و ایده‌های خلاقانه؛ اینجا مسیر یادگیری‌ام را ثبت می‌کنم، چیزهای تازه را امتحان می‌کنم و کارهایی را که ارزش به‌اشتراک‌گذاشتن دارند، کنار هم می‌آورم.</p>
+        <h1 id="hero-title"><span data-fa="سلام، من پارسا هستم." data-en="Hi, I’m Parsa.">سلام، من پارسا هستم.</span><br><span class="gradient" data-fa="اینجا ایده‌ها شکل می‌گیرند." data-en="Where ideas take shape.">اینجا ایده‌ها شکل می‌گیرند.</span></h1>
+        <p class="intro"><span data-fa="از برنامه‌نویسی و لینوکس تا امنیت سیستم‌ها و <span data-fa="ایده‌های خلاقانه" data-en="Creative ideas">ایده‌های خلاقانه</span>؛ اینجا مسیر یادگیری‌ام را ثبت می‌کنم، چیزهای تازه را امتحان می‌کنم و کارهایی را که ارزش به‌اشتراک‌گذاشتن دارند، کنار هم می‌آورم." data-en="From programming and Linux to system security and creative ideas, this is where I document what I learn, experiment with new things, and share work worth sharing.">از برنامه‌نویسی و لینوکس تا امنیت سیستم‌ها و ایده‌های خلاقانه؛ اینجا مسیر یادگیری‌ام را ثبت می‌کنم، چیزهای تازه را امتحان می‌کنم و کارهایی را که ارزش به‌اشتراک‌گذاشتن دارند، کنار هم می‌آورم.</span></p>
         <div class="hero-actions">
-          <a class="button primary" href="#projects">گشت‌وگذار در سایت <span aria-hidden="true">↙</span></a>
-          <a class="button" href="https://github.com/the-par3a" target="_blank" rel="noopener noreferrer">پروفایل GitHub <span dir="ltr" aria-hidden="true">↗</span></a>
+          <a class="button primary" href="#projects"><span data-fa="گشت‌وگذار در سایت" data-en="Explore the site">گشت‌وگذار در سایت</span> <span aria-hidden="true">↙</span></a>
+          <a class="button" href="https://github.com/the-par3a" target="_blank" rel="noopener noreferrer"><span data-fa="پروفایل GitHub" data-en="GitHub profile">پروفایل GitHub</span> <span dir="ltr" aria-hidden="true">↗</span></a>
         </div>
         <div class="quick-facts" aria-label="حوزه‌های مورد علاقه">
           <span class="pill">برنامه‌نویسی</span>
@@ -530,47 +543,47 @@
 
     <section id="projects" class="wrap">
       <div class="section-head">
-        <div><p class="section-kicker">01 / SELECTED WORK</p><h2>چیزهایی که ساخته‌ام</h2></div>
-        <p class="section-note">این مجموعه فعلاً ترکیبی از یک تجربهٔ خلاقانه، ابزارهای آنلاین و مخزن‌های عمومی من است؛ با آماده‌شدن کارهای تازه، به‌روزترش می‌کنم.</p>
+        <div><p class="section-kicker">01 / SELECTED WORK</p><h2><span data-fa="چیزهایی که ساخته‌ام" data-en="Things I’ve built">چیزهایی که ساخته‌ام</span></h2></div>
+        <p class="section-note"><span data-fa="این مجموعه فعلاً ترکیبی از یک تجربهٔ خلاقانه، ابزارهای آنلاین و مخزن‌های عمومی من است؛ با آماده‌شدن کارهای تازه، به‌روزترش می‌کنم." data-en="This collection brings together a creative experience, online tools, and my public repositories. I’ll add more as new projects are ready.">این مجموعه فعلاً ترکیبی از یک تجربهٔ خلاقانه، ابزارهای آنلاین و مخزن‌های عمومی من است؛ با آماده‌شدن کارهای تازه، به‌روزترش می‌کنم.</span></p>
       </div>
       <div class="grid">
         <article class="card">
           <div class="card-top"><div class="icon-box" aria-hidden="true">⌘</div><span class="card-tag">STATUS · WEB</span></div>
-          <h3>پایش وضعیت سرویس‌ها</h3>
-          <p>داشبوردی برای بررسی وضعیت سرویس‌ها و مرور تاریخچهٔ پایش آن‌ها با کمک Upptime.</p>
-          <a class="card-link" href="./upptime/">رفتن به صفحهٔ وضعیت <span aria-hidden="true">←</span></a>
+          <h3><span data-fa="پایش وضعیت سرویس‌ها" data-en="Service status monitoring">پایش وضعیت سرویس‌ها</span></h3>
+          <p><span data-fa="داشبوردی برای بررسی وضعیت سرویس‌ها و مرور تاریخچهٔ پایش آن‌ها با کمک Upptime." data-en="A dashboard for checking service availability and reviewing monitoring history, powered by Upptime.">داشبوردی برای بررسی وضعیت سرویس‌ها و مرور تاریخچهٔ پایش آن‌ها با کمک Upptime.</span></p>
+          <a class="card-link" href="./upptime/"><span data-fa="رفتن به صفحهٔ وضعیت" data-en="View service status">رفتن به صفحهٔ وضعیت</span> <span aria-hidden="true">←</span></a>
         </article>
         <article class="card">
           <div class="card-top"><div class="icon-box" aria-hidden="true">✳</div><span class="card-tag">CREATIVE · FA</span></div>
-          <h3>ناکتاب</h3>
-          <p>یک تجربهٔ نوشتاری و داستانی با حال‌وهوای متفاوت؛ مستقل از صفحهٔ اصلی و آماده برای خواندن.</p>
-          <a class="card-link" href="./naaktab.html">ورود به ناکتاب <span aria-hidden="true">←</span></a>
+          <h3 data-fa="ناکتاب" data-en="Naaktab">ناکتاب</h3>
+          <p><span data-fa="یک تجربهٔ نوشتاری و داستانی با <span data-fa="حال‌وهوا" data-en="Mood">حال‌وهوا</span>ی متفاوت؛ مستقل از صفحهٔ اصلی و آماده برای خواندن." data-en="A distinctive reading and storytelling experience, separate from the homepage and ready to explore.">یک تجربهٔ نوشتاری و داستانی با حال‌وهوای متفاوت؛ مستقل از صفحهٔ اصلی و آماده برای خواندن.</span></p>
+          <a class="card-link" href="./naaktab.html"><span data-fa="ورود به ناکتاب" data-en="Explore Naaktab">ورود به ناکتاب</span> <span aria-hidden="true">←</span></a>
         </article>
         <article class="card">
           <div class="card-top"><div class="icon-box" aria-hidden="true">⌁</div><span class="card-tag">OPEN SOURCE</span></div>
-          <h3>مخزن‌های گیت‌هاب</h3>
-          <p>کدها، آزمایش‌ها و کارهای عمومی‌ام را در مخزن‌ها ببین؛ توضیحات هر مورد در صفحهٔ خودش قرار دارد.</p>
-          <a class="card-link" href="https://github.com/the-par3a?tab=repositories" target="_blank" rel="noopener noreferrer">مرور مخزن‌ها <span aria-hidden="true">↗</span></a>
+          <h3><span data-fa="مخزن‌های گیت‌هاب" data-en="GitHub repositories">مخزن‌های گیت‌هاب</span></h3>
+          <p><span data-fa="کدها، آزمایش‌ها و کارهای عمومی‌ام را در مخزن‌ها ببین؛ توضیحات هر مورد در صفحهٔ خودش قرار دارد." data-en="Browse my code, experiments, and public work. Each repository has its own details.">کدها، آزمایش‌ها و کارهای عمومی‌ام را در مخزن‌ها ببین؛ توضیحات هر مورد در صفحهٔ خودش قرار دارد.</span></p>
+          <a class="card-link" href="https://github.com/the-par3a?tab=repositories" target="_blank" rel="noopener noreferrer"><span data-fa="مرور مخزن‌ها" data-en="Browse repositories">مرور مخزن‌ها</span> <span aria-hidden="true">↗</span></a>
         </article>
       </div>
     </section>
 
     <section id="about" class="wrap">
       <div class="section-head">
-        <div><p class="section-kicker">02 / ABOUT</p><h2>دربارهٔ من</h2></div>
+        <div><p class="section-kicker">02 / ABOUT</p><h2><span data-fa="دربارهٔ من" data-en="About">دربارهٔ من</span></h2></div>
       </div>
       <div class="about-panel">
         <div>
-          <h3>قدم‌به‌قدم، با کنجکاوی</h3>
-          <p>بیشتر از حفظ‌کردن دستورها، دوست دارم بفهمم ابزارها و سیستم‌ها چطور کار می‌کنند. برای همین یاد می‌گیرم، آزمایش می‌کنم، نتیجه‌ها را بررسی می‌کنم و سعی می‌کنم هر تجربه، به درک عمیق‌تری منتهی شود.</p>
-          <p>این وب‌سایت هم بخشی از همین مسیر است؛ فضایی برای معرفی کارها، ثبت تجربه‌ها و اضافه‌کردن پروژه‌ها وقتی به مرحلهٔ مناسبی برای انتشار برسند.</p>
+          <h3><span data-fa="قدم‌به‌قدم، با کنجکاوی" data-en="Learning step by step, driven by curiosity">قدم‌به‌قدم، با کنجکاوی</span></h3>
+          <p><span data-fa="بیشتر از حفظ‌کردن دستورها، دوست دارم بفهمم ابزارها و سیستم‌ها چطور کار می‌کنند. برای همین یاد می‌گیرم، آزمایش می‌کنم، نتیجه‌ها را بررسی می‌کنم و سعی می‌کنم هر تجربه، به درک عمیق‌تری منتهی شود." data-en="Rather than memorizing commands, I want to understand how tools and systems work. I learn, experiment, examine the results, and turn each experience into deeper understanding.">بیشتر از حفظ‌کردن دستورها، دوست دارم بفهمم ابزارها و سیستم‌ها چطور کار می‌کنند. برای همین یاد می‌گیرم، آزمایش می‌کنم، نتیجه‌ها را بررسی می‌کنم و سعی می‌کنم هر تجربه، به درک عمیق‌تری منتهی شود.</span></p>
+          <p><span data-fa="این وب‌سایت هم بخشی از همین مسیر است؛ فضایی برای معرفی کارها، ثبت تجربه‌ها و اضافه‌کردن پروژه‌ها وقتی به مرحلهٔ مناسبی برای انتشار برسند." data-en="This website is part of that journey: a place to present my work, document what I learn, and publish projects when they’re ready.">این وب‌سایت هم بخشی از همین مسیر است؛ فضایی برای معرفی کارها، ثبت تجربه‌ها و اضافه‌کردن پروژه‌ها وقتی به مرحلهٔ مناسبی برای انتشار برسند.</span></p>
         </div>
         <div class="interest-list" id="interests">
-          <div class="interest"><span>01</span> برنامه‌نویسی و توسعهٔ وب</div>
-          <div class="interest"><span>02</span> Linux، خط فرمان و مدیریت سیستم</div>
-          <div class="interest"><span>03</span> امنیت سایبری و آزمایشگاه‌های ایزوله</div>
-          <div class="interest"><span>04</span> Git، GitHub و خودکارسازی</div>
-          <div class="interest"><span>05</span> طراحی و پروژه‌های خلاقانه</div>
+          <div class="interest"><span>01</span> <span data-fa="برنامه‌نویسی و توسعهٔ وب" data-en="Programming and web development">برنامه‌نویسی و توسعهٔ وب</span></div>
+          <div class="interest"><span>02</span> <span data-fa="Linux، خط فرمان و مدیریت سیستم" data-en="Linux, command line, and system administration">Linux، خط فرمان و مدیریت سیستم</span></div>
+          <div class="interest"><span>03</span> <span data-fa="امنیت سایبری و آزمایشگاه‌های ایزوله" data-en="Cybersecurity and isolated labs">امنیت سایبری و آزمایشگاه‌های ایزوله</span></div>
+          <div class="interest"><span>04</span> <span data-fa="Git، GitHub و خودکارسازی" data-en="Git, GitHub, and automation">Git، GitHub و خودکارسازی</span></div>
+          <div class="interest"><span>05</span> <span data-fa="طراحی و پروژه‌های خلاقانه" data-en="Design and creative projects">طراحی و پروژه‌های خلاقانه</span></div>
         </div>
       </div>
     </section>
@@ -579,10 +592,10 @@
       <div class="contact-panel">
         <div>
           <p class="section-kicker">03 / FIND ME ONLINE</p>
-          <h2>در GitHub بیشتر ببین</h2>
-          <p>مخزن‌های عمومی، کدها و به‌روزرسانی‌های من را آنجا دنبال کن؛ هر پروژه جزئیات خودش را دارد.</p>
+          <h2><span data-fa="در GitHub بیشتر ببین" data-en="Find more on GitHub">در GitHub بیشتر ببین</span></h2>
+          <p><span data-fa="مخزن‌های عمومی، کدها و به‌روزرسانی‌های من را آنجا دنبال کن؛ هر پروژه جزئیات خودش را دارد." data-en="Explore my public repositories, code, and updates there. Each project has its own details.">مخزن‌های عمومی، کدها و به‌روزرسانی‌های من را آنجا دنبال کن؛ هر پروژه جزئیات خودش را دارد.</span></p>
         </div>
-        <a class="button primary" href="https://github.com/the-par3a" target="_blank" rel="noopener noreferrer">باز کردن GitHub <span dir="ltr" aria-hidden="true">↗</span></a>
+        <a class="button primary" href="https://github.com/the-par3a" target="_blank" rel="noopener noreferrer"><span data-fa="باز کردن GitHub" data-en="Visit GitHub">باز کردن GitHub</span> <span dir="ltr" aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>
@@ -590,14 +603,14 @@
   <button class="music-toggle" id="music-toggle" type="button" aria-haspopup="dialog" aria-controls="music-studio">
     <span class="music-icon" aria-hidden="true">♫</span>
     <span class="music-copy">
-      <span class="music-label">استودیوی موسیقی</span>
-      <span class="music-hint">ساخت موسیقی زنده</span>
+      <span class="music-label" data-fa="استودیوی موسیقی" data-en="Music studio">استودیوی موسیقی</span>
+      <span class="music-hint"><span data-fa="ساخت موسیقی زنده" data-en="Generate music live">ساخت موسیقی زنده</span></span>
     </span>
   </button>
   <section class="music-studio" id="music-studio" role="dialog" aria-modal="true" aria-labelledby="studio-title" aria-hidden="true">
     <div class="studio-shell">
       <header class="studio-header">
-        <div><p class="section-kicker">WEB AUDIO LAB / LIVE GENERATOR</p><h2 id="studio-title">استودیوی موسیقی</h2><p class="studio-subtitle">هر بار یک قطعهٔ تازه؛ ساخته‌شده همین‌جا، در مرورگر تو.</p></div>
+        <div><p class="section-kicker">WEB AUDIO LAB / LIVE GENERATOR</p><h2 id="studio-title">استودیوی موسیقی</h2><p class="studio-subtitle"><span data-fa="هر بار یک قطعهٔ تازه؛ ساخته‌شده همین‌جا، در مرورگر تو." data-en="A new piece every time, generated right here in your browser.">هر بار یک قطعهٔ تازه؛ ساخته‌شده همین‌جا، در مرورگر تو.</span></p></div>
         <button class="studio-close" id="studio-close" type="button" aria-label="بستن استودیو">×</button>
       </header>
       <div class="studio-visual" id="studio-visual" aria-hidden="true"><div class="studio-orb"></div><div class="pixel-dancer">
@@ -614,15 +627,15 @@
             <rect x="29" y="23" width="9" height="3" fill="#f2f5f9"/>
             <rect x="25" y="34" width="5" height="5" fill="#111522"/><rect x="36" y="34" width="5" height="5" fill="#111522"/>
           </svg>
-        </div><div class="studio-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="studio-status" id="studio-status">آمادهٔ ساخت موسیقی</span></div>
+        </div><div class="studio-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="studio-status" id="studio-status" data-fa="آمادهٔ ساخت موسیقی" data-en="Ready to make music">آمادهٔ ساخت موسیقی</span></div>
       <div class="studio-controls">
-        <div class="studio-control-block"><div class="control-heading"><label for="music-style">سبک موسیقی</label><span>STYLE</span></div><select id="music-style"><option value="cinematic">سینمایی و حماسی</option><option value="ambient">آرام و فضایی</option><option value="electronic">الکترونیک</option><option value="retro">رترو و بازی‌گونه</option></select></div>
-        <div class="studio-control-block"><div class="control-heading"><label for="music-mood">حال‌وهوا</label><span>MOOD</span></div><select id="music-mood"><option value="uplifting">امیدوارکننده</option><option value="mysterious">مرموز</option><option value="dreamy">رویاگونه</option><option value="intense">پر انرژی</option></select></div>
-        <div class="studio-control-block"><div class="control-heading"><label for="music-tempo">سرعت موسیقی</label><output id="tempo-value" for="music-tempo">۹۶ BPM</output></div><input id="music-tempo" type="range" min="55" max="160" value="96"></div>
-        <div class="studio-control-block"><div class="control-heading"><label for="music-volume">بلندی صدا</label><output id="volume-value" for="music-volume">۳۵٪</output></div><input id="music-volume" type="range" min="0" max="100" value="35"></div>
+        <div class="studio-control-block"><div class="control-heading"><label for="music-style"><span data-fa="سبک موسیقی" data-en="Music style">سبک موسیقی</span></label><span>STYLE</span></div><select id="music-style"><option value="cinematic"><span data-fa="سینمایی و حماسی" data-en="Cinematic">سینمایی و حماسی</span></option><option value="ambient"><span data-fa="آرام و فضایی" data-en="Ambient">آرام و فضایی</span></option><option value="electronic"><span data-fa="الکترونیک" data-en="Electronic">الکترونیک</span></option><option value="retro"><span data-fa="رترو و بازی‌گونه" data-en="Retro / game-like">رترو و بازی‌گونه</span></option></select></div>
+        <div class="studio-control-block"><div class="control-heading"><label for="music-mood">حال‌وهوا</label><span>MOOD</span></div><select id="music-mood"><option value="uplifting"><span data-fa="امیدوارکننده" data-en="Uplifting">امیدوارکننده</span></option><option value="mysterious"><span data-fa="مرموز" data-en="Mysterious">مرموز</span></option><option value="dreamy"><span data-fa="رویاگونه" data-en="Dreamy">رویاگونه</span></option><option value="intense"><span data-fa="پر انرژی" data-en="Energetic">پر انرژی</span></option></select></div>
+        <div class="studio-control-block"><div class="control-heading"><label for="music-tempo"><span data-fa="سرعت موسیقی" data-en="Tempo">سرعت موسیقی</span></label><output id="tempo-value" for="music-tempo">۹۶ BPM</output></div><input id="music-tempo" type="range" min="55" max="160" value="96"></div>
+        <div class="studio-control-block"><div class="control-heading"><label for="music-volume"><span data-fa="بلندی صدا" data-en="Volume">بلندی صدا</span></label><output id="volume-value" for="music-volume">۳۵٪</output></div><input id="music-volume" type="range" min="0" max="100" value="35"></div>
       </div>
-      <div class="studio-actions"><button class="studio-play" id="studio-play" type="button"><span id="studio-play-icon">▶</span><span id="studio-play-label">ساخت و پخش موسیقی</span></button><button class="studio-next" id="studio-next" type="button" disabled>↻ ساخت قطعهٔ جدید</button></div>
-      <p class="studio-footnote">صدا به‌صورت الگوریتمی با Web Audio API تولید می‌شود؛ هیچ فایل صوتی بارگیری نمی‌شود. برای شروع، دکمهٔ پخش را بزن.</p>
+      <div class="studio-actions"><button class="studio-play" id="studio-play" type="button"><span id="studio-play-icon">▶</span><span id="studio-play-label"><span data-fa="ساخت و پخش موسیقی" data-en="Generate and play">ساخت و پخش موسیقی</span></span></button><button class="studio-next" id="studio-next" type="button" disabled><span data-fa="↻ ساخت قطعهٔ جدید" data-en="↻ Generate another track">↻ ساخت قطعهٔ جدید</span></button></div>
+      <p class="studio-footnote"><span data-fa="صدا به‌صورت الگوریتمی با Web Audio API تولید می‌شود؛ هیچ فایل صوتی بارگیری نمی‌شود. برای شروع، دکمهٔ پخش را بزن." data-en="Audio is generated algorithmically with the Web Audio API. No audio files are downloaded. Press play to begin.">صدا به‌صورت الگوریتمی با Web Audio API تولید می‌شود؛ هیچ فایل صوتی بارگیری نمی‌شود. برای شروع، دکمهٔ پخش را بزن.</span></p>
     </div>
   </section>
   <div class="page-mascot" aria-hidden="true">
@@ -652,55 +665,55 @@
     <div class="wrap footer-inner">
       <section class="footer-brand" aria-label="درباره سایت">
         <div class="footer-brandmark"><span aria-hidden="true">P.</span> پارسا</div>
-        <p>گوشه‌ای برای یادگیری، ساختن و ثبت ایده‌هایی که ارزش دنبال‌کردن دارند؛ از کد و فناوری تا نوشته‌ها و تجربه‌های تازه.</p>
+        <p><span data-fa="گوشه‌ای برای یادگیری، ساختن و ثبت ایده‌هایی که ارزش دنبال‌کردن دارند؛ از کد و فناوری تا نوشته‌ها و تجربه‌های تازه." data-en="A corner for learning, building, and documenting ideas worth pursuing — from code and technology to writing and new experiences.">گوشه‌ای برای یادگیری، ساختن و ثبت ایده‌هایی که ارزش دنبال‌کردن دارند؛ از کد و فناوری تا نوشته‌ها و تجربه‌های تازه.</span></p>
       </section>
 
       <nav aria-label="پیوندهای سایت">
-        <h2 class="footer-heading">دسترسی سریع</h2>
+        <h2 class="footer-heading"><span data-fa="دسترسی سریع" data-en="Quick links">دسترسی سریع</span></h2>
         <div class="footer-links">
-          <a href="https://github.com/the-par3a" target="_blank" rel="noopener noreferrer">پروفایل GitHub ↗</a>
-          <a href="./upptime/">وضعیت سرویس‌ها</a>
-          <a href="./naaktab.html">ناکتاب و نوشته‌ها</a>
+          <a href="https://github.com/the-par3a" target="_blank" rel="noopener noreferrer"><span data-fa="پروفایل GitHub ↗" data-en="GitHub profile ↗">پروفایل GitHub ↗</span></a>
+          <a href="./upptime/" data-fa="وضعیت سرویس‌ها" data-en="Service status">وضعیت سرویس‌ها</a>
+          <a href="./naaktab.html" data-fa="ناکتاب و نوشته‌ها" data-en="Naaktab and writing">ناکتاب و نوشته‌ها</a>
         </div>
       </nav>
 
       <section class="footer-license" aria-label="اطلاعات مجوز">
-        <h2 class="footer-heading">مجوزها و استفاده</h2>
-        <p>کدهای اصیل پروژه با <a href="./LICENSE">Apache License 2.0</a> و نوشته‌های اصیل با <a href="./CONTENT-LICENSE.md">Creative Commons BY 4.0</a> منتشر شده‌اند.</p>
-        <a href="./THIRD-PARTY-NOTICES.md">مجوز فونت‌ها و اجزای شخص ثالث</a>
+        <h2 class="footer-heading"><span data-fa="مجوزها و استفاده" data-en="Licensing and reuse">مجوزها و استفاده</span></h2>
+        <p><span data-fa="کدهای اصیل پروژه با " data-en="Original project code is released under the "></span><a href="./LICENSE">Apache License 2.0</a><span data-fa=" و نوشته‌های اصیل با " data-en=", and original writing under "></span><a href="./CONTENT-LICENSE.md">Creative Commons BY 4.0</a><span data-fa=" منتشر شده‌اند." data-en="."></span></p>
+        <a href="./THIRD-PARTY-NOTICES.md"><span data-fa="مجوز فونت‌ها و اجزای شخص ثالث" data-en="Font and third-party licenses">مجوز فونت‌ها و اجزای شخص ثالث</span></a>
       </section>
     </div>
     <div class="wrap footer-bottom">
-      <p class="footer-credit">ساخته‌شده با کنجکاوی، یادگیری و کمی کد. · © ۱۴۰۵ Parsa</p>
-      <p>حقوق و مجوز هر بخش مطابق توضیحات همان بخش است.</p>
+      <p class="footer-credit"><span data-fa="ساخته‌شده با کنجکاوی، یادگیری و کمی کد. · © ۱۴۰۵ Parsa" data-en="Built with curiosity, learning, and a little code. · © 2026 Parsa">ساخته‌شده با کنجکاوی، یادگیری و کمی کد. · © ۱۴۰۵ Parsa</span></p>
+      <p><span data-fa="حقوق و مجوز هر بخش مطابق توضیحات همان بخش است." data-en="Rights and licenses are described for each relevant part.">حقوق و مجوز هر بخش مطابق توضیحات همان بخش است.</span></p>
     </div>
   </footer>
   <script>
-    // نمایش تدریجی سبک با IntersectionObserver؛ پس از یک‌بار نمایش، متن دیگر پنهان نمی‌شود.
     (() => {
-      const targets = document.querySelectorAll(
-        '.hero-card, .section-head, .card, .about-panel, .contact-panel, .footer-inner'
-      );
-      if (!('IntersectionObserver' in window) ||
-          window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-      const observer = new IntersectionObserver((entries) => {
-        for (const entry of entries) {
-          const el = entry.target;
-          if (entry.isIntersecting) {
-            el.classList.remove('reveal-pending');
-            el.classList.add('reveal-visible');
-            observer.unobserve(el);
-          } else if (!el.classList.contains('reveal-visible')) {
-            el.setAttribute('data-reveal', '');
-            el.classList.add('reveal-pending');
-          }
-        }
-      }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
-
-      targets.forEach((el) => observer.observe(el));
+      const root=document.documentElement, toggle=document.getElementById('language-toggle');
+      const description=document.querySelector('meta[name="description"]');
+      const ogTitle=document.querySelector('meta[property="og:title"]');
+      const ogDescription=document.querySelector('meta[property="og:description"]');
+      const title=document.querySelector('title');
+      const apply=(language)=>{
+        const lang=language==='en'?'en':'fa';
+        root.lang=lang;root.dir=lang==='fa'?'rtl':'ltr';
+        document.querySelectorAll('[data-fa][data-en]').forEach(el=>{el.textContent=el.dataset[lang];});
+        title.textContent=title.dataset[lang==='fa'?'titleFa':'titleEn'];
+        description.content=description.dataset[lang==='fa'?'descriptionFa':'descriptionEn'];
+        ogTitle.content=ogTitle.dataset[lang==='fa'?'titleFa':'titleEn'];
+        ogDescription.content=ogDescription.dataset[lang==='fa'?'descriptionFa':'descriptionEn'];
+        toggle.querySelector('.language-code').textContent=lang==='fa'?'EN':'FA';
+        toggle.querySelector('.language-caption').textContent=lang==='fa'?'English':'فارسی';
+        toggle.setAttribute('aria-pressed',String(lang==='en'));
+        toggle.setAttribute('aria-label',lang==='fa'?'Switch to English':'تغییر زبان به فارسی');
+        try{localStorage.setItem('parsa-home-language',lang);}catch(_){}
+      };
+      let initial='fa';try{initial=localStorage.getItem('parsa-home-language')||'fa';}catch(_){}
+      apply(initial);toggle.addEventListener('click',()=>apply(root.lang==='fa'?'en':'fa'));
     })();
-
+  </script>
+  <script>
     // استودیوی تولید موسیقی رویه‌ای با Web Audio API؛ هر بار seed و ملودی تازه.
     (() => {
       const openButton = document.getElementById('music-toggle');
@@ -787,21 +800,21 @@
       }
       async function startNew(){
         const AudioContextClass=window.AudioContext||window.webkitAudioContext;
-        if(!AudioContextClass){status.textContent='مرورگر از Web Audio پشتیبانی نمی‌کند';return;}
+        if(!AudioContextClass){status.textContent=document.documentElement.lang==='fa'?'مرورگر از Web Audio پشتیبانی نمی‌کند':'Your browser does not support Web Audio';return;}
         audio=audio||new AudioContextClass();
         await audio.resume();
         if(master)master.disconnect();
         master=audio.createGain();master.gain.value=Number(volumeInput.value)/100*.42;master.connect(audio.destination);
         makeComposition();playing=true;tick();restartClock();
-        panel.classList.add('is-playing');status.textContent='در حال ساخت و پخش یک قطعهٔ تازه';
-        playLabel.textContent='توقف موسیقی';playIcon.textContent='Ⅱ';nextButton.disabled=false;
+        panel.classList.add('is-playing');status.textContent=document.documentElement.lang==='fa'?'در حال ساخت و پخش یک قطعهٔ تازه':'Generating and playing a new track';
+        playLabel.textContent=document.documentElement.lang==='fa'?'توقف موسیقی':'Pause music';playIcon.textContent='Ⅱ';nextButton.disabled=false;
       }
       async function stop(){
         playing=false;if(timer!==null)clearInterval(timer);timer=null;
         panel.classList.remove('is-playing');
         if(master&&audio){master.gain.setTargetAtTime(.0001,audio.currentTime,.07);await new Promise(r=>setTimeout(r,180));}
         if(audio&&audio.state==='running')await audio.suspend();
-        status.textContent='پخش متوقف شد';playLabel.textContent='ادامهٔ پخش';playIcon.textContent='▶';
+        status.textContent=document.documentElement.lang==='fa'?'پخش متوقف شد':'Playback paused';playLabel.textContent=document.documentElement.lang==='fa'?'ادامهٔ پخش':'Resume playback';playIcon.textContent='▶';
       }
       openButton.addEventListener('click',openStudio);
       closeButton.addEventListener('click',closeStudio);
@@ -809,9 +822,9 @@
       document.addEventListener('keydown',e=>{if(e.key==='Escape'&&panel.classList.contains('is-open'))closeStudio();});
       playButton.addEventListener('click',async()=>{
         if(playing){await stop();return;}
-        try{await startNew();}catch(error){status.textContent='شروع صدا ممکن نشد؛ دوباره تلاش کن.';}
+        try{await startNew();}catch(error){status.textContent=document.documentElement.lang==='fa'?'شروع صدا ممکن نشد؛ دوباره تلاش کن.':'Could not start audio. Please try again.';}
       });
-      nextButton.addEventListener('click',async()=>{try{await startNew();}catch(error){status.textContent='ساخت قطعهٔ جدید ناموفق بود.';}});
+      nextButton.addEventListener('click',async()=>{try{await startNew();}catch(error){status.textContent=document.documentElement.lang==='fa'?'ساخت قطعهٔ جدید ناموفق بود.':'Could not generate a new track.';}});
       tempoInput.addEventListener('input',updateReadouts);
       volumeInput.addEventListener('input',updateReadouts);
       [styleInput,moodInput].forEach(el=>el.addEventListener('change',()=>{if(playing)startNew().catch(()=>{});}));
@@ -820,108 +833,6 @@
     })();
 
   </script>
-  <script type="module">
-    // ذرات سه‌بعدی سبک؛ هنگام مخفی‌شدن تب، رندر متوقف می‌شود.
-    const canvas = document.getElementById('particle-field');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const smallScreen = window.matchMedia('(max-width: 600px)').matches;
-
-    if (canvas && !reducedMotion) {
-      try {
-        const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js');
-        const renderer = new THREE.WebGLRenderer({
-          canvas,
-          alpha: true,
-          antialias: false,
-          powerPreference: 'low-power',
-          failIfMajorPerformanceCaveat: true
-        });
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.15));
-        renderer.setClearColor(0x000000, 0);
-
-        const scene = new THREE.Scene();
-        const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
-        camera.position.z = 5;
-
-        const count = smallScreen ? 34 : 64;
-        const positions = new Float32Array(count * 3);
-        const colors = new Float32Array(count * 3);
-        const palette = [
-          new THREE.Color('#a7f36b'),
-          new THREE.Color('#c084fc'),
-          new THREE.Color('#8bc7ff')
-        ];
-
-        for (let i = 0; i < count; i++) {
-          positions[i * 3] = (Math.random() - 0.5) * 2;
-          positions[i * 3 + 1] = (Math.random() - 0.5) * 2;
-          positions[i * 3 + 2] = 0;
-          const color = palette[i % palette.length];
-          colors[i * 3] = color.r;
-          colors[i * 3 + 1] = color.g;
-          colors[i * 3 + 2] = color.b;
-        }
-
-        const geometry = new THREE.BufferGeometry();
-        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-        geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-        const material = new THREE.PointsMaterial({
-          size: smallScreen ? 1.7 : 2,
-          vertexColors: true,
-          transparent: true,
-          opacity: 0.68,
-          sizeAttenuation: false,
-          depthWrite: false
-        });
-        const particles = new THREE.Points(geometry, material);
-        scene.add(particles);
-
-        function resize() {
-          const width = window.innerWidth;
-          const height = Math.max(window.innerHeight, 1);
-          const aspect = width / height;
-          camera.left = -aspect;
-          camera.right = aspect;
-          camera.top = 1;
-          camera.bottom = -1;
-          camera.updateProjectionMatrix();
-          renderer.setSize(width, height, false);
-          const values = geometry.getAttribute('position');
-          for (let i = 0; i < count; i++) {
-            values.array[i * 3] = (Math.random() - 0.5) * aspect * 2;
-            values.array[i * 3 + 1] = (Math.random() - 0.5) * 2;
-          }
-          values.needsUpdate = true;
-        }
-
-        resize();
-        let lastFrame = 0;
-        const draw = (time) => {
-          if (time - lastFrame < 33) return;
-          lastFrame = time;
-          particles.rotation.z = time * 0.000012;
-          particles.position.y = Math.sin(time * 0.00018) * 0.025;
-          renderer.render(scene, camera);
-        };
-
-        renderer.setAnimationLoop(draw);
-        document.addEventListener('visibilitychange', () => {
-          renderer.setAnimationLoop(document.hidden ? null : draw);
-        });
-        window.addEventListener('resize', resize, { passive: true });
-        window.addEventListener('pagehide', () => {
-          renderer.setAnimationLoop(null);
-          geometry.dispose();
-          material.dispose();
-          renderer.dispose();
-        }, { once: true });
-      } catch (error) {
-        // در نبود WebGL یا دسترسی به CDN، پس‌زمینهٔ CSS باقی می‌ماند.
-        canvas.style.display = 'none';
-      }
-    }
-  </script>
-
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {

@@ -2,7 +2,14 @@
 
 This repository bundles third-party webfont software. The website serves these font files from its own repository; the pages do not load them from Google Fonts or another external font CDN.
 
-**The font licenses apply to the font software only.** They do not automatically license the website source code, the *Royesh* story, illustrations, or other original material in this repository. Those assets retain their own applicable rights and terms.
+**The font licenses apply to the font software only.** They do not automatically license the website source code, the *Royesh* story, illustrations, or other original material in this repository.
+
+## Repository license boundaries
+
+- Original software code authored for this project is licensed under the [Apache License 2.0](LICENSE).
+- Original literary and written content authored by Parsa, including the Persian and English *Royesh* story, is licensed under [CC BY 4.0](CONTENT-LICENSE.md).
+- Third-party fonts and other third-party assets are excluded from those project licenses and remain under their own terms.
+- The name used for project copyright attribution is **Parsa**. Third-party copyright notices below are preserved exactly as applicable to their respective works.
 
 ## Bundled font inventory
 

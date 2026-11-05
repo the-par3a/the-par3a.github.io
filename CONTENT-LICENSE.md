@@ -35,6 +35,7 @@ It does **not** license:
   (see [LICENSE](LICENSE));
 - third-party fonts, libraries, images, icons, or other assets, which
   remain under their respective licenses and notices;
+- the generated status dashboard and its bundled output under `upptime/`, which are separately licensed under MIT (see [upptime/LICENSE](upptime/LICENSE));
 - trademarks, logos, names, or other rights not granted by copyright;
 - material whose copyright or other relevant rights belong to someone else.
 

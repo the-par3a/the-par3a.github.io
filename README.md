@@ -15,7 +15,7 @@ The website serves its webfonts directly from this repository. The pages do not 
 | **Vazirmatn** | Persian interface and Persian reading text | `fonts/Vazirmatn.woff2` |
 | **Inter** | English interface, navigation, and controls | `fonts/InterVariable.woff2` |
 | **Lora** | English story prose and long-form reading | `fonts/Lora[wght].woff2` |
-| **Cormorant Garamond** | English titles, headings, and display typography | Seven static WOFF2 styles in `fonts/` |
+| **Cormorant Garamond** | English titles, headings, and display typography | Six static WOFF2 styles in `fonts/` |
 | **Cascadia Code** | Code samples and IPA/phonetic notation | `fonts/CascadiaCode.woff2` |
 
 The English story uses a deliberate typographic hierarchy: Inter for interface elements, Lora for reading, Cormorant Garamond for display headings, and Cascadia Code for technical text. Persian text uses Vazirmatn.

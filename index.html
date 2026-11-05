@@ -294,12 +294,96 @@
     .interest span { color: var(--accent); font-family: ui-monospace, monospace; }
     .contact-panel { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding: clamp(24px, 5vw, 40px); border: 1px solid rgba(167,243,107,.24); border-radius: 24px; background: linear-gradient(110deg, rgba(167,243,107,.07), rgba(168,85,247,.16) 58%, rgba(24,20,39,.56)); }
     .contact-panel p { max-width: 550px; margin: 8px 0 0; color: var(--muted); }
-    footer { margin-top: 45px; border-top: 1px solid var(--line); color: #8792a3; font-size: .83rem; }
-    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; padding-block: 23px; }
-    .footer-inner p { margin: 0; }
-    .footer-links { display: flex; gap: 16px; }
-    .footer-links a { color: #aab4c2; text-decoration: none; }
-    .footer-links a:hover { color: var(--accent); }
+    footer {
+      position: relative;
+      overflow: hidden;
+      margin-top: 76px;
+      border-top: 1px solid rgba(167, 243, 107, .18);
+      background:
+        radial-gradient(ellipse at 12% 0%, rgba(56,189,248,.075), transparent 34%),
+        radial-gradient(ellipse at 88% 0%, rgba(168,85,247,.10), transparent 38%),
+        rgba(8, 10, 16, .58);
+      color: #9ba7b8;
+      font-size: .88rem;
+    }
+    footer::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(167,243,107,.48), rgba(139,199,255,.32), transparent);
+      pointer-events: none;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: minmax(220px, 1.25fr) minmax(150px, .75fr) minmax(220px, 1fr);
+      gap: clamp(22px, 4vw, 48px);
+      padding-block: 38px 26px;
+    }
+    .footer-brand { min-width: 0; }
+    .footer-brandmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
+    }
+    .footer-brandmark span {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid rgba(167,243,107,.35);
+      border-radius: 11px;
+      background: rgba(167,243,107,.09);
+      color: var(--accent);
+      font-family: ui-monospace, monospace;
+      font-size: .9rem;
+    }
+    .footer-brand p { max-width: 340px; margin: 13px 0 0; color: #98a4b5; line-height: 2; }
+    .footer-heading { margin: 2px 0 13px; color: #e1e8f0; font-size: .9rem; font-weight: 700; }
+    .footer-links { display: grid; gap: 8px; justify-items: start; }
+    .footer-links a {
+      color: #aab4c2;
+      text-decoration: none;
+      transition: color .18s ease, transform .18s ease;
+    }
+    .footer-links a:hover { color: var(--accent); transform: translateX(-3px); }
+    .footer-license {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+    .footer-license p { margin: 0; color: #98a4b5; line-height: 1.9; }
+    .footer-license a { color: #d8e2ee; text-decoration-color: rgba(167,243,107,.45); text-underline-offset: 4px; }
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px 20px;
+      padding-block: 15px 20px;
+      border-top: 1px solid rgba(148,163,184,.12);
+      color: #778397;
+      font-size: .78rem;
+    }
+    .footer-bottom p { margin: 0; }
+    .footer-bottom .footer-credit { color: #aab4c2; }
+    @media (max-width: 780px) {
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 540px) {
+      footer { margin-top: 54px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 25px; padding-block: 30px 22px; }
+      .footer-brand { grid-column: auto; }
+      .footer-bottom { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .footer-links a { transition: none; }
+    }
     @media (max-width: 780px) {
       .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .about-panel { grid-template-columns: 1fr; }
@@ -564,18 +648,31 @@
       <path class="mascot-spark" d="M49 3h3V0h3v3h3v3h-3v3h-3V6h-3z" fill="#c084fc"/>
     </svg>
   </div>
-  <footer>
+  <footer aria-label="پاورقی سایت">
     <div class="wrap footer-inner">
-      <p>ساخته‌شده با کنجکاوی، یادگیری و کمی کد. · © ۱۴۰۵ Parsa</p>
-      <p>کد اختصاصی: Apache 2.0 · نوشته‌های اصیل: CC BY 4.0</p>
-      <div class="footer-links">
-        <a href="https://github.com/the-par3a" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="./upptime/">وضعیت سرویس‌ها</a>
-        <a href="./naaktab.html">ناکتاب</a>
-        <a href="./LICENSE">مجوز کد · Apache 2.0</a>
-        <a href="./CONTENT-LICENSE.md">مجوز محتوا · CC BY 4.0</a>
-        <a href="./THIRD-PARTY-NOTICES.md">مجوزهای اشخاص ثالث</a>
-      </div>
+      <section class="footer-brand" aria-label="درباره سایت">
+        <div class="footer-brandmark"><span aria-hidden="true">P.</span> پارسا</div>
+        <p>گوشه‌ای برای یادگیری، ساختن و ثبت ایده‌هایی که ارزش دنبال‌کردن دارند؛ از کد و فناوری تا نوشته‌ها و تجربه‌های تازه.</p>
+      </section>
+
+      <nav aria-label="پیوندهای سایت">
+        <h2 class="footer-heading">دسترسی سریع</h2>
+        <div class="footer-links">
+          <a href="https://github.com/the-par3a" target="_blank" rel="noopener noreferrer">پروفایل GitHub ↗</a>
+          <a href="./upptime/">وضعیت سرویس‌ها</a>
+          <a href="./naaktab.html">ناکتاب و نوشته‌ها</a>
+        </div>
+      </nav>
+
+      <section class="footer-license" aria-label="اطلاعات مجوز">
+        <h2 class="footer-heading">مجوزها و استفاده</h2>
+        <p>کدهای اصیل پروژه با <a href="./LICENSE">Apache License 2.0</a> و نوشته‌های اصیل با <a href="./CONTENT-LICENSE.md">Creative Commons BY 4.0</a> منتشر شده‌اند.</p>
+        <a href="./THIRD-PARTY-NOTICES.md">مجوز فونت‌ها و اجزای شخص ثالث</a>
+      </section>
+    </div>
+    <div class="wrap footer-bottom">
+      <p class="footer-credit">ساخته‌شده با کنجکاوی، یادگیری و کمی کد. · © ۱۴۰۵ Parsa</p>
+      <p>حقوق و مجوز هر بخش مطابق توضیحات همان بخش است.</p>
     </div>
   </footer>
   <script>

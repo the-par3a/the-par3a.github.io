@@ -370,6 +370,25 @@
     }
     .footer-license p { margin: 0; color: #98a4b5; line-height: 1.9; }
     .footer-license a { color: #d8e2ee; text-decoration-color: rgba(167,243,107,.45); text-underline-offset: 4px; }
+    .license-intro { margin: 0 0 4px; color: #aab4c2; line-height: 1.85; }
+    .license-list { display: grid; gap: 10px; }
+    .license-item { padding: 13px 14px; border: 1px solid rgba(173,160,205,.18); border-radius: 14px; background: linear-gradient(135deg,rgba(167,243,107,.045),rgba(168,85,247,.075)),rgba(255,255,255,.018); }
+    .license-item-head { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; color: #edf2f8; }
+    .license-symbol { display: grid; place-items: center; width: 27px; height: 27px; border-radius: 8px; background: rgba(167,243,107,.1); color: var(--accent); font: 700 .78rem ui-monospace,monospace; }
+    .license-item-head strong { flex: 1 1 auto; font-size: .84rem; }
+    .license-chip { padding: 3px 8px; border: 1px solid rgba(167,243,107,.25); border-radius: 999px; color: var(--accent); background: rgba(167,243,107,.055); font: 600 .68rem/1.5 ui-monospace,monospace; }
+    .license-item p { margin: 8px 0 9px; color: #98a4b5; font-size: .79rem; line-height: 1.8; }
+    .footer-license .license-link { display: inline-flex; align-items: center; gap: 7px; color: #dce8f5; font-size: .78rem; font-weight: 700; text-decoration: none; }
+    .footer-license .license-link:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+    .license-footnote { margin-top: 3px !important; color: #78869a !important; font-size: .72rem; line-height: 1.8 !important; }
+    .button, button, .language-toggle { -webkit-tap-highlight-color: transparent; }
+    .button:active, button:not(:disabled):active, .language-toggle:active { transform: translateY(1px) scale(.985); }
+    .button:focus-visible, button:focus-visible, .language-toggle:focus-visible, .footer-license a:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+    button:disabled, .button[aria-disabled="true"] { opacity: .48; cursor: not-allowed; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .button, button, .language-toggle { transition: none !important; }
+      .button:active, button:not(:disabled):active, .language-toggle:active { transform: none; }
+    }
     .footer-bottom {
       display: flex;
       flex-wrap: wrap;
@@ -678,9 +697,26 @@
       </nav>
 
       <section class="footer-license" aria-label="License information">
-        <h2 class="footer-heading"><span  >Licensing and reuse</span></h2>
-        <p><span  >Original project code is released under the </span><a href="./LICENSE">Apache License 2.0</a><span  >, and original writing under </span><a href="./CONTENT-LICENSE.md">Creative Commons BY 4.0</a><span  >.</span></p>
-        <a href="./THIRD-PARTY-NOTICES.md"><span  >Font and third-party licenses</span></a>
+        <h2 class="footer-heading">Licenses, clearly separated</h2>
+        <p class="license-intro">Different parts of this website use different licenses. A license for one part does not automatically cover another.</p>
+        <div class="license-list">
+          <article class="license-item">
+            <div class="license-item-head"><span class="license-symbol" aria-hidden="true">&lt;/&gt;</span><strong>Code and software</strong><span class="license-chip">Apache 2.0</span></div>
+            <p>Use, modification, and redistribution are permitted under the Apache License 2.0 terms.</p>
+            <a class="license-link" href="./LICENSE">Read the full license <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="license-item">
+            <div class="license-item-head"><span class="license-symbol" aria-hidden="true">✎</span><strong>Writing and the Royesh story</strong><span class="license-chip">CC BY 4.0</span></div>
+            <p>Sharing and adaptation, including commercial use, are allowed with proper credit to Parsa and an indication of changes.</p>
+            <a class="license-link" href="./CONTENT-LICENSE.md">Read the content terms <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="license-item">
+            <div class="license-item-head"><span class="license-symbol" aria-hidden="true">◈</span><strong>Fonts and third-party assets</strong><span class="license-chip">Separate terms</span></div>
+            <p>These materials are excluded from the project-wide licenses and remain subject to their respective owners' terms.</p>
+            <a class="license-link" href="./THIRD-PARTY-NOTICES.md">View notices and exclusions <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+        <p class="license-footnote">The generated <code>upptime/</code> dashboard is separately licensed under MIT. This summary is informational, not legal advice.</p>
       </section>
     </div>
     <div class="wrap footer-bottom">

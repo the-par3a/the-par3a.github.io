@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="google-site-verification" content="odgiV2-Q6NrNdr-OPi0cJEEDeC9Sjhd3Rr6kuLpZpF0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preload" href="./fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
   <meta name="theme-color" content="#0b0d12">
   <meta name="description" content="Parsa’s personal website: projects, programming, Linux, and creative experiments.">
   <meta property="og:type" content="website">
@@ -555,7 +556,7 @@
         <article class="card">
           <div class="card-top"><div class="icon-box" aria-hidden="true">✳</div><span class="card-tag">CREATIVE · FA</span></div>
           <h3  >Naaktab</h3>
-          <p><span حال‌وهوا" >Mood</span>ی متفاوت؛ مستقل از صفحهٔ اصلی و آماده برای خواندن.">یک تجربهٔ نوشتاری و داستانی با حال‌وهوای متفاوت؛ مستقل از صفحهٔ اصلی و آماده برای خواندن.</span></p>
+          <p>A distinctive reading and storytelling experience, separate from the homepage and ready to explore.</p>
           <a class="card-link" href="./naaktab.html"><span  >Explore Naaktab</span> <span aria-hidden="true">←</span></a>
         </article>
         <article class="card">
@@ -628,10 +629,10 @@
           </svg>
         </div><div class="studio-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="studio-status" id="studio-status"  >Ready to make music</span></div>
       <div class="studio-controls">
-        <div class="studio-control-block"><div class="control-heading"><label for="music-style"><span  >Music style</span></label><span>STYLE</span></div><select id="music-style"><option value="cinematic"><span  >Cinematic</span></option><option value="ambient"><span  >Ambient</span></option><option value="electronic"><span  >Electronic</span></option><option value="retro"><span  >Retro / game-like</span></option></select></div>
-        <div class="studio-control-block"><div class="control-heading"><label for="music-mood">حال‌وهوا</label><span>MOOD</span></div><select id="music-mood"><option value="uplifting"><span  >Uplifting</span></option><option value="mysterious"><span  >Mysterious</span></option><option value="dreamy"><span  >Dreamy</span></option><option value="intense"><span  >Energetic</span></option></select></div>
-        <div class="studio-control-block"><div class="control-heading"><label for="music-tempo"><span  >Tempo</span></label><output id="tempo-value" for="music-tempo">۹۶ BPM</output></div><input id="music-tempo" type="range" min="55" max="160" value="96"></div>
-        <div class="studio-control-block"><div class="control-heading"><label for="music-volume"><span  >Volume</span></label><output id="volume-value" for="music-volume">۳۵٪</output></div><input id="music-volume" type="range" min="0" max="100" value="35"></div>
+        <div class="studio-control-block"><div class="control-heading"><label for="music-style"><span  >Music style</span></label><span>STYLE</span></div><select id="music-style"><option value="cinematic">Cinematic</option><option value="ambient">Ambient</option><option value="electronic">Electronic</option><option value="retro">Retro / game-like</option></select></div>
+        <div class="studio-control-block"><div class="control-heading"><label for="music-mood">Mood</label><span>MOOD</span></div><select id="music-mood"><option value="uplifting">Uplifting</option><option value="mysterious">Mysterious</option><option value="dreamy">Dreamy</option><option value="intense">Energetic</option></select></div>
+        <div class="studio-control-block"><div class="control-heading"><label for="music-tempo"><span  >Tempo</span></label><output id="tempo-value" for="music-tempo">96 BPM</output></div><input id="music-tempo" type="range" min="55" max="160" value="96"></div>
+        <div class="studio-control-block"><div class="control-heading"><label for="music-volume"><span  >Volume</span></label><output id="volume-value" for="music-volume">35%</output></div><input id="music-volume" type="range" min="0" max="100" value="35"></div>
       </div>
       <div class="studio-actions"><button class="studio-play" id="studio-play" type="button"><span id="studio-play-icon">▶</span><span id="studio-play-label"><span  >Generate and play</span></span></button><button class="studio-next" id="studio-next" type="button" disabled><span  >↻ Generate another track</span></button></div>
       <p class="studio-footnote"><span  >Audio is generated algorithmically with the Web Audio API. No audio files are downloaded. Press play to begin.</span></p>
@@ -718,10 +719,10 @@
         electronic:{wave:'square',bass:'sawtooth',beat:4,octave:1,filter:2400},
         retro:{wave:'triangle',bass:'square',beat:4,octave:1,filter:1900}
       };
-      const fa = n => new Intl.NumberFormat(document.documentElement.lang === 'fa' ? 'fa-IR' : 'en-US').format(n);
+      const fa = n => new Intl.NumberFormat('en-US').format(n);
       function updateReadouts(){
         tempoValue.textContent = fa(Number(tempoInput.value)) + ' BPM';
-        volumeValue.textContent = fa(Number(volumeInput.value)) + (document.documentElement.lang === 'fa' ? '٪' : '%');
+        volumeValue.textContent = fa(Number(volumeInput.value)) + ('%');
         if(master && audio) master.gain.setTargetAtTime(Number(volumeInput.value)/100*.42,audio.currentTime,.06);
         if(playing) restartClock();
       }

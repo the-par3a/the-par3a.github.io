@@ -43,3 +43,13 @@ This automation deliberately does **not** download or replace font binaries, and
 - Review upstream terms before adding, converting, modifying, or replacing a font.
 - Do not treat the OFL as the license for unrelated site content.
 - Check the latest workflow run in **Actions** if an automatic license check fails.
+
+## Licensing
+
+This repository uses separate licenses for software and original written content:
+
+- **Original software code** (HTML/CSS/JavaScript and other functional source code authored for this project): [Apache License 2.0](LICENSE).
+- **Original written and literary content**, including the *Royesh* story in Persian and English: [CC BY 4.0](CONTENT-LICENSE.md). Commercial reuse and adaptations are allowed with attribution; adaptations do not have to use the same license.
+- **Third-party fonts and other third-party assets**: remain under their own licenses. See [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) and the complete font licenses in [licenses/](licenses/).
+
+The copyright and attribution name used for the project's original material is **Parsa**. These licenses apply only to material for which the project author holds the necessary rights. They do not relicense third-party material.

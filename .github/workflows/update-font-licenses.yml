@@ -1,0 +1,44 @@
+name: Update font licenses
+
+on:
+  schedule:
+    # Every Monday at 08:23 UTC
+    - cron: "23 8 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-font-licenses
+  cancel-in-progress: false
+
+jobs:
+  update-licenses:
+    name: Check upstream font licenses
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Download and verify upstream license texts
+        run: bash scripts/update-font-licenses.sh
+
+      - name: Check patch formatting
+        run: git diff --check
+
+      - name: Commit changes when licenses differ
+        shell: bash
+        run: |
+          git add licenses/
+          if git diff --cached --quiet; then
+            echo "All bundled font license texts are already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(licenses): sync upstream font licenses"
+          git push

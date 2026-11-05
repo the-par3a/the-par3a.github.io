@@ -11,6 +11,15 @@ This repository bundles third-party webfont software. The website serves these f
 - Third-party fonts and other third-party assets are excluded from those project licenses and remain under their own terms.
 - The name used for project copyright attribution is **Parsa**. Third-party copyright notices below are preserved exactly as applicable to their respective works.
 
+## Generated status dashboard
+
+The generated website under `upptime/` is the published output of the separate
+[`the-par3a/upptime`](https://github.com/the-par3a/upptime) project, which is
+based on [Upptime](https://upptime.js.org/). It is **not** relicensed under
+the root Apache or CC BY terms in this repository. The upstream MIT license
+and its required copyright notice are preserved in [`upptime/LICENSE`](upptime/LICENSE).
+Other bundled dependencies or assets may have their own separate notices.
+
 ## Bundled font inventory
 
 | Font family | Use on the site | Files included |

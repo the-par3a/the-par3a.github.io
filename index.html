@@ -710,6 +710,11 @@
         document.querySelector('.nav').setAttribute('aria-label',lang==='fa'?'ناوبری اصلی':'Main navigation');
         document.querySelector('footer').setAttribute('aria-label',lang==='fa'?'پاورقی سایت':'Site footer');
         document.getElementById('studio-close').setAttribute('aria-label',lang==='fa'?'بستن استودیو':'Close studio');
+        document.querySelector('.brand').setAttribute('aria-label',lang==='fa'?'بازگشت به ابتدای صفحه':'Back to top');
+        document.querySelector('.quick-facts').setAttribute('aria-label',lang==='fa'?'حوزه‌های مورد علاقه':'Areas of interest');
+        document.querySelector('.footer-brand').setAttribute('aria-label',lang==='fa'?'درباره سایت':'About this website');
+        document.querySelector('footer nav').setAttribute('aria-label',lang==='fa'?'پیوندهای سایت':'Site links');
+        document.querySelector('.footer-license').setAttribute('aria-label',lang==='fa'?'اطلاعات مجوز':'License information');
         try{localStorage.setItem('parsa-home-language',lang);}catch(_){}
       };
       let initial='fa';try{initial=localStorage.getItem('parsa-home-language')||'fa';}catch(_){}
@@ -750,7 +755,7 @@
       const fa = n => new Intl.NumberFormat(document.documentElement.lang === 'fa' ? 'fa-IR' : 'en-US').format(n);
       function updateReadouts(){
         tempoValue.textContent = fa(Number(tempoInput.value)) + ' BPM';
-        volumeValue.textContent = fa(Number(volumeInput.value)) + '٪';
+        volumeValue.textContent = fa(Number(volumeInput.value)) + (document.documentElement.lang === 'fa' ? '٪' : '%');
         if(master && audio) master.gain.setTargetAtTime(Number(volumeInput.value)/100*.42,audio.currentTime,.06);
         if(playing) restartClock();
       }

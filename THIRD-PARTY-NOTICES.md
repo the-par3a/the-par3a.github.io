@@ -1,6 +1,6 @@
 # Third-Party Notices
 
-This repository includes third-party webfont software. The font files are served from this site itself; the pages do not load these fonts from Google Fonts or another external font CDN.
+This repository bundles third-party webfont software. The website serves these font files from its own repository; the pages do not load them from Google Fonts or another external font CDN.
 
 **The font licenses apply to the font software only.** They do not automatically license the website source code, the *Royesh* story, illustrations, or other original material in this repository. Those assets retain their own applicable rights and terms.
 
@@ -8,11 +8,11 @@ This repository includes third-party webfont software. The font files are served
 
 | Font family | Use on the site | Files included |
 |---|---|---|
-| Cormorant Garamond | English headings and display text | `fonts/CormorantGaramond-Light.woff2`, `Regular`, `Medium`, `SemiBold`, `Bold`, and `Italic` |
+| Cormorant Garamond | English headings and display typography | `fonts/CormorantGaramond-Light.woff2`, `Regular`, `Medium`, `SemiBold`, `Bold`, and `Italic` |
 | Inter | English interface, navigation, and controls | `fonts/InterVariable.woff2` |
-| Lora | English story and long-form reading text | `fonts/Lora[wght].woff2` |
+| Lora | English story prose and long-form reading | `fonts/Lora[wght].woff2` |
 | Cascadia Code | Code samples and phonetic/IPA text | `fonts/CascadiaCode.woff2` |
-| Vazirmatn | Persian interface and Persian text | `fonts/Vazirmatn.woff2` |
+| Vazirmatn | Persian interface and reading text | `fonts/Vazirmatn.woff2` |
 
 All five font families are distributed under the **SIL Open Font License, Version 1.1 (OFL-1.1)**. The complete license texts and their copyright notices are included in [`licenses/`](licenses/).
 
@@ -52,11 +52,14 @@ All five font families are distributed under the **SIL Open Font License, Versio
 
 ## Redistribution and modification notes
 
-- Keep the relevant copyright notice and the complete OFL text with redistributed font software. This repository keeps a separate license file for each family.
+- Keep the relevant copyright notice and the complete OFL text with redistributed font software.
 - OFL font software may be bundled with software and distributed with it; the font software itself must not be sold on its own.
 - The OFL does not permit distributing the font software under a different license.
 - Lora and Cascadia Code have Reserved Font Names. A modified version must not use the relevant reserved name unless the copyright holder grants written permission.
-- A format conversion such as WOFF/WOFF2 is not automatically exempt from the OFL's modified-version rules. The OFL FAQ explains that retaining the original font data and equivalent metadata during WOFF conversion is important; if font data or metadata is changed or incomplete, the result may be treated as a modified version and Reserved Font Name rules apply.
-- These notices describe the bundled fonts and their licenses; they are not legal advice.
+- A WOFF/WOFF2 format conversion is not automatically exempt from the OFL's modified-version rules. Preserving the original font data and equivalent metadata matters; review the OFL FAQ before converting or modifying font binaries.
 
-For the exact terms, read the complete license files in [`licenses/`](licenses/).
+## Automated license maintenance
+
+The [Update font licenses GitHub Actions workflow](.github/workflows/update-font-licenses.yml) checks the five upstream license texts weekly and supports manual runs. If a license text changes, it updates the corresponding file under `licenses/` and commits the change. It does not download or modify font binaries, and it does not automatically revise attribution or Reserved Font Name notes; those require human review.
+
+For the exact legal terms, read the complete license files in [`licenses/`](licenses/). These notices are informational and are not legal advice.

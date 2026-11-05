@@ -228,19 +228,6 @@ html.reveal-enabled .container>section{opacity:1!important;transform:none!import
 @media(max-width:700px){.name-guide{margin-bottom:36px}.name-guide ul{padding-left:20px}}
 
 
-/* Reader-controlled typeface: changes story prose only; interface and headings keep their design fonts. */
-:root{--font-reading-choice:var(--font-reading)}
-html[data-reading-font="lora"]{--font-reading-choice:Lora,Georgia,"Times New Roman",serif}
-html[data-reading-font="inter"]{--font-reading-choice:Inter,"Segoe UI",Arial,sans-serif}
-html[data-reading-font="cormorant"]{--font-reading-choice:"Cormorant Garamond",Georgia,serif}
-html[data-reading-font="georgia"]{--font-reading-choice:Georgia,"Times New Roman",serif}
-.story-text,.intro-box,.final-box{font-family:var(--font-reading-choice)}
-.font-picker{position:fixed;left:18px;bottom:76px;z-index:26;display:flex;align-items:center;gap:8px;padding:8px 11px;border:1px solid rgba(192,132,252,.35);border-radius:14px;background:rgba(18,22,32,.96);color:var(--text);box-shadow:0 8px 24px rgba(0,0,0,.28);font:500 .78rem var(--font-ui)}
-.font-picker label{white-space:nowrap;color:#c9bfd8}
-.font-picker select{max-width:150px;border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:6px 8px;background:#171b27;color:var(--text);font:600 .78rem var(--font-ui);color-scheme:dark}
-.font-picker select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-@media(max-width:760px){.font-picker{left:10px;bottom:64px;padding:7px 9px;gap:6px;font-size:.74rem}.font-picker select{max-width:132px;font-size:.74rem}}
-
 /* English typography: self-hosted webfonts with local fallbacks; no external font service. */
 :root{
  --font-ui:Inter,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
@@ -248,9 +235,11 @@ html[data-reading-font="georgia"]{--font-reading-choice:Georgia,"Times New Roman
  --font-display:"Cormorant Garamond",Lora,"Palatino Linotype","Book Antiqua",Georgia,serif;
  --font-mono:"Cascadia Code",Consolas,monospace;
 }
-body{font-family:var(--font-ui)}
-h1,h2,h3,.gradient-text,.brand{font-family:var(--font-display)}
-.story-text,.intro-box,.final-box{font-family:var(--font-reading-choice)}
+body{font-family:var(--font-ui);font-optical-sizing:auto}
+h1,h2,h3,.gradient-text,.brand{font-family:var(--font-display);font-optical-sizing:auto;font-kerning:normal}
+h1,h2{font-weight:700;letter-spacing:-.012em;line-height:1.32}
+h3{font-weight:600;line-height:1.45}
+.story-text,.intro-box,.final-box{font-family:var(--font-reading);font-optical-sizing:auto;font-kerning:normal}
 button,input,textarea,select,.nav-links{font-family:var(--font-ui)}
 code,pre,.ipa{font-family:var(--font-mono)}
 
@@ -326,15 +315,6 @@ code,pre,.ipa{font-family:var(--font-mono)}
 </head><body>
   <div class="reading-progress" aria-hidden="true"><span></span></div>
   <button class="reading-mode-toggle" type="button" aria-pressed="false">Reading mode</button>
-  <div class="font-picker">
-    <label for="reading-font-select">Reading font</label>
-    <select id="reading-font-select" aria-label="Choose the story text font">
-      <option value="lora">Lora · Book</option>
-      <option value="inter">Inter · Modern</option>
-      <option value="cormorant">Cormorant · Classic</option>
-      <option value="georgia">Georgia · System</option>
-    </select>
-  </div>
   <div class="bg-overlay" aria-hidden="true"></div>
 <header class="topbar">
   <nav class="nav wrap" aria-label="Main navigation">
@@ -930,30 +910,6 @@ code,pre,.ipa{font-family:var(--font-mono)}
 })();
 </script>
 
-
-<script>
-(() => {
-  const select = document.getElementById("reading-font-select");
-  if (!select) return;
-  const storageKey = "royesh-reading-font-v1";
-  const allowed = new Set(["lora", "inter", "cormorant", "georgia"]);
-  let saved = "lora";
-  try {
-    const value = localStorage.getItem(storageKey);
-    if (allowed.has(value)) saved = value;
-  } catch (_) {}
-  const applyFont = (value) => {
-    const choice = allowed.has(value) ? value : "lora";
-    document.documentElement.dataset.readingFont = choice;
-    select.value = choice;
-  };
-  applyFont(saved);
-  select.addEventListener("change", () => {
-    applyFont(select.value);
-    try { localStorage.setItem(storageKey, select.value); } catch (_) {}
-  });
-})();
-</script>
 
 <script>
 if ("serviceWorker" in navigator) {

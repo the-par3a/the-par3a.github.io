@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="google-site-verification" content="odgiV2-Q6NrNdr-OPi0cJEEDeC9Sjhd3Rr6kuLpZpF0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preload" href="./fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/PixelifySans[wght].ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="./fonts/PressStart2P-Regular.ttf" as="font" type="font/ttf" crossorigin>
   <meta name="theme-color" content="#0b0d12">
   <meta name="description" content="Parsa’s personal website: projects, programming, Linux, and creative experiments.">
   <meta property="og:type" content="website">
@@ -12,6 +13,20 @@
   <meta property="og:description" content="A learning journey, technical experiments, and ideas turning into projects.">
   <title>Parsa | Personal Website</title>
   <style>
+    @font-face {
+      font-family: "Pixelify Sans";
+      src: url("./fonts/PixelifySans[wght].ttf") format("truetype");
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Press Start 2P";
+      src: url("./fonts/PressStart2P-Regular.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
     @font-face {
       font-family: "Inter";
       src: url("./fonts/InterVariable.woff2") format("woff2");
@@ -46,7 +61,7 @@
         radial-gradient(ellipse at 52% 45%, rgba(99, 102, 241, .055), transparent 42rem),
         var(--bg);
       color: var(--text);
-      font-family: "Vazirmatn", Tahoma, "Segoe UI", sans-serif;
+      font-family: "Pixelify Sans", "Pixelify Sans", Inter, "Segoe UI", Arial, sans-serif;
       line-height: 1.9;
       -webkit-font-smoothing: antialiased;
       isolation: isolate;
@@ -125,7 +140,7 @@
       background: linear-gradient(125deg, rgba(31,25,49,.97), rgba(14,23,35,.97));
       color: var(--text);
       box-shadow: 0 9px 30px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.08);
-      font: 700 .82rem/1.5 Inter, "Segoe UI", Arial, sans-serif;
+      font: 700 .82rem/1.5 "Pixelify Sans", Inter, "Segoe UI", Arial, sans-serif;
       text-align: right;
       cursor: pointer;
       transition: border-color .2s, transform .2s, box-shadow .2s;
@@ -188,7 +203,7 @@
     .studio-control-block select { width:100%;padding:11px;border:1px solid #343b4c;border-radius:10px;background:#171d2b;color:var(--text);font:inherit;font-size:.85rem; }
     .studio-control-block input { width:100%;accent-color:var(--accent);cursor:pointer; }
     .studio-actions { display:flex;gap:10px;margin-top:18px; }
-    .studio-actions button { min-height:48px;padding:10px 16px;border-radius:12px;font:700 .87rem Inter, "Segoe UI", Arial, sans-serif;cursor:pointer; }
+    .studio-actions button { min-height:48px;padding:10px 16px;border-radius:12px;font:700 .87rem "Pixelify Sans", Inter, "Segoe UI", Arial, sans-serif;cursor:pointer; }
     .studio-play { flex:1;border:1px solid var(--accent);background:var(--accent);color:#14200d; }
     .studio-next { border:1px solid #51416e;background:#211b32;color:#e9ddff; }
     .studio-next:disabled { opacity:.4;cursor:not-allowed; }
@@ -216,11 +231,11 @@
     .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; letter-spacing: -.03em; }
     .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; background: var(--accent); color: var(--accent-ink); font-weight: 900; }
     .nav-links { display: flex; flex-wrap: wrap; gap: 20px; }
-    .language-toggle { display:inline-flex; align-items:center; gap:8px; flex:0 0 auto; min-height:40px; padding:7px 12px; border:1px solid rgba(167,243,107,.32); border-radius:12px; background:rgba(167,243,107,.07); color:var(--text); font:700 .78rem/1.4 Inter,Arial,sans-serif; cursor:pointer; }
+    .language-toggle { display:inline-flex; align-items:center; gap:8px; flex:0 0 auto; min-height:40px; padding:7px 12px; border:1px solid rgba(167,243,107,.32); border-radius:12px; background:rgba(167,243,107,.07); color:var(--text); font:700 .78rem/1.4 "Pixelify Sans",Inter,Arial,sans-serif; cursor:pointer; }
     .language-toggle:hover { border-color:var(--accent); background:rgba(167,243,107,.12); }
     .language-code { color:var(--accent); letter-spacing:.04em; }
     .language-caption { color:var(--muted); font-weight:500; }
-    body { font-family:Inter,"Segoe UI",Arial,sans-serif; }
+    body { font-family:"Pixelify Sans",Inter,"Segoe UI",Arial,sans-serif; }
     .music-toggle { text-align:left; }
     .footer-links a:hover { transform:translateX(3px); }
     .nav-links a { color: var(--muted); font-size: .91rem; text-decoration: none; transition: color .2s; }
@@ -438,11 +453,14 @@
     }
 
     /* اصلاح چیدمان دکمه‌ها و خوانایی تایپوگرافی */
-    button, input, select { font-family: Inter, "Segoe UI", Arial, sans-serif; }
+    button, input, select { font-family: "Pixelify Sans", Inter, "Segoe UI", Arial, sans-serif; }
     button { touch-action: manipulation; }
     body { font-size: 16px; text-rendering: optimizeLegibility; }
     p { line-height: 2; }
-    h1, h2, h3 { font-weight: 800; text-wrap: pretty; }
+    h1, h2, h3 { font-family: "Press Start 2P", "Pixelify Sans", sans-serif; font-weight: 400; text-wrap: pretty; }
+    h1 { font-size: clamp(1.15rem, 3.4vw, 2.15rem); line-height: 1.8; letter-spacing: 0; }
+    h2 { font-size: clamp(.85rem, 2.1vw, 1.25rem); line-height: 2; letter-spacing: 0; }
+    h3 { font-size: clamp(.68rem, 1.35vw, .9rem); line-height: 1.9; letter-spacing: 0; }
     h1 { line-height: 1.32; letter-spacing: -.025em; }
     h2 { line-height: 1.5; letter-spacing: -.015em; }
     .button, .studio-actions button, .music-toggle { white-space: normal; }

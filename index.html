@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="google-site-verification" content="odgiV2-Q6NrNdr-OPi0cJEEDeC9Sjhd3Rr6kuLpZpF0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preload" href="./fonts/rooyin/RooyinFree-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://raw.githubusercontent.com/MohamadDarvishi/Arad/main/Fonts/Main_Fonts/AradVF.woff2" as="font" type="font/woff2" crossorigin>
 <meta name="theme-color" content="#0b0d12">
   <meta name="description" content="وب‌سایت شخصی پارسا؛ یادداشت‌هایی از مسیر یادگیری، برنامه‌نویسی، لینوکس و تجربه‌های خلاقانه.">
   <meta property="og:type" content="website">
@@ -27,6 +27,14 @@
       font-weight: 700;
       font-display: swap;
     }
+    @font-face {
+      font-family: "Arad";
+      src: url("https://raw.githubusercontent.com/MohamadDarvishi/Arad/main/Fonts/Main_Fonts/AradVF.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 1000;
+      font-display: swap;
+    }
+
     :root {
       color-scheme: dark;
       --bg: #0b0d12;
@@ -54,7 +62,8 @@
         radial-gradient(ellipse at 52% 45%, rgba(99, 102, 241, .055), transparent 42rem),
         var(--bg);
       color: var(--text);
-      font-family: "Rooyin", Tahoma, "Segoe UI", sans-serif;
+      font-family: "Arad", "Arad", "Rooyin", Tahoma, "Segoe UI", sans-serif;
+      font-variation-settings: "DSTY" 2;
       line-height: 1.9;
       -webkit-font-smoothing: antialiased;
       isolation: isolate;
@@ -133,7 +142,7 @@
       background: linear-gradient(125deg, rgba(31,25,49,.97), rgba(14,23,35,.97));
       color: var(--text);
       box-shadow: 0 9px 30px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.08);
-      font: 700 .82rem/1.5 "Rooyin", Tahoma, sans-serif;
+      font: 700 .82rem/1.5 "Arad", "Rooyin", Tahoma, sans-serif;
       text-align: right;
       cursor: pointer;
       transition: border-color .2s, transform .2s, box-shadow .2s;
@@ -196,7 +205,7 @@
     .studio-control-block select { width:100%;padding:11px;border:1px solid #343b4c;border-radius:10px;background:#171d2b;color:var(--text);font:inherit;font-size:.85rem; }
     .studio-control-block input { width:100%;accent-color:var(--accent);cursor:pointer; }
     .studio-actions { display:flex;gap:10px;margin-top:18px; }
-    .studio-actions button { min-height:48px;padding:10px 16px;border-radius:12px;font:700 .87rem "Rooyin",sans-serif;cursor:pointer; }
+    .studio-actions button { min-height:48px;padding:10px 16px;border-radius:12px;font:700 .87rem "Arad", "Rooyin",sans-serif;cursor:pointer; }
     .studio-play { flex:1;border:1px solid var(--accent);background:var(--accent);color:#14200d; }
     .studio-next { border:1px solid #51416e;background:#211b32;color:#e9ddff; }
     .studio-next:disabled { opacity:.4;cursor:not-allowed; }
@@ -446,7 +455,7 @@
     }
 
     /* اصلاح چیدمان دکمه‌ها و خوانایی تایپوگرافی */
-    button, input, select { font-family: "Rooyin", Tahoma, sans-serif; }
+    button, input, select { font-family: "Arad", "Rooyin", Tahoma, sans-serif; }
     button { touch-action: manipulation; }
     body { font-size: 16px; text-rendering: optimizeLegibility; }
     p { line-height: 2; }

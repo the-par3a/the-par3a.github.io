@@ -1,6 +1,6 @@
 # Third-Party Notices
 
-This repository bundles third-party webfont software. Most font files are served from this repository. Rooyin is currently served from the jsDelivr CDN using the upstream GitHub repository; the site does not load fonts from Google Fonts.
+This repository bundles third-party webfont software. The website serves these font files from its own repository; the pages do not load them from Google Fonts or another external font CDN.
 
 **The font licenses apply to the font software only.** They do not automatically license the website source code, the *Royesh* story, illustrations, or other original material in this repository.
 
@@ -29,7 +29,7 @@ Other bundled dependencies or assets may have their own separate notices.
 | Lora | English story prose and long-form reading | `fonts/Lora[wght].woff2` |
 | Cascadia Code | Code samples and phonetic/IPA text | `fonts/CascadiaCode.woff2` |
 | Vazirmatn | Persian interface and reading text (retained as a local fallback asset) | `fonts/Vazirmatn.woff2` |
-| Rooyin | Persian homepage interface and reading text (served by jsDelivr) | Upstream WOFF2 Regular and Bold files; see attribution below |
+| Rooyin | Persian homepage interface and reading text | `fonts/rooyin/RooyinFree-Regular.woff2`, `fonts/rooyin/RooyinFree-Bold.woff2` |
 
 All six font families are distributed under the **SIL Open Font License, Version 1.1 (OFL-1.1)**. The complete license texts and their copyright notices are included in [`licenses/`](licenses/).
 
@@ -72,7 +72,7 @@ All six font families are distributed under the **SIL Open Font License, Version
 - Reserved Font Name: Rooyin.
 - License: SIL Open Font License 1.1.
 - Upstream project: https://github.com/MohamadDarvishi/Rooyin
-- Webfont source: https://cdn.jsdelivr.net/gh/MohamadDarvishi/Rooyin@main/Fonts/Farsi%20Numerals/Webfont/
+- Bundled webfonts: `fonts/rooyin/RooyinFree-Regular.woff2` and `fonts/rooyin/RooyinFree-Bold.woff2` (original WOFF2 files from the upstream project).
 - Included license: [`licenses/Rooyin-OFL.txt`](licenses/Rooyin-OFL.txt)
 
 ## Redistribution and modification notes

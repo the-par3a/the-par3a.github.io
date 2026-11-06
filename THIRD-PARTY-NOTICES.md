@@ -1,6 +1,6 @@
 # Third-Party Notices
 
-This repository bundles third-party webfont software. The website serves these font files from its own repository; the pages do not load them from Google Fonts or another external font CDN.
+This repository bundles third-party webfont software. Most font files are served from this repository. Rooyin is currently served from the jsDelivr CDN using the upstream GitHub repository; the site does not load fonts from Google Fonts.
 
 **The font licenses apply to the font software only.** They do not automatically license the website source code, the *Royesh* story, illustrations, or other original material in this repository.
 
@@ -28,9 +28,9 @@ Other bundled dependencies or assets may have their own separate notices.
 | Inter | English interface, navigation, and controls | `fonts/InterVariable.woff2` |
 | Lora | English story prose and long-form reading | `fonts/Lora[wght].woff2` |
 | Cascadia Code | Code samples and phonetic/IPA text | `fonts/CascadiaCode.woff2` |
-| Vazirmatn | Persian interface and reading text | `fonts/Vazirmatn.woff2` |
+| Rooyin | Persian homepage interface and reading text (served by jsDelivr) | Upstream WOFF2 Regular and Bold files; see attribution below |
 
-All five font families are distributed under the **SIL Open Font License, Version 1.1 (OFL-1.1)**. The complete license texts and their copyright notices are included in [`licenses/`](licenses/).
+All six font families are distributed under the **SIL Open Font License, Version 1.1 (OFL-1.1)**. The complete license texts and their copyright notices are included in [`licenses/`](licenses/).
 
 ## Font-specific attribution
 
@@ -65,6 +65,14 @@ All five font families are distributed under the **SIL Open Font License, Versio
 - License: SIL Open Font License 1.1.
 - Upstream project: https://github.com/rastikerdar/vazirmatn
 - Included license: [`licenses/Vazirmatn-font-license.txt`](licenses/Vazirmatn-font-license.txt)
+
+### Rooyin
+- Copyright: Copyright 2025 The Rooyin-Perfect Project Authors (https://Fontiran.com/Rooyin).
+- Reserved Font Name: Rooyin.
+- License: SIL Open Font License 1.1.
+- Upstream project: https://github.com/MohamadDarvishi/Rooyin
+- Webfont source: https://cdn.jsdelivr.net/gh/MohamadDarvishi/Rooyin@main/Fonts/Farsi%20Numerals/Webfont/
+- Included license: [`licenses/Rooyin-OFL.txt`](licenses/Rooyin-OFL.txt)
 
 ## Redistribution and modification notes
 

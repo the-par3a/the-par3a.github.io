@@ -10,4 +10,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://the-par3a.github.io/sitemap.xml
+Sitemap: https://aftervoid.github.io/sitemap.xml

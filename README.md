@@ -24,6 +24,9 @@ The-Par3a is a personal website and creative project by **Parsa**. This reposito
 
 ## Typography
 
+The English homepage uses a documented, layered font-delivery and fallback strategy. See [Font delivery and fallback strategy](FONT-DELIVERY.md) for the role of each family, provider order, CDN caveats, and instructions for reusing the source.
+
+
 The website uses locally hosted font files. This keeps font delivery under the website's own origin and avoids runtime requests to external font CDNs.
 
 | Typeface | Where it is used |

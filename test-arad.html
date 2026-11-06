@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>آزمایشگاه فونت آراد | پارسا</title>
+<style>
+@font-face{
+  font-family:"AradVF";
+  src:url("https://raw.githubusercontent.com/MohamadDarvishi/Arad/main/Fonts/Main_Fonts/AradVF.woff2") format("woff2");
+  font-style:normal;
+  font-weight:100 1000;
+  font-display:swap;
+}
+:root{color-scheme:dark;--bg:#0b1020;--panel:#141d31;--line:#293751;--muted:#aab7ca;--accent:#8bd5ff}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top,#172641 0,var(--bg) 58%);color:#f3f6fb;font-family:Tahoma,Arial,sans-serif;line-height:1.9;padding:28px 16px 60px}
+main{max-width:980px;margin:auto}
+header{margin:0 0 28px}
+h1{font-size:clamp(1.6rem,4vw,2.4rem);margin:0 0 8px}
+header p,.hint{color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:linear-gradient(160deg,#18243a,var(--panel));border:1px solid var(--line);border-radius:18px;padding:20px;min-width:0}
+.card h2{font-size:1.05rem;margin:0 0 10px;color:var(--accent)}
+.sample{font-family:"AradVF",Tahoma,sans-serif;font-variation-settings:"wght" 500,"DSTY" 1;font-size:clamp(1.55rem,4vw,2.2rem);line-height:2.1;overflow-wrap:anywhere}
+.mode-2{font-variation-settings:"wght" 500,"DSTY" 2}
+.mode-3{font-variation-settings:"wght" 500,"DSTY" 3}
+.small{font-family:"AradVF",Tahoma,sans-serif;font-size:1.12rem;line-height:2;font-variation-settings:"wght" 400}
+label{display:block;margin:24px 0 8px;font-weight:700}
+input{width:100%;padding:13px 15px;border-radius:12px;border:1px solid var(--line);background:#0d1526;color:#fff;font:1.15rem "AradVF",Tahoma,sans-serif;direction:rtl}
+.note{margin-top:18px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;color:var(--muted);font-size:.92rem}
+a{color:var(--accent)}
+.status{font-size:.85rem;color:var(--muted);margin-top:8px}
+@media(max-width:520px){body{padding:20px 12px}.card{padding:16px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>آزمایشگاه نقطه‌های فونت آراد</h1>
+<p>سه حالت نقطه را کنار هم ببین و با یک متن دلخواه امتحان کن.</p>
+</header>
+<section class="grid" aria-label="سه حالت نقطه">
+<article class="card">
+<h2>حالت ۱ — مربع گسسته</h2>
+<div class="sample">شـب، چـتر، ثـریا</div>
+<div class="small">پروژه، نقطه‌گذاری، فارسی‌نویسی</div>
+</article>
+<article class="card">
+<h2>حالت ۲ — مربع پیوسته</h2>
+<div class="sample mode-2">شـب، چـتر، ثـریا</div>
+<div class="small mode-2">پروژه، نقطه‌گذاری، فارسی‌نویسی</div>
+</article>
+<article class="card">
+<h2>حالت ۳ — لوزی</h2>
+<div class="sample mode-3">شـب، چـتر، ثـریا</div>
+<div class="small mode-3">پروژه، نقطه‌گذاری، فارسی‌نویسی</div>
+</article>
+</section>
+<label for="custom">متن دلخواه برای مقایسه</label>
+<input id="custom" type="text" value="پارسـا؛ شیوهٔ نقطه‌گذاری حروف فارسی" autocomplete="off">
+<div class="grid" style="margin-top:14px">
+<div class="card"><h2>حالت ۱</h2><div class="sample" id="out1">پارسـا؛ شیوهٔ نقطه‌گذاری حروف فارسی</div></div>
+<div class="card"><h2>حالت ۲</h2><div class="sample mode-2" id="out2">پارسـا؛ شیوهٔ نقطه‌گذاری حروف فارسی</div></div>
+<div class="card"><h2>حالت ۳</h2><div class="sample mode-3" id="out3">پارسـا؛ شیوهٔ نقطه‌گذاری حروف فارسی</div></div>
+</div>
+<p class="status" id="font-status">در حال بارگذاری فونت آراد…</p>
+<div class="note">این صفحه فقط آزمایشی است و فونت اصلی سایت را تغییر نمی‌دهد. فایل WOFF2 فعلاً مستقیماً از مخزن رسمی آراد بارگذاری می‌شود؛ بنابراین هنوز در مخزن سایت تو کپی نشده است. طبق راهنمای رسمی، سه مقدار محور DSTY به‌ترتیب حالت‌های مربع گسسته، مربع پیوسته و لوزی هستند. <a href="https://github.com/MohamadDarvishi/Arad" target="_blank" rel="noopener">مخزن رسمی و مجوز OFL</a> · <a href="https://mohamaddarvishi.ir/Arad/docs/" target="_blank" rel="noopener">راهنمای محور نقطه‌ها</a></div>
+</main>
+<script>
+const field=document.getElementById("custom");
+const outputs=["out1","out2","out3"].map(id=>document.getElementById(id));
+field.addEventListener("input",()=>outputs.forEach(el=>el.textContent=field.value||"متن نمونه"));
+document.fonts.load('500 32px "AradVF"').then(()=>{
+ document.getElementById("font-status").textContent=document.fonts.check('500 32px "AradVF"')?"فونت بارگذاری شد ✓":"فونت بارگذاری نشد؛ اتصال به منبع فونت را بررسی کن.";
+}).catch(()=>document.getElementById("font-status").textContent="بارگذاری فونت ناموفق بود.");
+</script>
+</body>
+</html>

@@ -680,6 +680,28 @@
       .footer-links a { transition: none !important; }
     }
 
+  
+    /* Typography refinement: English */
+    html[dir="ltr"] body { font-family: "Inter", "Segoe UI", Arial, sans-serif; font-size: 16.5px; line-height: 1.82; }
+    html[dir="ltr"] h1,
+    html[dir="ltr"] h2,
+    html[dir="ltr"] h3 { font-family: "Pixelify Sans", "Inter", sans-serif; letter-spacing: 0; line-height: 1.35; }
+    html[dir="ltr"] h1 { line-height: 1.22; }
+    html[dir="ltr"] .intro { font-size: clamp(1.04rem, 1.8vw, 1.18rem); line-height: 1.85; color: #c0cad8; }
+    html[dir="ltr"] .nav-links a { font-size: .94rem; }
+    html[dir="ltr"] .section-note,
+    html[dir="ltr"] .card p,
+    html[dir="ltr"] .about-panel p { font-size: .98rem; line-height: 1.85; }
+    html[dir="ltr"] .pill { font-size: .84rem; }
+    html[dir="ltr"] .eyebrow,
+    html[dir="ltr"] .section-kicker { letter-spacing: .08em; }
+    @media (max-width: 600px) {
+      html[dir="ltr"] body { font-size: 16px; line-height: 1.78; }
+      html[dir="ltr"] .wrap { width: min(var(--max), calc(100% - 30px)); }
+      html[dir="ltr"] .card { padding: 20px; }
+      html[dir="ltr"] .intro { font-size: 1.02rem; }
+    }
+
   </style>
 </head>
 <body>

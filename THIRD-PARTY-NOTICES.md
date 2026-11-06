@@ -24,7 +24,7 @@ The delivery order and implementation details are documented in [FONT-DELIVERY.m
 
 ## Generated status dashboard
 
-The generated site under `upptime/` comes from the separate [the-par3a/upptime project](https://github.com/the-par3a/upptime), which is based on [Upptime](https://upptime.js.org/). Its generated output is not covered by the root Apache or CC BY notices. The upstream MIT license and its required notice are preserved in [`upptime/LICENSE`](upptime/LICENSE).
+The generated site under `upptime/` comes from the separate [aftervoid/upptime project](https://github.com/aftervoid/upptime), which is based on [Upptime](https://upptime.js.org/). Its generated output is not covered by the root Apache or CC BY notices. The upstream MIT license and its required notice are preserved in [`upptime/LICENSE`](upptime/LICENSE).
 
 ## Bundled font inventory
 

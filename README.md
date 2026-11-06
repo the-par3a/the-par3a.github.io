@@ -2,10 +2,10 @@
 
 The-Par3a is a personal website and creative project by **Parsa**. This repository contains the website source, its original written material, locally hosted fonts, and the published Royesh story.
 
-- **Live website:** https://the-par3a.github.io/
-- **English homepage:** https://the-par3a.github.io/index-en.html
-- **Persian story:** https://the-par3a.github.io/naaktab.html
-- **English story:** https://the-par3a.github.io/royesh-en.html
+- **Live website:** https://aftervoid.github.io/
+- **English homepage:** https://aftervoid.github.io/index-en.html
+- **Persian story:** https://aftervoid.github.io/naaktab.html
+- **English story:** https://aftervoid.github.io/royesh-en.html
 
 ## Project structure
 

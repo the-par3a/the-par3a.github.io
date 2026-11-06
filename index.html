@@ -670,6 +670,25 @@
       .footer-links a { transition: none !important; }
     }
 
+  
+    /* Typography refinement: Persian */
+    body { font-size: 17px; line-height: 2.05; }
+    :root { --muted: #b4bfce; }
+    h1, h2, h3 { letter-spacing: 0; line-height: 1.55; }
+    h1 { line-height: 1.4; }
+    .intro { font-size: clamp(1.08rem, 2vw, 1.24rem); line-height: 2.05; color: #c0cad8; }
+    .nav-links a { font-size: .98rem; }
+    .section-note, .card p, .about-panel p { font-size: 1rem; line-height: 2; }
+    .pill { font-size: .9rem; }
+    .card-link, .button { font-size: .96rem; }
+    .eyebrow, .section-kicker { letter-spacing: .06em; }
+    @media (max-width: 600px) {
+      body { font-size: 16px; line-height: 2; }
+      .wrap { width: min(var(--max), calc(100% - 30px)); }
+      .card { padding: 20px; }
+      .intro { font-size: 1.05rem; }
+    }
+
   </style>
 </head>
 <body>

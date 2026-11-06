@@ -16,6 +16,12 @@ This file records the third-party fonts and other separately licensed material i
 
 These descriptions apply only where the relevant copyright holder has the rights to grant the stated license. Third-party material is not relicensed by this repository.
 
+## Web font delivery on the English homepage
+
+The English homepage references the following font families through its CSS stacks: Inter, DM Sans, Space Grotesk, Pixelify Sans, and Press Start 2P. The page can request these families from Google Fonts, use Bunny Fonts as a stylesheet-level fallback if the Google Fonts stylesheet fails, and use Fontsource CSS as an additional family fallback. Fontsource's CDN is backed by jsDelivr; it is a separate package route, not an independent CDN network.
+
+The delivery order and implementation details are documented in [FONT-DELIVERY.md](FONT-DELIVERY.md). CDN delivery does not change font ownership or licensing. Each font remains governed by its own upstream license and the corresponding notice in this file. The actual locally bundled files are inventoried in [fonts/README.md](fonts/README.md).
+
 ## Generated status dashboard
 
 The generated site under `upptime/` comes from the separate [the-par3a/upptime project](https://github.com/the-par3a/upptime), which is based on [Upptime](https://upptime.js.org/). Its generated output is not covered by the root Apache or CC BY notices. The upstream MIT license and its required notice are preserved in [`upptime/LICENSE`](upptime/LICENSE).

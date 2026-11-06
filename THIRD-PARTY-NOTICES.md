@@ -30,8 +30,10 @@ Other bundled dependencies or assets may have their own separate notices.
 | Cascadia Code | Code samples and phonetic/IPA text | `fonts/CascadiaCode.woff2` |
 | Vazirmatn | Persian interface and reading text (retained as a local fallback asset) | `fonts/Vazirmatn.woff2` |
 | Rooyin | Persian homepage interface and reading text | `fonts/rooyin/RooyinFree-Regular.woff2`, `fonts/rooyin/RooyinFree-Bold.woff2` |
+| Pixelify Sans | English homepage interface and body text | `fonts/PixelifySans[wght].ttf` |
+| Press Start 2P | English homepage headings | `fonts/PressStart2P-Regular.ttf`
 
-All six font families are distributed under the **SIL Open Font License, Version 1.1 (OFL-1.1)**. The complete license texts and their copyright notices are included in [`licenses/`](licenses/).
+All eight font families are distributed under the **SIL Open Font License, Version 1.1 (OFL-1.1)**. The complete license texts and their copyright notices are included in [`licenses/`](licenses/).
 
 ## Font-specific attribution
 
@@ -74,6 +76,22 @@ All six font families are distributed under the **SIL Open Font License, Version
 - Upstream project: https://github.com/MohamadDarvishi/Rooyin
 - Bundled webfonts: `fonts/rooyin/RooyinFree-Regular.woff2` and `fonts/rooyin/RooyinFree-Bold.woff2` (original WOFF2 files from the upstream project).
 - Included license: [`licenses/Rooyin-OFL.txt`](licenses/Rooyin-OFL.txt)
+
+### Pixelify Sans
+- Copyright: Copyright 2021 The Pixelify Sans Project Authors (https://github.com/eifetx/Pixelify-Sans).
+- Designer: Stefie Justprince.
+- License: SIL Open Font License 1.1.
+- Upstream project: https://github.com/eifetx/Pixelify-Sans
+- Bundled font: `fonts/PixelifySans[wght].ttf` (original variable TTF from Google Fonts).
+- Included license: [`licenses/PixelifySans-OFL.txt`](licenses/PixelifySans-OFL.txt)
+
+### Press Start 2P
+- Copyright: Copyright 2012 The Press Start 2P Project Authors.
+- Reserved Font Name: Press Start 2P.
+- License: SIL Open Font License 1.1.
+- Upstream project: https://github.com/google/fonts/tree/main/ofl/pressstart2p
+- Bundled font: `fonts/PressStart2P-Regular.ttf` (original TTF from Google Fonts).
+- Included license: [`licenses/PressStart2P-OFL.txt`](licenses/PressStart2P-OFL.txt)
 
 ## Redistribution and modification notes
 

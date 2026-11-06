@@ -1,49 +1,48 @@
-# Content License
+# License for original written content
 
-Copyright (c) 2026 Parsa
+**Copyright © 2026 Parsa.**
 
-Unless a file or asset is expressly identified as third-party material or
-subject to another license, the original literary, editorial, and other
-copyrightable written content in this repository is licensed under the
-**Creative Commons Attribution 4.0 International License (CC BY 4.0)**.
+Unless a file is identified as third-party material or is covered by a separate notice, original written and literary content in this repository for which Parsa holds the relevant rights is made available under the **Creative Commons Attribution 4.0 International License (CC BY 4.0)**.
 
-- You may share and adapt the licensed content for any purpose, including
-  commercial purposes.
-- You must give appropriate credit to **Parsa**, provide a link to the
-  license, and indicate whether changes were made.
-- You may not impose additional legal terms or effective technological
-  measures that restrict others from doing anything the license permits.
-- Adapted material may be released under terms of your choice, provided
-  those terms do not prevent recipients from complying with CC BY 4.0.
+## What you are allowed to do
 
-Read the complete legal code:
-https://creativecommons.org/licenses/by/4.0/legalcode
+Under CC BY 4.0, you may:
 
-A human-readable summary is available at:
-https://creativecommons.org/licenses/by/4.0/
+- **Share** — copy and redistribute the covered material in any medium or format.
+- **Adapt** — remix, transform, and build upon the covered material.
+- Use the material for **commercial or non-commercial purposes**.
 
-## Scope and exclusions
+These permissions are subject to the attribution and other conditions in the full license.
 
-This license covers original written content, including the Persian and
-English versions of the *Royesh* story and other original articles or
-educational writing, only to the extent that Parsa holds the relevant
-rights.
+## What attribution requires
 
-It does **not** license:
-- software source code, scripts, stylesheets, or other functional code;
-  those original software portions are licensed under Apache License 2.0
-  (see [LICENSE](LICENSE));
-- third-party fonts, libraries, images, icons, or other assets, which
-  remain under their respective licenses and notices;
-- the generated status dashboard and its bundled output under `upptime/`, which are separately licensed under MIT (see [upptime/LICENSE](upptime/LICENSE));
-- trademarks, logos, names, or other rights not granted by copyright;
-- material whose copyright or other relevant rights belong to someone else.
+When using covered material, you must:
 
-Where a single HTML file contains both code and written content, the code
-and the original written content are licensed separately as described
-above. The license for one component does not replace or override the
-license for the other.
+1. Give appropriate credit to **Parsa** (or any additional attribution parties identified with the material).
+2. Link to the [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
+3. Indicate whether you made changes. Do not imply that the author endorses you or your use.
 
-This notice is a practical scope guide, not legal advice. If ownership of
-a particular contribution or asset is uncertain, do not assume it is
-covered by this license.
+You may choose a reasonable format for the credit, provided it does not suggest endorsement and includes the information required by the license.
+
+## What this notice covers
+
+This license is intended for original written and literary works in the repository, including the Persian and English versions of the **Royesh** story and original articles or educational writing, but only to the extent that Parsa owns or is authorized to license the relevant rights.
+
+## What this notice does not cover
+
+This notice does not grant rights to:
+
+- **Software and functional code**, including HTML, CSS, JavaScript, scripts, and configuration files. Eligible original software code is covered by the [Apache License 2.0](LICENSE).
+- **Third-party fonts, libraries, images, icons, and other assets.** They remain under their own licenses and notices. See [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
+- **The generated status dashboard** under `upptime/`, which retains its separate upstream MIT license at [upptime/LICENSE](upptime/LICENSE).
+- Trademarks, logos, names, privacy rights, or other rights that are not granted by copyright.
+- Any material whose relevant rights belong to another person or organization.
+
+Some HTML files contain both functional code and written content. In those cases, the code and original text are treated as separate components, each under the applicable license described above.
+
+## Full legal text
+
+- [Read the complete CC BY 4.0 legal code](https://creativecommons.org/licenses/by/4.0/legalcode)
+- [Read the human-readable summary](https://creativecommons.org/licenses/by/4.0/)
+
+This file is a practical guide to the intended scope of the license, not legal advice. If ownership or permission for a particular file is unclear, do not assume that this notice covers it.

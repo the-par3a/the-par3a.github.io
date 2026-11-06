@@ -28,6 +28,7 @@ Other bundled dependencies or assets may have their own separate notices.
 | Inter | English interface, navigation, and controls | `fonts/InterVariable.woff2` |
 | Lora | English story prose and long-form reading | `fonts/Lora[wght].woff2` |
 | Cascadia Code | Code samples and phonetic/IPA text | `fonts/CascadiaCode.woff2` |
+| Vazirmatn | Persian interface and reading text (retained as a local fallback asset) | `fonts/Vazirmatn.woff2` |
 | Rooyin | Persian homepage interface and reading text (served by jsDelivr) | Upstream WOFF2 Regular and Bold files; see attribution below |
 
 All six font families are distributed under the **SIL Open Font License, Version 1.1 (OFL-1.1)**. The complete license texts and their copyright notices are included in [`licenses/`](licenses/).

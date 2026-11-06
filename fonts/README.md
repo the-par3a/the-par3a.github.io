@@ -1,22 +1,23 @@
 # Website webfonts
 
-This directory contains the webfont files actually used by the website. They are **self-hosted**: pages load them from this repository rather than from Google Fonts or another external font CDN.
+This directory contains the webfont files used by the website. They are **self-hosted**: pages load them from this repository rather than from Google Fonts or another external font CDN.
 
 ## Font inventory
 
 | Family | File(s) | Purpose |
 |---|---|---|
-| Inter | `InterVariable.woff2` | English interface, navigation, and controls |
+| Inter | `InterVariable.woff2` | Fallback interface typography |
+| Pixelify Sans | `PixelifySans[wght].ttf` | English homepage interface and body text |
+| Press Start 2P | `PressStart2P-Regular.ttf` | English homepage headings |
 | Lora | `Lora[wght].woff2` | English story prose and long-form reading |
-| Cormorant Garamond | `CormorantGaramond-Light.woff2`, `Regular`, `Medium`, `SemiBold`, `Bold`, `Italic` | English headings and display typography |
+| Cormorant Garamond | `CormorantGaramond-Light.woff2`, `Regular`, `Medium`, `SemiBold`, `Bold`, `Italic` | English story display typography |
 | Cascadia Code | `CascadiaCode.woff2` | Code samples and IPA/phonetic notation |
-| Vazirmatn | `Vazirmatn.woff2` | Persian interface and reading text |
-
-The English story's typographic system assigns a separate role to interface text, long-form prose, headings, and technical notation. The Persian pages use Vazirmatn.
+| Vazirmatn | `Vazirmatn.woff2` | Retained Persian fallback asset |
+| Rooyin | `rooyin/RooyinFree-Regular.woff2`, `RooyinFree-Bold.woff2` | Persian homepage interface and reading text |
 
 ## Licensing and provenance
 
-All five families are bundled under the **SIL Open Font License, Version 1.1 (OFL-1.1)**. Full license texts and copyright notices are stored separately in [`../licenses/`](../licenses/).
+All eight families are bundled under the **SIL Open Font License, Version 1.1 (OFL-1.1)**. Full license texts and copyright notices are stored separately in [`../licenses/`](../licenses/).
 
 See [`../THIRD-PARTY-NOTICES.md`](../THIRD-PARTY-NOTICES.md) for upstream project links, family-specific attribution, Reserved Font Name notes, and a plain-language summary of the license conditions.
 

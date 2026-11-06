@@ -1,34 +1,41 @@
-# Website webfonts
+# Website fonts
 
-This directory contains the webfont files used by the website. They are **self-hosted**: pages load them from this repository rather than from Google Fonts or another external font CDN.
+This directory contains the font files used by the website. Fonts are hosted in this repository and loaded from the site's own origin; the pages do not need a third-party font CDN at runtime.
 
 ## Font inventory
 
-| Family | File(s) | Purpose |
+| Family | Files in this directory | Main use |
 |---|---|---|
-| Inter | `InterVariable.woff2` | Fallback interface typography |
-| Pixelify Sans | `PixelifySans[wght].ttf` | English homepage interface and body text |
-| Press Start 2P | `PressStart2P-Regular.ttf` | English homepage headings |
-| Lora | `Lora[wght].woff2` | English story prose and long-form reading |
-| Cormorant Garamond | `CormorantGaramond-Light.woff2`, `Regular`, `Medium`, `SemiBold`, `Bold`, `Italic` | English story display typography |
-| Cascadia Code | `CascadiaCode.woff2` | Code samples and IPA/phonetic notation |
-| Vazirmatn | `Vazirmatn.woff2` | Retained Persian fallback asset |
-| Rooyin | `rooyin/RooyinFree-Regular.woff2`, `RooyinFree-Bold.woff2` | Persian homepage interface and reading text |
+| **Rooyin** | `rooyin/RooyinFree-Regular.woff2`, `rooyin/RooyinFree-Bold.woff2` | Persian homepage interface and reading text |
+| **Pixelify Sans** | `PixelifySans[wght].ttf` | English homepage interface and body text |
+| **Press Start 2P** | `PressStart2P-Regular.ttf` | English homepage headings |
+| **Inter** | `InterVariable.woff2` | English Royesh story interface and supporting text |
+| **Lora** | `Lora[wght].woff2` | English Royesh story prose |
+| **Cormorant Garamond** | `CormorantGaramond-Light.woff2`, `CormorantGaramond-Regular.woff2`, `CormorantGaramond-Medium.woff2`, `CormorantGaramond-SemiBold.woff2`, `CormorantGaramond-Bold.woff2`, `CormorantGaramond-Italic.woff2` | English Royesh story display typography |
+| **Cascadia Code** | `CascadiaCode.woff2` | Code samples and phonetic/IPA notation |
+| **Vazirmatn** | `Vazirmatn.woff2` | Retained Persian font asset and fallback use |
 
-## Licensing and provenance
+The homepage and the long-form story use different typographic systems. The English homepage uses Pixelify Sans for ordinary interface text and Press Start 2P selectively for headings. The English story uses Inter, Lora, Cormorant Garamond, and Cascadia Code for distinct reading and display roles. Persian homepage text uses Rooyin.
 
-All eight families are bundled under the **SIL Open Font License, Version 1.1 (OFL-1.1)**. Full license texts and copyright notices are stored separately in [`../licenses/`](../licenses/).
+## Licensing
 
-See [`../THIRD-PARTY-NOTICES.md`](../THIRD-PARTY-NOTICES.md) for upstream project links, family-specific attribution, Reserved Font Name notes, and a plain-language summary of the license conditions.
+All eight font families listed above are distributed under the **SIL Open Font License, Version 1.1 (OFL-1.1)**, according to the accompanying upstream notices. The complete license texts are stored in [`../licenses/`](../licenses/).
 
-The font licenses apply to the font software only. They do not automatically license the website source code, the Royesh story, illustrations, or other original repository material.
+For copyright notices, upstream project links, Reserved Font Name declarations, and redistribution notes, see [`../THIRD-PARTY-NOTICES.md`](../THIRD-PARTY-NOTICES.md). The license files—not this summary—contain the applicable legal terms.
 
-## Updates
+## Updating a font
 
-The [Update font licenses workflow](../.github/workflows/update-font-licenses.yml) checks upstream license texts weekly and can be run manually. It updates license text files only; it does not update these font binaries.
+Before replacing, converting, subsetting, or modifying a font:
 
-Before adding, replacing, subsetting, converting, or modifying a font:
-1. Verify the exact upstream project and version.
-2. Review the upstream license and copyright notice.
-3. Check Reserved Font Name conditions and the OFL FAQ, especially for WOFF/WOFF2 conversions.
-4. Update this inventory and the corresponding license/attribution documentation.
+1. Identify the exact upstream project and version.
+2. Read that version's copyright notice and complete license.
+3. Check whether the upstream notice declares a **Reserved Font Name**.
+4. Confirm that the intended file format and any conversion comply with the OFL and its FAQ.
+5. Update this inventory, the matching file in `licenses/`, and the attribution in `THIRD-PARTY-NOTICES.md`.
+6. Test the relevant pages, including fallback behavior and mobile layouts.
+
+The automated workflow currently synchronizes license texts for Cormorant Garamond, Inter, Lora, Cascadia Code, and Vazirmatn only. It does not update font binaries and does not automatically check Rooyin, Pixelify Sans, or Press Start 2P.
+
+## Scope
+
+Font licenses apply to the font software. They do not automatically license the website's source code, the Royesh story, illustrations, or other original content. See the repository's [license overview](../README.md#license-overview).
